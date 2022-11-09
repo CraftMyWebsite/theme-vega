@@ -1,6 +1,4 @@
-# cmw.fr-front
-
-Site craftmywebsite 2.0 
+# Vega
 
 Fonctionne sous le Framework Tailwindcss.
 
