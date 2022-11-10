@@ -7,7 +7,7 @@ include_once("include/header.php");
 <section class="bg-[url('http://localhost:63342/theme-vega/dev/img/bg1.png')] bg-cover mb-4">
     <div class="grid max-w-screen-xl px-4 py-8 mx-auto lg:gap-8 xl:gap-0 lg:pt-24 lg:pb-24 lg:grid-cols-12">
         <div class="mr-auto place-self-center lg:col-span-7">
-            <div class="max-w-2xl text-white font-light md:text-lg lg:text-xl"><i class="text-green-300 fa-regular fa-circle-dot"></i> Rejoins les <b>10</b> joueurs en ligne</div>
+            <div class="max-w-2xl text-white font-light md:text-lg lg:text-xl"><i class="text-green-500 fa-regular fa-circle-dot"></i> Rejoins les <b>10</b> joueurs en ligne</div>
             <div class="max-w-2xl mb-4 text-2xl md:text-3xl xl:text-4xl font-bold tracking-tight leading-none text-white">Bienvenue sur <span class="text-3xl md:text-4xl xl:text-5xl underline">votre site</span></div>
             <div class="max-w-2xl mb-4 text-white font-light  md:text-lg lg:text-xl">Une super description pour votre serveur web</div>
             <a href="#" class="inline-flex items-center justify-center px-5 py-3 mr-3 text-base font-medium text-center text-white rounded-lg bg-blue-700 hover:bg-blue-800 dark:bg-blue-800 dark:hover:bg-blue-900 focus:ring-4 focus:ring-primary-300 dark:focus:ring-primary-900">
@@ -50,10 +50,9 @@ include_once("include/header.php");
 <section>
     <div class="px-4 lg:px-24 2xl:px-72">
         <div class="w-full font-medium rounded-lg p-2 bg-gray-100 dark:bg-gray-900 dark:text-white"><i class="fa-solid fa-newspaper"></i> Derniers articles</div>
-        <div class="grid grid-cols-5">
-            <div class="col-span-3 p-4">
+        <div class="lg:grid grid-cols-2">
+            <div class="p-4">
                 <div class="bg-[url('http://localhost:63342/theme-vega/dev/img/bg1.png')] bg-cover h-96 rounded-lg flex">
-
                     <div class="bg-gray-900/70 self-end w-full rounded-b-lg text-white">
                         <div class="p-4">
                             <div class="flex justify-between">
@@ -73,22 +72,86 @@ include_once("include/header.php");
                     </div>
                 </div>
             </div>
-            <div>test</div>
+            <div class="p-4">
+                <div class="bg-[url('http://localhost:63342/theme-vega/dev/img/bg1.png')] bg-cover h-96 rounded-lg flex">
+                    <div class="bg-gray-900/70 self-end w-full rounded-b-lg text-white">
+                        <div class="p-4">
+                            <div class="flex justify-between">
+                                <p class="font-bold text-2xl">Titre</p>
+                                <span class="h-fit bg-gray-100 text-gray-800 text-xs font-medium inline-flex items-center px-1 py-0.5 rounded mr-2 dark:bg-gray-700 dark:text-gray-300">
+                                  28/25/2025 à 18h32
+                                </span>
+                            </div>
+                            <p class="font-medium mb-4">Description iption iption iption iption iption iption iption iption</p>
+                            <div class="flex justify-between">
+                                <a href="#" class=" px-3 py-2 text-base font-medium text-center text-white rounded-lg bg-blue-700 hover:bg-blue-800 dark:bg-blue-800 dark:hover:bg-blue-900 focus:ring-4 focus:ring-primary-300 dark:focus:ring-primary-900">
+                                    Lire la suite
+                                </a>
+                                <div class="self-end"><i class="fa-solid fa-heart"></i></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 </section>
 
 <!--Trailer-->
-<section class="bg-gray-100 dark:bg-gray-900">
-    <div class="px-4 lg:px-24 2xl:px-72">
-        test
+<section class="bg-gray-100 dark:bg-gray-900 dark:text-white">
+    <div class="px-4 py-6 lg:px-24 2xl:px-48">
+        <div class="lg:grid lg:grid-cols-2">
+            <div class="text-center my-auto lg:px-16">
+                <div class="font-bold text-3xl mb-4">Titre du texte</div>
+                <div>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recentl</div>
+                <div class="mt-4">
+                    <a href="#" class=" px-3 py-2 text-base font-medium text-center text-white rounded-lg bg-blue-700 hover:bg-blue-800 dark:bg-blue-800 dark:hover:bg-blue-900 focus:ring-4 focus:ring-primary-300 dark:focus:ring-primary-900">
+                        Lire la suite
+                    </a>
+                    <a href="#" class="ml-4 px-3 py-2 text-base font-medium text-center text-white rounded-lg bg-blue-700 hover:bg-blue-800 dark:bg-blue-800 dark:hover:bg-blue-900 focus:ring-4 focus:ring-primary-300 dark:focus:ring-primary-900">
+                        Lire la suite
+                    </a>
+                </div>
+            </div>
+            <div class="rounded-lg bg-white p-2 mx-auto dark:bg-gray-800 mt-8 lg:mt-0">
+                <iframe class="w-full h-[12rem] lg:w-[36rem] lg:h-[24rem]" src="https://www.youtube.com/embed/Mskc0Q_Abpw" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div>
+        </div>
     </div>
 </section>
 
 <!--WHY US SECTION-->
 <section>
-    <div class="px-4 lg:px-24 2xl:px-72">
-        test
+    <div class="container mx-auto px-4 py-16 relative">
+        <div class="flex flex-wrap -mx-4">
+            <div class="w-full p-4  xl:w-4/12 sm:w-6/12">
+                <div class="bg-gray-100 block group px-6 py-16 rounded-lg shadow-lg dark:bg-gray-900 dark:text-white">
+                    <div class="text-center">
+                        <i class="mb-4 text-blue-700 text-4xl fa-solid fa-code"></i>
+                    </div>
+                    <h4 class="font-bold mb-2 text-gray-900 text-xl dark:text-white">Development</h4>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam vitae congue tortor.</p>
+                </div>
+            </div>
+            <div class="w-full p-4  xl:w-4/12 sm:w-6/12">
+                <div class="bg-gray-100 block px-6 py-16 rounded-lg shadow-lg dark:bg-gray-900 dark:text-white">
+                    <div class="text-center">
+                        <i class="mb-4 text-blue-700 text-4xl fa-solid fa-swatchbook"></i>
+                    </div>
+                    <h4 class="font-bold mb-2 text-gray-900 text-xl dark:text-white">Product Design</h4>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam vitae congue tortor. </p>
+                </div>
+            </div>
+            <div class="w-full p-4  xl:w-4/12 sm:w-6/12">
+                <div class="bg-gray-100 block px-6 py-16 rounded-lg shadow-lg dark:bg-gray-900 dark:text-white">
+                    <div class="text-center">
+                        <i class="mb-4 text-blue-700 text-4xl fa-solid fa-object-group"></i>
+                    </div>
+                    <h4 class="font-bold mb-2 text-gray-900 text-xl dark:text-white">UI/UX Research</h4>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam vitae congue tortor. </p>
+                </div>
+            </div>
+        </div>
     </div>
 </section>
 
