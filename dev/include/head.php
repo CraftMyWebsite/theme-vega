@@ -21,4 +21,4 @@
 
 </head>
 
-<body class="bg-white dark:bg-gray-800">
+<body class="bg-white dark:bg-gray-800 dark:text-gray-300 flex flex-col min-h-screen">

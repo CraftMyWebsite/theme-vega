@@ -4,7 +4,7 @@ include_once("include/header.php");
 ?>
 
 <!--HERO SECTION-->
-<section class="bg-[url('http://localhost:63342/theme-vega/dev/img/bg1.png')] bg-cover mb-4">
+<section style="background-image: url('http://localhost:63342/theme-vega/dev/img/bg1.png');" class="bg-cover mb-4">
     <div class="grid max-w-screen-xl px-4 py-8 mx-auto lg:gap-8 xl:gap-0 lg:pt-24 lg:pb-24 lg:grid-cols-12">
         <div class="mr-auto place-self-center lg:col-span-7">
             <div class="max-w-2xl text-white font-light md:text-lg lg:text-xl"><i class="text-green-500 fa-regular fa-circle-dot"></i> Rejoins les <b>10</b> joueurs en ligne</div>
@@ -46,9 +46,68 @@ include_once("include/header.php");
     </svg>
 </section>
 
+
+<!--WHY US SECTION-->
+<section>
+    <div class="container mx-auto px-4 py-16 relative">
+
+        <div class="flex flex-wrap -mx-4">
+            <div class="w-full p-4  xl:w-4/12 sm:w-6/12">
+                <div class="bg-gray-100 block group px-6 py-16 rounded-lg shadow-lg dark:bg-gray-900 dark:text-white">
+                    <div class="text-center">
+                        <i class="mb-4 text-blue-700 text-4xl fa-solid fa-code"></i>
+                    </div>
+                    <h4 class="font-bold mb-2 text-gray-900 text-xl dark:text-white">Development</h4>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam vitae congue tortor.</p>
+                </div>
+            </div>
+            <div class="w-full p-4  xl:w-4/12 sm:w-6/12">
+                <div class="bg-gray-100 block px-6 py-16 rounded-lg shadow-lg dark:bg-gray-900 dark:text-white">
+                    <div class="text-center">
+                        <i class="mb-4 text-blue-700 text-4xl fa-solid fa-swatchbook"></i>
+                    </div>
+                    <h4 class="font-bold mb-2 text-gray-900 text-xl dark:text-white">Product Design</h4>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam vitae congue tortor. </p>
+                </div>
+            </div>
+            <div class="w-full p-4  xl:w-4/12 sm:w-6/12">
+                <div class="bg-gray-100 block px-6 py-16 rounded-lg shadow-lg dark:bg-gray-900 dark:text-white">
+                    <div class="text-center">
+                        <i class="mb-4 text-blue-700 text-4xl fa-solid fa-object-group"></i>
+                    </div>
+                    <h4 class="font-bold mb-2 text-gray-900 text-xl dark:text-white">UI/UX Research</h4>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam vitae congue tortor. </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!--Trailer-->
+<section class="bg-gray-100 dark:bg-gray-900 dark:text-white">
+    <div class="px-4 py-6 lg:px-24 2xl:px-48">
+        <div class="lg:grid lg:grid-cols-2">
+            <div class="text-center my-auto lg:px-16">
+                <div class="font-bold text-3xl mb-4">Titre du texte</div>
+                <div>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recentl</div>
+                <div class="mt-4">
+                    <a href="#" class=" px-3 py-2 text-base font-medium text-center text-white rounded-lg bg-blue-700 hover:bg-blue-800 dark:bg-blue-800 dark:hover:bg-blue-900 focus:ring-4 focus:ring-primary-300 dark:focus:ring-primary-900">
+                        Lire la suite
+                    </a>
+                    <a href="#" class="ml-4 px-3 py-2 text-base font-medium text-center text-white rounded-lg bg-blue-700 hover:bg-blue-800 dark:bg-blue-800 dark:hover:bg-blue-900 focus:ring-4 focus:ring-primary-300 dark:focus:ring-primary-900">
+                        Lire la suite
+                    </a>
+                </div>
+            </div>
+            <div class="rounded-lg bg-white p-2 mx-auto dark:bg-gray-800 mt-8 lg:mt-0">
+                <iframe class="w-full h-[12rem] lg:w-[36rem] lg:h-[24rem]" src="https://www.youtube.com/embed/Mskc0Q_Abpw" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div>
+        </div>
+    </div>
+</section>
+
 <!--NEWS SECTION-->
 <section>
-    <div class="px-4 lg:px-24 2xl:px-72">
+    <div class="px-4 lg:px-24 2xl:px-72 py-16">
         <div class="w-full font-medium rounded-lg p-2 bg-gray-100 dark:bg-gray-900 dark:text-white"><i class="fa-solid fa-newspaper"></i> Derniers articles</div>
         <div class="lg:grid grid-cols-2">
             <div class="p-4">
@@ -97,89 +156,80 @@ include_once("include/header.php");
     </div>
 </section>
 
-<!--Trailer-->
-<section class="bg-gray-100 dark:bg-gray-900 dark:text-white">
-    <div class="px-4 py-6 lg:px-24 2xl:px-48">
-        <div class="lg:grid lg:grid-cols-2">
-            <div class="text-center my-auto lg:px-16">
-                <div class="font-bold text-3xl mb-4">Titre du texte</div>
-                <div>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recentl</div>
-                <div class="mt-4">
-                    <a href="#" class=" px-3 py-2 text-base font-medium text-center text-white rounded-lg bg-blue-700 hover:bg-blue-800 dark:bg-blue-800 dark:hover:bg-blue-900 focus:ring-4 focus:ring-primary-300 dark:focus:ring-primary-900">
-                        Lire la suite
-                    </a>
-                    <a href="#" class="ml-4 px-3 py-2 text-base font-medium text-center text-white rounded-lg bg-blue-700 hover:bg-blue-800 dark:bg-blue-800 dark:hover:bg-blue-900 focus:ring-4 focus:ring-primary-300 dark:focus:ring-primary-900">
-                        Lire la suite
-                    </a>
-                </div>
-            </div>
-            <div class="rounded-lg bg-white p-2 mx-auto dark:bg-gray-800 mt-8 lg:mt-0">
-                <iframe class="w-full h-[12rem] lg:w-[36rem] lg:h-[24rem]" src="https://www.youtube.com/embed/Mskc0Q_Abpw" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-            </div>
-        </div>
-    </div>
-</section>
-
-<!--WHY US SECTION-->
-<section>
-    <div class="container mx-auto px-4 py-16 relative">
-        <div class="flex flex-wrap -mx-4">
-            <div class="w-full p-4  xl:w-4/12 sm:w-6/12">
-                <div class="bg-gray-100 block group px-6 py-16 rounded-lg shadow-lg dark:bg-gray-900 dark:text-white">
-                    <div class="text-center">
-                        <i class="mb-4 text-blue-700 text-4xl fa-solid fa-code"></i>
-                    </div>
-                    <h4 class="font-bold mb-2 text-gray-900 text-xl dark:text-white">Development</h4>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam vitae congue tortor.</p>
-                </div>
-            </div>
-            <div class="w-full p-4  xl:w-4/12 sm:w-6/12">
-                <div class="bg-gray-100 block px-6 py-16 rounded-lg shadow-lg dark:bg-gray-900 dark:text-white">
-                    <div class="text-center">
-                        <i class="mb-4 text-blue-700 text-4xl fa-solid fa-swatchbook"></i>
-                    </div>
-                    <h4 class="font-bold mb-2 text-gray-900 text-xl dark:text-white">Product Design</h4>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam vitae congue tortor. </p>
-                </div>
-            </div>
-            <div class="w-full p-4  xl:w-4/12 sm:w-6/12">
-                <div class="bg-gray-100 block px-6 py-16 rounded-lg shadow-lg dark:bg-gray-900 dark:text-white">
-                    <div class="text-center">
-                        <i class="mb-4 text-blue-700 text-4xl fa-solid fa-object-group"></i>
-                    </div>
-                    <h4 class="font-bold mb-2 text-gray-900 text-xl dark:text-white">UI/UX Research</h4>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam vitae congue tortor. </p>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-
 <!--CUSTOM SECTION 1-->
 <section class="bg-gray-100 dark:bg-gray-900">
-    <div class="px-4 lg:px-24 2xl:px-72">
+    <div class="px-4 lg:px-24 2xl:px-72 py-6 dark:text-gray-300">
         test
     </div>
 </section>
 
 <!--CUSTOM SECTION 2-->
-<section>
-    <div class="px-4 lg:px-24 2xl:px-72">
+<section class="dark:text-gray-300">
+    <div class="px-4 lg:px-24 2xl:px-72 py-6">
         test
     </div>
 </section>
 
 <!--STATS SECTION-->
-<section class="bg-gray-100 dark:bg-gray-900">
-    <div class="px-4 lg:px-24 2xl:px-72">
+<section class="bg-gray-100 dark:bg-gray-900 dark:text-gray-300">
+    <div class="px-4 lg:px-24 2xl:px-72 py-6">
         test
     </div>
 </section>
 
 <!--CONTACT SECTION-->
-<section>
-    <div class="px-4 lg:px-24 2xl:px-72">
+<section class="dark:text-gray-300">
+    <div class="px-4 lg:px-24 2xl:px-72 py-6">
         test
+    </div>
+</section>
+
+<!--CONTACT SECTION-->
+<section class="bg-gray-100 dark:bg-gray-900">
+    <div class="px-4 lg:px-24 2xl:px-72 py-16">
+        <div class="w-full font-medium rounded-lg p-2 bg-white dark:bg-gray-800 dark:text-white"><i class="fa-solid fa-address-book"></i> Nous contacter</div>
+        <div class="p-4">
+            <div class="p-4 bg-white dark:bg-gray-800 rounded-lg">
+                <div class="lg:grid grid-cols-2 gap-6 ">
+                    <div>
+                        <label for="input-group-1" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Votre mail :</label>
+                        <div class="relative mb-6">
+                            <div class="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
+                                <i class="text-gray-500 dark:text-gray-400 fa-solid fa-envelope"></i>
+                            </div>
+                            <input type="text" id="input-group-1" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full pl-10 p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="votre@mail.com">
+                        </div>
+                    </div>
+                    <div>
+                        <label for="input-group-1" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Votre nom :</label>
+                        <div class="relative mb-6">
+                            <div class="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
+                                <i class="text-gray-500 dark:text-gray-400 fa-solid fa-signature"></i>
+                            </div>
+                            <input type="text" id="input-group-1" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full pl-10 p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Jean Dupont">
+                        </div>
+                    </div>
+                </div>
+                <label for="input-group-1" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Sujet :</label>
+                <div class="relative mb-6">
+                    <div class="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
+                        <i class="text-gray-500 dark:text-gray-400 fa-solid fa-circle-info"></i>
+                    </div>
+                    <input type="text" id="input-group-1" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full pl-10 p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Votre site est super">
+                </div>
+
+                <label for="message" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Votre message</label>
+                <textarea id="message" rows="4" class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Bonjour,"></textarea>
+                <div class="mt-4 text-center">
+                    <button type="submit" class=" px-3 py-2 text-base font-medium text-center text-white rounded-lg bg-blue-700 hover:bg-blue-800 dark:bg-blue-800 dark:hover:bg-blue-900 focus:ring-4 focus:ring-primary-300 dark:focus:ring-primary-900">
+                        Soumettre <i class="fa-solid fa-paper-plane"></i>
+                    </button>
+                </div>
+            </div>
+
+
+        </div>
+
     </div>
 </section>
 
