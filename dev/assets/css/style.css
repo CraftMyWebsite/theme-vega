@@ -997,6 +997,12 @@ pre {
 .col-span-2 {
   grid-column: span 2 / span 2;
 }
+.col-span-3 {
+  grid-column: span 3 / span 3;
+}
+.col-span-4 {
+  grid-column: span 4 / span 4;
+}
 .mx-auto {
   margin-left: auto;
   margin-right: auto;
@@ -1008,6 +1014,10 @@ pre {
 .my-auto {
   margin-top: auto;
   margin-bottom: auto;
+}
+.my-4 {
+  margin-top: 1rem;
+  margin-bottom: 1rem;
 }
 .mb-4 {
   margin-bottom: 1rem;
@@ -1097,6 +1107,9 @@ pre {
 .h-px {
   height: 1px;
 }
+.h-52 {
+  height: 13rem;
+}
 .min-h-screen {
   min-height: 100vh;
 }
@@ -1120,6 +1133,9 @@ pre {
 }
 .w-5 {
   width: 1.25rem;
+}
+.w-52 {
+  width: 13rem;
 }
 .max-w-screen-xl {
   max-width: 1280px;
@@ -1223,6 +1239,9 @@ pre {
 .gap-8 {
   gap: 2rem;
 }
+.gap-2 {
+  gap: 0.5rem;
+}
 .space-x-4 > :not([hidden]) ~ :not([hidden]) {
   --tw-space-x-reverse: 0;
   margin-right: calc(1rem * var(--tw-space-x-reverse));
@@ -1281,6 +1300,9 @@ pre {
 }
 .border {
   border-width: 1px;
+}
+.border-2 {
+  border-width: 2px;
 }
 .border-b-0 {
   border-bottom-width: 0px;
@@ -1448,6 +1470,9 @@ pre {
 }
 .pr-4 {
   padding-right: 1rem;
+}
+.pt-4 {
+  padding-top: 1rem;
 }
 .text-left {
   text-align: left;
@@ -2022,5 +2047,10 @@ pre {
   .\32xl\:px-48 {
     padding-left: 12rem;
     padding-right: 12rem;
+  }
+
+  .\32xl\:px-96 {
+    padding-left: 24rem;
+    padding-right: 24rem;
   }
 }

@@ -19,8 +19,56 @@ include_once("include/header.php");
 
 <section class="px-4 lg:px-24 2xl:px-60 py-6">
     <div class="bg-gray-100 dark:bg-gray-900 dark:text-gray-300 rounded-lg shadow p-4">
-        s
+        <div class="lg:grid grid-cols-4 gap-2">
+            <div>
+                <img class="rounded-lg" src="http://localhost:63342/theme-vega/dev/img/bg1.png" alt="...">
+            </div>
+            <div class="col-span-3">
+                bla blabla blabla blabla blabla blabla blabla blabla blabla blabla blabla blabla blabla blabla blabla blabla blabla bbla blabla blabla blalabla blabla blabla blabla bla
+            </div>
+        </div>
+        <div class="flex justify-end">
+            ss
+        </div>
     </div>
+</section>
+
+<section class="px-4 lg:px-24 2xl:px-96 py-6">
+    <div class="w-full font-medium rounded-lg p-2 bg-gray-100 dark:bg-gray-900 dark:text-white mb-4"><i class="fa-solid fa-newspaper"></i> Espace commentaires</div>
+    <div class="bg-gray-100 dark:bg-gray-900 dark:text-gray-300 rounded-lg shadow p-4">
+        <div class=" bg-white dark:bg-gray-800 dark:text-gray-300 rounded-lg shadow p-4 mb-2">
+            <div class="lg:grid grid-cols-5 gap-2">
+                <div class="mx-auto text-center">
+                    <img style="height: 100px; width: 100px" class="rounded-lg" src="http://localhost:63342/theme-vega/dev/img/bg1.png" alt="...">
+                    <p><b>Zomb</b></p>
+                    <small>25/03/2345 à 11h25</small>
+                </div>
+                <div class="col-span-4">
+                    <p>bla blabla blabla blabla blabla blabla blabla blabla blabla blabla blabla blabla blabla blabla blabla blabla blabla bbla blabla blabla blalabla blabla blabla blabla bla</p>
+                </div>
+
+            </div>
+            <div class="flex justify-end">
+                ss
+            </div>
+        </div>
+        <hr class="my-4 border-t-2">
+        <div class=" bg-white dark:bg-gray-800 dark:text-gray-300 rounded-lg shadow p-4">
+            <div class="lg:grid grid-cols-5 gap-2">
+                <div class="mx-auto text-center">
+                    <img style="height: 100px; width: 100px" class="rounded-lg" src="http://localhost:63342/theme-vega/dev/img/bg1.png" alt="...">
+                    <p><b>Zomb</b></p>
+                </div>
+                <div class="col-span-4">
+                    <p><b>Votre commentaire :</b></p>
+                    <textarea></textarea>
+                    <button type="submit" class="w-full text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center">Envoyer</button>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
 </section>
 
 
