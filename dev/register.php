@@ -5,8 +5,8 @@ include_once("include/header.php");
 
 <section style="background-image: url('http://localhost:63342/theme-vega/dev/img/bg1.png');" class="bg-cover mb-4">
     <div class="text-center text-white py-8">
-        <h2 class="font-bold">WOoupss !!!</h2>
-        <p>Description de la page de fifou</p>
+        <h2 class="font-bold">Inscription</h2>
+        <p>Description de la page</p>
     </div>
 
     <!--SEPARATOR-->
@@ -17,12 +17,77 @@ include_once("include/header.php");
     </svg>
 </section>
 
-<section class="px-4 lg:px-24 2xl:px-60 py-6">
+<section class="mx-auto">
     <div class="bg-gray-100 dark:bg-gray-900 dark:text-gray-300 rounded-lg shadow p-4">
-        s
+        <div class="lg:grid grid-cols-2 gap-4">
+            <div>
+                <label for="input-group-1" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Mail :</label>
+                <div class="relative mb-2">
+                    <div class="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
+                        <i class="text-gray-500 dark:text-gray-400 fa-solid fa-envelope"></i>
+                    </div>
+                    <input type="text" id="input-group-1" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full pl-10 p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="votre@mail.com">
+                </div>
+            </div>
+            <div>
+                <label for="input-group-1" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Pseudo :</label>
+                <div class="relative mb-2">
+                    <div class="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
+                        <i class="text-gray-500 dark:text-gray-400 fa-solid fa-envelope"></i>
+                    </div>
+                    <input type="text" id="input-group-1" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full pl-10 p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="votre@mail.com">
+                </div>
+            </div>
+        </div>
+
+        <div class="lg:grid grid-cols-2 gap-4">
+            <div>
+                <label for="input-group-1" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Mot de passe :</label>
+                <div class="relative flex mb-2">
+                    <div class="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
+                        <i class="text-gray-500 dark:text-gray-400 fa-solid fa-lock"></i>
+                    </div>
+                    <input type="password" id="passwordInput" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-l-lg focus:ring-blue-500 focus:border-blue-500 block w-full pl-10 p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="••••••••">
+                    <div onclick="showPassword()" class="cursor-pointer p-2.5 text-sm font-medium text-white bg-blue-700 rounded-r-lg border border-blue-700 hover:bg-blue-800"><i class="fa fa-eye-slash" aria-hidden="true"></i></div>
+                </div>
+            </div>
+            <div>
+                <label for="input-group-1" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Confirmation :</label>
+                <div class="relative flex mb-2">
+                    <div class="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
+                        <i class="text-gray-500 dark:text-gray-400 fa-solid fa-lock"></i>
+                    </div>
+                    <input type="password" id="passwordInput" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-l-lg focus:ring-blue-500 focus:border-blue-500 block w-full pl-10 p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="••••••••">
+                    <div onclick="showPassword()" class="cursor-pointer p-2.5 text-sm font-medium text-white bg-blue-700 rounded-r-lg border border-blue-700 hover:bg-blue-800"><i class="fa fa-eye-slash" aria-hidden="true"></i></div>
+                </div>
+            </div>
+        </div>
+        <button type="submit" class="mt-2 w-full text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center">S'inscrire</button>
+
+        <div class="flex flex-no-wrap justify-center items-center py-4">
+            <div class="bg-gray-500 flex-grow h-px max-w-sm"></div>
+            <div class="px-10 w-auto">
+                <p class="font-medium">S'enregistrer avec</p>
+            </div>
+            <div class="bg-gray-500 flex-grow h-px max-w-sm"></div>
+        </div>
+        <div class="px-4 py-2 justify-center text-center w-full sm:w-auto">
+            <div class="flex-wrap inline-flex space-x-3">
+                <a href="#" class="hover:text-blue-600" aria-label="facebook">
+                    <i class="fa-xl fa-brands fa-github"></i>
+                </a> <a href="#" class="hover:text-blue-600" aria-label="twitter">
+                    <i class="fa-xl fa-brands fa-square-twitter"></i>
+                </a> <a href="#" class="hover:text-blue-600" aria-label="instagram">
+                    <i class="fa-xl fa-brands fa-instagram"></i>
+                </a><a href="#" class="hover:text-blue-600" aria-label="discord">
+                    <i class="fa-xl fa-brands fa-discord"></i></a>
+                <a href="#" class="hover:text-blue-600" aria-label="discord">
+                    <i class="fa-xl fa-brands fa-google"></i></a>
+            </div>
+        </div>
+        <label class="block text-sm text-gray-900 mt-4">Déjà un comtpe, <a href="login" class="text-blue-500">connexion</a></label>
     </div>
 </section>
-
 
 <?php
 include_once("include/footer.php");
