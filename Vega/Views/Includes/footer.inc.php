@@ -1,3 +1,8 @@
+<?php
+
+use CMW\Manager\Env\EnvManager;
+
+?>
 </body>
 <div class="border-t-2 text-sm mt-auto dark:text-gray-300">
     <div class="flex flex-wrap  items-center">
@@ -24,4 +29,4 @@
     </div>
 </div>
 </html>
-<script src="/dev/assets/js/darklight.js"></script>
+<script src="<?= EnvManager::getInstance()->getValue("PATH_SUBFOLDER") ?>Public/Themes/Vega/Assets/Js/darklight.js"></script>

@@ -1,4 +1,14 @@
-<section style="background-image: url('http://localhost:63342/theme-vega/dev/img/bg1.png');" class="bg-cover mb-4">
+<?php
+
+use CMW\Model\Core\ThemeModel;
+use CMW\Utils\Website;
+
+
+$title = Website::getName() . ' - '. ThemeModel::fetchConfigValue('home_title');
+$description = Website::getDescription();
+?>
+
+<section style="background-image: url('<?= ThemeModel::fetchImageLink('hero_img_bg') ?>');" class="bg-cover mb-4">
     <div class="text-center text-white py-8">
         <h2 class="font-bold">Nouveautés</h2>
         <p>Description de la page</p>

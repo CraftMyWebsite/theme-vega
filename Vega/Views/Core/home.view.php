@@ -1,9 +1,18 @@
+<?php
+
+use CMW\Model\Core\ThemeModel;
+use CMW\Utils\Website;
+
+
+$title = Website::getName() . ' - '. ThemeModel::fetchConfigValue('home_title');
+$description = Website::getDescription();
+?>
 <!--HERO SECTION-->
-<section style="background-image: url('http://localhost:63342/theme-vega/dev/img/bg1.png');" class="bg-cover mb-4">
+<section style="background-image: url('<?= ThemeModel::fetchImageLink('hero_img_bg') ?>');" class="bg-cover mb-4">
     <div class="grid max-w-screen-xl px-4 py-8 mx-auto lg:gap-8 xl:gap-0 lg:pt-24 lg:pb-24 lg:grid-cols-12">
         <div class="mr-auto place-self-center lg:col-span-7">
             <div class="max-w-2xl text-white font-light md:text-lg lg:text-xl"><i class="text-green-500 fa-regular fa-circle-dot"></i> Rejoins les <b>10</b> joueurs en ligne</div>
-            <div class="max-w-2xl mb-4 text-2xl md:text-3xl xl:text-4xl font-bold tracking-tight leading-none text-white">Bienvenue sur <span class="text-3xl md:text-4xl xl:text-5xl underline">votre site</span></div>
+            <div class="max-w-2xl mb-4 text-2xl md:text-3xl xl:text-4xl font-bold tracking-tight leading-none text-white">Bienvenue sur <span class="text-3xl md:text-4xl xl:text-5xl underline"><?= Website::getName() ?></span></div>
             <div class="max-w-2xl mb-4 text-white font-light  md:text-lg lg:text-xl">Une super description pour votre serveur web</div>
             <a href="#" class="inline-flex items-center justify-center px-5 py-3 mr-3 text-base font-medium text-center text-white rounded-lg bg-blue-700 hover:bg-blue-800 dark:bg-blue-800 dark:hover:bg-blue-900 focus:ring-4 focus:ring-primary-300 dark:focus:ring-primary-900">
                 Bouton 1
@@ -29,7 +38,7 @@
             </div>
         </div>
         <div class="hidden lg:mt-0 lg:col-span-5 lg:flex">
-            <img src="./img/logo.png" alt="mockup">
+            <img src="<?= ThemeModel::fetchImageLink('header_img_logo') ?>" alt="...">
         </div>
 
     </div>

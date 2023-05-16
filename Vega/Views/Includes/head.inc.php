@@ -1,14 +1,19 @@
+<?php
+
+use CMW\Manager\Env\EnvManager;
+
+?>
 <!DOCTYPE html>
 <html lang="fr">
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title></title>
-    <meta name="description" content="">
+    <title><?= $title ?></title>
+    <meta name="description" content="><?= $description ?>">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="assets/css/style.css">
-    <script src="/dev/assets/js/flowbite.js"></script>
-    <script src="https://kit.fontawesome.com/eced519d56.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="<?= EnvManager::getInstance()->getValue("PATH_SUBFOLDER") ?>Public/Themes/Vega/Assets/Css/style.css">
+    <script src="<?= EnvManager::getInstance()->getValue("PATH_SUBFOLDER") ?>Public/Themes/Vega/Assets/Js/flowbite.js"></script>
+    <link rel="stylesheet" href="<?= EnvManager::getInstance()->getValue("PATH_SUBFOLDER") ?>Admin/Resources/Vendors/Fontawesome-free/Css/fa-all.min.css">
 
     <script>
 		// On page load or when changing themes, best to add inline in `head` to avoid FOUC
