@@ -17,7 +17,7 @@ include_once("include/header.php");
     </svg>
 </section>
 
-<section class="mx-auto">
+<section class="mx-auto lg:w-1/3">
     <div class="bg-gray-100 dark:bg-gray-900 dark:text-gray-300 rounded-lg shadow p-4">
         <div class="lg:grid grid-cols-2 gap-4">
             <div>

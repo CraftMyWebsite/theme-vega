@@ -17,7 +17,7 @@ include_once("include/header.php");
     </svg>
 </section>
 
-<section class="mx-auto">
+<section class="mx-auto lg:w-1/3">
     <div class="bg-gray-100 dark:bg-gray-900 dark:text-gray-300 rounded-lg shadow p-4">
         <label for="input-group-1" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Mail :</label>
         <div class="relative mb-2">
