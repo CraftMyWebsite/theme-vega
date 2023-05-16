@@ -5,7 +5,7 @@ include_once("include/header.php");
 
 <section style="background-image: url('http://localhost:63342/theme-vega/dev/img/bg1.png');" class="bg-cover mb-4">
     <div class="text-center text-white py-8">
-        <h2 class="font-bold">WOoupss !!!</h2>
+        <h2 class="font-bold">Voter</h2>
         <p>Description de la page de fifou</p>
     </div>
 
@@ -18,8 +18,134 @@ include_once("include/header.php");
 </section>
 
 <section class="px-4 lg:px-24 2xl:px-60 py-6">
-    <div class="bg-gray-100 dark:bg-gray-900 dark:text-gray-300 rounded-lg shadow p-4">
-        s
+    <div class="lg:grid grid-cols-3 gap-4">
+        <div class="bg-gray-100 dark:bg-gray-900 dark:text-gray-300 rounded-lg shadow p-4">
+            <h4 class="font-bold text-center">Voter</h4>
+
+            <div class="bg-white dark:bg-gray-700 rounded-lg shadow-lg p-2 mb-2">
+                <p>Pour pouvoir voter et récupérer vos récompenses vous devez être connecté sur le site, alors n'attendez plus pour obtenir des récompenses uniques !</p>
+            </div>
+            <div class="pt-4 pb-2 text-center">
+                <a href="" target="_blank" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg px-4 py-2">Connexion</i></a>
+            </div>
+
+            <div class="bg-white dark:bg-gray-700 rounded-lg shadow-lg p-2 mb-4">
+                <div class="flex flex-wrap justify-between">
+                    <div class="font-medium">Serveur Rôle play</div>
+                    <div class="bg-gray-300 dark:bg-gray-800 font-medium inline-block px-3 py-1 rounded-sm text-xs "><i class="fa-solid fa-clock-rotate-left"></i> 2 heures</div>
+                </div>
+                <div class="flex flex-wrap justify-between">
+                    <div class="mt-2 py-2 font-medium">Récompense : <span class="font-bold">500 points</span></div>
+                    <div class="pt-4 pb-2">
+                        <a href="" target="_blank" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg px-4 py-2">Voter <i class="fa-solid fa-award"></i></a>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        <div class="col-span-2 bg-gray-100 dark:bg-gray-900 dark:text-gray-300 rounded-lg shadow p-4 h-fit">
+            <h4 class="font-bold text-center mb-2">Top 10 du mois</h4>
+            <div class="overflow-x-auto relative shadow-md sm:rounded-lg">
+                <table class="w-full text-sm text-left">
+                    <thead class="text-xs uppercase bg-gray-50 dark:bg-gray-700 ">
+                    <tr>
+                        <th scope="col" class="py-3 px-6">
+                            <i class="fa-solid fa-user"></i> Voteur
+                        </th>
+                        <th scope="col" class="py-3 px-6 text-center">
+                            <i class="fa-solid fa-trophy"></i> Position
+                        </th>
+                        <th scope="col" class="py-3 px-6 text-center">
+                            <i class="fa-solid fa-award"></i> Nombres de votes
+                        </th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr class="bg-white dark:bg-gray-800 hover:bg-gray-50 dark:hover:bg-gray-600">
+                        <th scope="row" class="flex items-center px-6 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                            <img class="w-10 h-10 rounded-full" src="http://localhost:63342/dev/img/grass.webp" alt="...">
+                            <div class="pl-3">
+                                <div class="text-base font-semibold">Leslie Livingston</div>
+                            </div>
+                        </th>
+                        <td class="py-4 px-6 text-center">
+                            <div class="bg-blue-200 inline-block px-3 py-1 rounded-sm font-medium text-black">#1</div>
+                        </td>
+                        <td class="py-4 px-6 text-center">
+                            <div class="font-medium">280</div>
+                        </td>
+                    </tr>
+                    <tr class="bg-white dark:bg-gray-800 hover:bg-gray-50 dark:hover:bg-gray-600">
+                        <th scope="row" class="flex items-center px-6 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                            <img class="w-10 h-10 rounded-full" src="http://localhost:63342/dev/img/grass.webp" alt="...">
+                            <div class="pl-3">
+                                <div class="text-base font-semibold">Leslie Livingston</div>
+                            </div>
+                        </th>
+                        <td class="py-4 px-6 text-center">
+                            <div class="bg-blue-200 inline-block px-3 py-1 rounded-sm font-medium text-black">#1</div>
+                        </td>
+                        <td class="py-4 px-6 text-center">
+                            <div class="font-medium">280</div>
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="px-4 lg:px-24 2xl:px-96 py-6">
+    <div class="bg-gray-100 dark:bg-gray-900 dark:text-gray-300 rounded-lg shadow p-4 h-fit">
+        <h4 class="font-bold text-center mb-2">Top 10 global</h4>
+        <div class="overflow-x-auto relative shadow-md sm:rounded-lg">
+            <table class="w-full text-sm text-left">
+                <thead class="text-xs uppercase bg-gray-50 dark:bg-gray-700 ">
+                <tr>
+                    <th scope="col" class="py-3 px-6">
+                        <i class="fa-solid fa-user"></i> Voteur
+                    </th>
+                    <th scope="col" class="py-3 px-6 text-center">
+                        <i class="fa-solid fa-trophy"></i> Position
+                    </th>
+                    <th scope="col" class="py-3 px-6 text-center">
+                        <i class="fa-solid fa-award"></i> Nombres de votes
+                    </th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr class="bg-white dark:bg-gray-800 hover:bg-gray-50 dark:hover:bg-gray-600">
+                    <th scope="row" class="flex items-center px-6 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                        <img class="w-10 h-10 rounded-full" src="http://localhost:63342/dev/img/grass.webp" alt="...">
+                        <div class="pl-3">
+                            <div class="text-base font-semibold">Leslie Livingston</div>
+                        </div>
+                    </th>
+                    <td class="py-4 px-6 text-center">
+                        <div class="bg-blue-200 inline-block px-3 py-1 rounded-sm font-medium text-black">#1</div>
+                    </td>
+                    <td class="py-4 px-6 text-center">
+                        <div class="font-medium">280</div>
+                    </td>
+                </tr>
+                <tr class="bg-white dark:bg-gray-800 hover:bg-gray-50 dark:hover:bg-gray-600">
+                    <th scope="row" class="flex items-center px-6 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                        <img class="w-10 h-10 rounded-full" src="http://localhost:63342/dev/img/grass.webp" alt="...">
+                        <div class="pl-3">
+                            <div class="text-base font-semibold">Leslie Livingston</div>
+                        </div>
+                    </th>
+                    <td class="py-4 px-6 text-center">
+                        <div class="bg-blue-200 inline-block px-3 py-1 rounded-sm font-medium text-black">#1</div>
+                    </td>
+                    <td class="py-4 px-6 text-center">
+                        <div class="font-medium">280</div>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
     </div>
 </section>
 

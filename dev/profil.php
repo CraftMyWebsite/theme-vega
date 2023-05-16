@@ -5,7 +5,7 @@ include_once("include/header.php");
 
 <section style="background-image: url('http://localhost:63342/theme-vega/dev/img/bg1.png');" class="bg-cover mb-4">
     <div class="text-center text-white py-8">
-        <h2 class="font-bold">WOoupss !!!</h2>
+        <h2 class="font-bold">Nom du gars</h2>
         <p>Description de la page de fifou</p>
     </div>
 
@@ -17,10 +17,51 @@ include_once("include/header.php");
     </svg>
 </section>
 
-<section class="px-4 lg:px-24 2xl:px-60 py-6">
-    <div class="bg-gray-100 dark:bg-gray-900 dark:text-gray-300 rounded-lg shadow p-4">
-        s
+<section class="mx-auto">
+    <div class="lg:grid grid-cols-2 gap-6">
+        <div class="bg-gray-100 dark:bg-gray-900 dark:text-gray-300 rounded-lg shadow p-4">
+            <h4 class="text-center font-bold">Identité visuel</h4>
+            <img style="height: 200px; width: 200px" class="rounded-lg shadow-lg mx-auto" src="http://localhost:63342/theme-vega/dev/img/bg1.png" alt="...">
+            <label class="block mt-4 mb-2 text-sm font-medium text-gray-900 dark:text-white" for="file_input">Changer d'image :</label>
+            <input class="block w-full text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 dark:text-gray-400 focus:outline-none dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400" aria-describedby="file_input_help" id="file_input" type="file">
+            <p class="mt-1 text-sm text-gray-500 dark:text-gray-300" id="file_input_help">PNG, JPG, JPEG, WEBP, GIF (MAX. 400px400px).</p>
+            <button type="submit" class="mt-4 w-full text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center">Sauvegarder</button>
+
+        </div>
+        <div class="bg-gray-100 dark:bg-gray-900 dark:text-gray-300 rounded-lg shadow p-4">
+            <h4 class="text-center font-bold">Informations personnel</h4>
+            <label for="input-group-1" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Mail :</label>
+            <div class="relative mb-2">
+                <div class="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
+                    <i class="text-gray-500 dark:text-gray-400 fa-solid fa-envelope"></i>
+                </div>
+                <input type="text" id="input-group-1" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full pl-10 p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="votre@mail.com">
+            </div>
+            <label for="input-group-1" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Pseudo / Nom d'affichage :</label>
+            <div class="relative mb-2">
+                <div class="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
+                    <i class="text-gray-500 dark:text-gray-400 fa-solid fa-user"></i>
+                </div>
+                <input type="text" id="input-group-1" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full pl-10 p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Jean">
+            </div>
+            <label for="input-group-1" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Mot de passe :</label>
+            <div class="relative mb-2">
+                <div class="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
+                    <i class="text-gray-500 dark:text-gray-400 fa-solid fa-lock"></i>
+                </div>
+                <input type="text" id="input-group-1" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full pl-10 p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="*********">
+            </div>
+            <label for="input-group-1" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Confirmation :</label>
+            <div class="relative mb-2">
+                <div class="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
+                    <i class="text-gray-500 dark:text-gray-400 fa-solid fa-lock"></i>
+                </div>
+                <input type="text" id="input-group-1" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full pl-10 p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="*********">
+            </div>
+            <button type="submit" class="w-full mt-4 text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center">Modifier</button>
+        </div>
     </div>
+
 </section>
 
 

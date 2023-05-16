@@ -5,7 +5,7 @@ include_once("include/header.php");
 
 <section style="background-image: url('http://localhost:63342/theme-vega/dev/img/bg1.png');" class="bg-cover mb-4">
     <div class="text-center text-white py-8">
-        <h2 class="font-bold">WOoupss !!!</h2>
+        <h2 class="font-bold">Nom de la page</h2>
         <p>Description de la page de fifou</p>
     </div>
 

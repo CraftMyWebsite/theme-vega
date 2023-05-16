@@ -5,7 +5,7 @@ include_once("include/header.php");
 
 <section style="background-image: url('http://localhost:63342/theme-vega/dev/img/bg1.png');" class="bg-cover mb-4">
     <div class="text-center text-white py-8">
-        <h2 class="font-bold">WOoupss !!!</h2>
+        <h2 class="font-bold">Wiki</h2>
         <p>Description de la page de fifou</p>
     </div>
 
@@ -18,8 +18,26 @@ include_once("include/header.php");
 </section>
 
 <section class="px-4 lg:px-24 2xl:px-60 py-6">
-    <div class="bg-gray-100 dark:bg-gray-900 dark:text-gray-300 rounded-lg shadow p-4">
-        s
+    <div class="lg:grid grid-cols-4 gap-4">
+        <div class="bg-gray-100 dark:bg-gray-900 dark:text-gray-300 rounded-lg shadow p-4">
+            <h4 class="font-bold text-center">Navigation</h4>
+
+            <p class="font-medium mt-4">Titre de cat</p>
+            <a href="">
+                <p class="pl-2 py-1 mt-1 cursor-pointer rounded hover:bg-gray-200 dark:hover:bg-gray-600">Titre d'article</p>
+            </a>
+
+        </div>
+        <div class="col-span-3 bg-gray-100 dark:bg-gray-900 dark:text-gray-300 rounded-lg shadow p-4 h-fit">
+            <h4 class="font-bold text-center mb-2">Titre</h4>
+            <p>ssss</p>
+            <hr class="border-b-1 border-white dark:border-gray-500 mt-2">
+            <div class="flex justify-between">
+                <p>Créer le : </p>
+                <p>Zomblard</p>
+                <p>Modifié le : </p>
+            </div>
+        </div>
     </div>
 </section>
 
