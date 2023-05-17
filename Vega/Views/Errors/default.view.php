@@ -1,5 +1,6 @@
 <?php
 
+use CMW\Manager\Env\EnvManager;
 use CMW\Model\Core\ThemeModel;
 use CMW\Utils\Website;
 
@@ -27,5 +28,5 @@ $description = Website::getDescription();
     <p>Il semblerais qu'il y ai un problème !</p>
     <p>Contactez l'administrateur du site pour lui indiquez cette erreur !</p>
     <p>Si vous êtes l'administrateur et que vous rencontrez des difficultés contacter le support de CraftMyWebsite.</p>
-    <p>Vous pouvez tourjours <a class="text-blue-500 hover:text-blue-600" href="">retourner à l'accueil</a> !</p>
+    <p>Vous pouvez tourjours <a class="text-blue-500 hover:text-blue-600" href="<?= EnvManager::getInstance()->getValue("PATH_SUBFOLDER") ?>">retourner à l'accueil</a> !</p>
 </section>
