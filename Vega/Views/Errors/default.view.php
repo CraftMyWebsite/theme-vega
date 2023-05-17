@@ -4,7 +4,7 @@ use CMW\Model\Core\ThemeModel;
 use CMW\Utils\Website;
 
 
-$title = Website::getName() . ' - '. ThemeModel::fetchConfigValue('home_title');
+$title = Website::getName() . ' - ERREUR';
 $description = Website::getDescription();
 ?>
 
@@ -23,7 +23,7 @@ $description = Website::getDescription();
 </section>
 
 <section class="px-4 lg:px-24 2xl:px-60 py-6 text-center ">
-    <h1 class="text-9xl font-bold">301</h1>
+    <h1 class="text-9xl font-bold">{errorCode}</h1>
     <p>Il semblerais qu'il y ai un problème !</p>
     <p>Contactez l'administrateur du site pour lui indiquez cette erreur !</p>
     <p>Si vous êtes l'administrateur et que vous rencontrez des difficultés contacter le support de CraftMyWebsite.</p>

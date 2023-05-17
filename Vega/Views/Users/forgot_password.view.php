@@ -4,7 +4,7 @@ use CMW\Model\Core\ThemeModel;
 use CMW\Utils\Website;
 
 
-$title = Website::getName() . ' - '. ThemeModel::fetchConfigValue('home_title');
+$title = Website::getName() . ' - Mot de passe oublié';
 $description = Website::getDescription();
 ?>
 

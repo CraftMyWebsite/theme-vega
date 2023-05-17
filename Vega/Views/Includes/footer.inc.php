@@ -1,6 +1,7 @@
 <?php
 
 use CMW\Manager\Env\EnvManager;
+use CMW\Model\Core\ThemeModel;
 
 ?>
 </body>
@@ -29,4 +30,7 @@ use CMW\Manager\Env\EnvManager;
     </div>
 </div>
 </html>
-<script src="<?= EnvManager::getInstance()->getValue("PATH_SUBFOLDER") ?>Public/Themes/Vega/Assets/Js/darklight.js"></script>
+
+<?php if(ThemeModel::fetchConfigValue('dark_light')): ?>
+    <script src="<?= EnvManager::getInstance()->getValue("PATH_SUBFOLDER") ?>Public/Themes/Vega/Assets/Js/darklight.js"></script>
+<?php endif; ?>

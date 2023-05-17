@@ -1,6 +1,8 @@
 <?php
 
 use CMW\Manager\Env\EnvManager;
+use CMW\Manager\Uploads\ImagesManager;
+use CMW\Model\Core\ThemeModel;
 
 ?>
 <!DOCTYPE html>
@@ -15,6 +17,9 @@ use CMW\Manager\Env\EnvManager;
     <script src="<?= EnvManager::getInstance()->getValue("PATH_SUBFOLDER") ?>Public/Themes/Vega/Assets/Js/flowbite.js"></script>
     <link rel="stylesheet" href="<?= EnvManager::getInstance()->getValue("PATH_SUBFOLDER") ?>Admin/Resources/Vendors/Fontawesome-free/Css/fa-all.min.css">
 
+    <?= ImagesManager::getFaviconInclude() ?>
+
+    <?php if(ThemeModel::fetchConfigValue('dark_light')): ?>
     <script>
 		// On page load or when changing themes, best to add inline in `head` to avoid FOUC
 		if (localStorage.getItem('color-theme') === 'dark' || (!('color-theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
@@ -23,6 +28,7 @@ use CMW\Manager\Env\EnvManager;
 			document.documentElement.classList.remove('dark')
 		}
     </script>
+    <?php endif; ?>
 
 </head>
 
