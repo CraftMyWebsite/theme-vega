@@ -72,6 +72,22 @@ include_once("include/header.php");
 </section>
 
 
+<div class="cursor-pointer">
+                                <span data-tooltip-target="tooltip-liked">
+                                <span class="text-base">
+<a href="#"><i class="fa-solid fa-heart"></i></a>
+                                        <div id="tooltip-liked" role="tooltip"
+                                             class="hidden lg:inline-block absolute invisible z-10 py-2 px-3 text-sm font-medium text-white bg-gray-900 rounded-lg shadow-sm opacity-0 transition-opacity duration-300 tooltip">
+
+                                            Vous aimez déjà !
+                                        <div class="tooltip-arrow" data-popper-arrow></div>
+                                    </div>
+
+                                </span>
+                                </span>
+</div>
+
+
 <?php
 include_once("include/footer.php");
 ?>

@@ -149,6 +149,9 @@ include_once("include/header.php");
     </div>
 </section>
 
+<div class="bg-amber-400">s</div>
+<div class="bg-amber-300">s</div>
+<div class="bg-amber-200">s</div>
 
 <?php
 include_once("include/footer.php");
