@@ -10,8 +10,7 @@ $description = Website::getDescription();
 
 <section style="background-image: url('<?= ThemeModel::fetchImageLink('hero_img_bg') ?>');" class="bg-cover mb-4">
     <div class="text-center text-white py-8">
-        <h2 class="font-bold">Nom de la page</h2>
-        <p>Description de la page de fifou</p>
+        <h2 class="font-bold"><?= ucfirst($page->getTitle())?></h2>
     </div>
 
     <!--SEPARATOR-->
@@ -24,6 +23,6 @@ $description = Website::getDescription();
 
 <section class="px-4 lg:px-24 2xl:px-60 py-6">
     <div class="bg-gray-100 dark:bg-gray-900 dark:text-gray-300 rounded-lg shadow p-4">
-        s
+        <?= $page->getConverted() ?>
     </div>
 </section>
