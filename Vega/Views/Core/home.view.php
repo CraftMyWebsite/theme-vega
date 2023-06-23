@@ -1,8 +1,24 @@
 <?php
 
+use CMW\Controller\Core\PackageController;
+use CMW\Controller\Core\SecurityController;
+use CMW\Controller\Minecraft\MinecraftController;
+use CMW\Controller\Users\UsersController;
+use CMW\Manager\Env\EnvManager;
+use CMW\Manager\Security\SecurityManager;
 use CMW\Model\Core\ThemeModel;
+use CMW\Model\Minecraft\MinecraftModel;
+use CMW\Model\News\NewsModel;
 use CMW\Utils\Website;
 
+if (PackageController::isInstalled("News")) {
+    $newsLists = new newsModel;
+    $newsList = $newsLists->getSomeNews( ThemeModel::fetchConfigValue('news_number_display'));
+}
+if (PackageController::isInstalled("Minecraft")) {
+    $mc = new minecraftModel;
+    $minecraft = MinecraftController::pingServer($mc->getFavServer()->getServerIp(), $mc->getFavServer()->getServerPort())->getPlayersOnline();
+}
 
 $title = Website::getName() . ' - '. ThemeModel::fetchConfigValue('home_title');
 $description = Website::getDescription();
@@ -11,31 +27,42 @@ $description = Website::getDescription();
 <section style="background-image: url('<?= ThemeModel::fetchImageLink('hero_img_bg') ?>');" class="bg-cover mb-4">
     <div class="grid max-w-screen-xl px-4 py-8 mx-auto lg:gap-8 xl:gap-0 lg:pt-24 lg:pb-24 lg:grid-cols-12">
         <div class="mr-auto place-self-center lg:col-span-7">
-            <div class="max-w-2xl text-white font-light md:text-lg lg:text-xl"><i class="text-green-500 fa-regular fa-circle-dot"></i> Rejoins les <b>10</b> joueurs en ligne</div>
-            <div class="max-w-2xl mb-4 text-2xl md:text-3xl xl:text-4xl font-bold tracking-tight leading-none text-white">Bienvenue sur <span class="text-3xl md:text-4xl xl:text-5xl underline"><?= Website::getName() ?></span></div>
-            <div class="max-w-2xl mb-4 text-white font-light  md:text-lg lg:text-xl">Une super description pour votre serveur web</div>
-            <a href="#" class="inline-flex items-center justify-center px-5 py-3 mr-3 text-base font-medium text-center text-white rounded-lg bg-blue-700 hover:bg-blue-800 dark:bg-blue-800 dark:hover:bg-blue-900 focus:ring-4 focus:ring-primary-300 dark:focus:ring-primary-900">
-                Bouton 1
+            <?php if (PackageController::isInstalled("Minecraft")): ?>
+            <?php if (ThemeModel::fetchConfigValue('hero_show_minecraft_player')): ?>
+            <div class="max-w-2xl text-white font-light md:text-lg lg:text-xl"><i class="text-green-500 fa-regular fa-circle-dot fa-beat-fade"></i> <?= ThemeModel::fetchConfigValue('hero_join_prefix') ?> <b><?= $minecraft ?></b> <?= ThemeModel::fetchConfigValue('hero_join_suffix') ?></div>
+            <?php endif; ?>
+            <?php endif; ?>
+            <div class="max-w-2xl mb-4 text-2xl md:text-3xl xl:text-4xl font-bold tracking-tight leading-none text-white"><?= ThemeModel::fetchConfigValue('hero_title') ?> <span class="text-3xl md:text-4xl xl:text-5xl underline"><?= Website::getName() ?></span></div>
+            <div class="max-w-2xl mb-4 text-white font-light  md:text-lg lg:text-xl"><?= ThemeModel::fetchConfigValue('hero_description') ?></div>
+            <a href="<?= ThemeModel::fetchConfigValue('hero_button_link') ?>" class="inline-flex items-center justify-center px-5 py-3 mr-3 text-base font-medium text-center text-white rounded-lg bg-blue-700 hover:bg-blue-800 dark:bg-blue-800 dark:hover:bg-blue-900 focus:ring-4 focus:ring-primary-300 dark:focus:ring-primary-900">
+                <?= ThemeModel::fetchConfigValue('hero_button_text') ?>
             </a>
-            <a href="#" class="inline-flex items-center justify-center px-5 py-3 text-base font-medium text-center border border-gray-300 rounded-lg hover:bg-gray-100 focus:ring-4 focus:ring-gray-100 text-white dark:border-gray-700 dark:hover:bg-gray-700 dark:focus:ring-gray-800">
-                Bouton 2
-            </a>
+            <?php if (ThemeModel::fetchConfigValue('hero_show_footer_icon')): ?>
             <div class="py-2 w-full sm:w-auto mt-4 text-4xl text-white">
                 <div class="flex-wrap inline-flex space-x-4 lg:space-x-6">
-                    <a href="#" class="hover:text-blue-600">
-                        <i class=" fa-brands fa-facebook"></i>
+                    <?php if(ThemeModel::fetchConfigValue('footer_active_facebook')): ?>
+                    <a href="<?= ThemeModel::fetchConfigValue('footer_link_facebook') ?>" <?php if(ThemeModel::fetchConfigValue('footer_open_link_new_tab')): ?>target="_blank"<?php endif; ?> class="hover:text-blue-600">
+                        <i class=" <?= ThemeModel::fetchConfigValue('footer_icon_facebook') ?>"></i>
                     </a>
-                    <a href="#" class="hover:text-blue-600">
-                        <i class=" fa-brands fa-square-twitter"></i>
+                    <?php endif; ?>
+                    <?php if(ThemeModel::fetchConfigValue('footer_active_twitter')): ?>
+                    <a href="<?= ThemeModel::fetchConfigValue('footer_link_twitter') ?>" <?php if(ThemeModel::fetchConfigValue('footer_open_link_new_tab')): ?>target="_blank"<?php endif; ?> class="hover:text-blue-600">
+                        <i class=" <?= ThemeModel::fetchConfigValue('footer_icon_twitter') ?>"></i>
                     </a>
-                    <a href="#" class="hover:text-blue-600">
-                        <i class=" fa-brands fa-instagram"></i>
+                    <?php endif; ?>
+                    <?php if(ThemeModel::fetchConfigValue('footer_active_instagram')): ?>
+                    <a href="<?= ThemeModel::fetchConfigValue('footer_link_instagram') ?>" <?php if(ThemeModel::fetchConfigValue('footer_open_link_new_tab')): ?>target="_blank"<?php endif; ?> class="hover:text-blue-600">
+                        <i class=" <?= ThemeModel::fetchConfigValue('footer_icon_instagram') ?>"></i>
                     </a>
-                    <a href="#" class="hover:text-blue-600">
-                        <i class=" fa-brands fa-discord"></i>
+                    <?php endif; ?>
+                    <?php if(ThemeModel::fetchConfigValue('footer_active_discord')): ?>
+                    <a href="<?= ThemeModel::fetchConfigValue('footer_link_discord') ?>" <?php if(ThemeModel::fetchConfigValue('footer_open_link_new_tab')): ?>target="_blank"<?php endif; ?> class="hover:text-blue-600">
+                        <i class=" <?= ThemeModel::fetchConfigValue('footer_icon_discord') ?>"></i>
                     </a>
+                    <?php endif; ?>
                 </div>
             </div>
+            <?php endif; ?>
         </div>
         <div class="hidden lg:mt-0 lg:col-span-5 lg:flex">
             <img src="<?= ThemeModel::fetchImageLink('header_img_logo') ?>" alt="...">
@@ -52,6 +79,7 @@ $description = Website::getDescription();
 
 
 <!--WHY US SECTION-->
+<?php if(ThemeModel::fetchConfigValue('feature_section_active')): ?>
 <section>
     <div class="container mx-auto px-4 py-16 relative">
 
@@ -59,140 +87,175 @@ $description = Website::getDescription();
             <div class="w-full p-4  xl:w-4/12 sm:w-6/12">
                 <div class="bg-gray-100 block group px-6 py-16 rounded-lg shadow-lg dark:bg-gray-900 dark:text-white">
                     <div class="text-center">
-                        <i class="mb-4 text-blue-700 text-4xl fa-solid fa-code"></i>
+                        <i class="mb-4 text-blue-700 text-4xl <?= ThemeModel::fetchConfigValue("feature_img_1") ?>"></i>
                     </div>
-                    <h4 class="font-bold mb-2 text-gray-900 text-xl dark:text-white">Development</h4>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam vitae congue tortor.</p>
+                    <h4 class="font-bold mb-2 text-gray-900 text-xl dark:text-white"><?= ThemeModel::fetchConfigValue('feature_title_1') ?></h4>
+                    <p><?= ThemeModel::fetchConfigValue('feature_description_1') ?></p>
                 </div>
             </div>
             <div class="w-full p-4  xl:w-4/12 sm:w-6/12">
                 <div class="bg-gray-100 block px-6 py-16 rounded-lg shadow-lg dark:bg-gray-900 dark:text-white">
                     <div class="text-center">
-                        <i class="mb-4 text-blue-700 text-4xl fa-solid fa-swatchbook"></i>
+                        <i class="mb-4 text-blue-700 text-4xl <?= ThemeModel::fetchConfigValue("feature_img_2") ?>"></i>
                     </div>
-                    <h4 class="font-bold mb-2 text-gray-900 text-xl dark:text-white">Product Design</h4>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam vitae congue tortor. </p>
+                    <h4 class="font-bold mb-2 text-gray-900 text-xl dark:text-white"><?= ThemeModel::fetchConfigValue('feature_title_2') ?></h4>
+                    <p><?= ThemeModel::fetchConfigValue('feature_description_2') ?></p>
                 </div>
             </div>
             <div class="w-full p-4  xl:w-4/12 sm:w-6/12">
                 <div class="bg-gray-100 block px-6 py-16 rounded-lg shadow-lg dark:bg-gray-900 dark:text-white">
                     <div class="text-center">
-                        <i class="mb-4 text-blue-700 text-4xl fa-solid fa-object-group"></i>
+                        <i class="mb-4 text-blue-700 text-4xl <?= ThemeModel::fetchConfigValue("feature_img_3") ?>"></i>
                     </div>
-                    <h4 class="font-bold mb-2 text-gray-900 text-xl dark:text-white">UI/UX Research</h4>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam vitae congue tortor. </p>
+                    <h4 class="font-bold mb-2 text-gray-900 text-xl dark:text-white"><?= ThemeModel::fetchConfigValue('feature_title_3') ?></h4>
+                    <p><?= ThemeModel::fetchConfigValue('feature_description_3') ?></p>
                 </div>
             </div>
         </div>
     </div>
 </section>
+<?php endif; ?>
 <!--Trailer-->
+<?php if(ThemeModel::fetchConfigValue('trailer_section_active')): ?>
 <section class="bg-gray-100 dark:bg-gray-900 dark:text-white">
     <div class="px-4 py-6 lg:px-24 2xl:px-48">
         <div class="lg:grid lg:grid-cols-2">
             <div class="text-center my-auto lg:px-16">
-                <div class="font-bold text-3xl mb-4">Titre du texte</div>
-                <div>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recentl</div>
+                <div class="font-bold text-3xl mb-4"><?= ThemeModel::fetchConfigValue('trailer_title') ?></div>
+                <div><?= ThemeModel::fetchConfigValue('trailer_text') ?></div>
                 <div class="mt-4">
-                    <a href="#" class=" px-3 py-2 text-base font-medium text-center text-white rounded-lg bg-blue-700 hover:bg-blue-800 dark:bg-blue-800 dark:hover:bg-blue-900 focus:ring-4 focus:ring-primary-300 dark:focus:ring-primary-900">
-                        Lire la suite
-                    </a>
-                    <a href="#" class="ml-4 px-3 py-2 text-base font-medium text-center text-white rounded-lg bg-blue-700 hover:bg-blue-800 dark:bg-blue-800 dark:hover:bg-blue-900 focus:ring-4 focus:ring-primary-300 dark:focus:ring-primary-900">
-                        Lire la suite
+                    <a href="<?= ThemeModel::fetchConfigValue('trailer_button_link') ?>" class=" px-3 py-2 text-base font-medium text-center text-white rounded-lg bg-blue-700 hover:bg-blue-800 dark:bg-blue-800 dark:hover:bg-blue-900 focus:ring-4 focus:ring-primary-300 dark:focus:ring-primary-900">
+                        <?= ThemeModel::fetchConfigValue('trailer_button_text') ?>
                     </a>
                 </div>
             </div>
             <div class="rounded-lg bg-white p-2 mx-auto dark:bg-gray-800 mt-8 lg:mt-0">
-                <iframe class="w-full h-[12rem] lg:w-[36rem] lg:h-[24rem]" src="https://www.youtube.com/embed/Mskc0Q_Abpw" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                <iframe class="w-full h-[12rem] lg:w-[36rem] lg:h-[24rem]" src="https://www.youtube.com/embed/<?= ThemeModel::fetchConfigValue('trailer_youtube_link') ?>" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
             </div>
         </div>
     </div>
 </section>
+<?php endif; ?>
 
 <!--NEWS SECTION-->
+<?php if (PackageController::isInstalled("News")): ?>
+<?php if(ThemeModel::fetchConfigValue('news_section_active')): ?>
 <section>
     <div class="px-4 lg:px-24 2xl:px-72 py-16">
-        <div class="w-full font-medium rounded-lg p-2 bg-gray-100 dark:bg-gray-900 dark:text-white"><i class="fa-solid fa-newspaper"></i> Derniers articles</div>
+        <div class="w-full font-medium rounded-lg p-2 bg-gray-100 dark:bg-gray-900 dark:text-white"><i class="fa-solid fa-newspaper"></i> <?= ThemeModel::fetchConfigValue('news_section_title') ?></div>
         <div class="lg:grid grid-cols-2">
+            <?php foreach ($newsList as $news): ?>
             <div class="p-4">
-                <div class="bg-[url('http://localhost:63342/theme-vega/dev/img/bg1.png')] bg-cover h-96 rounded-lg flex">
+                <div style="background-image: url('<?= Website::getProtocol() ?>://<?= $_SERVER['SERVER_NAME'] . $news->getImageLink() ?>')" class="bg-cover h-96 rounded-lg flex">
                     <div class="bg-gray-900/70 self-end w-full rounded-b-lg text-white">
                         <div class="p-4">
                             <div class="flex justify-between">
-                                <p class="font-bold text-2xl">Titre</p>
+                                <p class="font-bold text-2xl"><?= $news->getTitle() ?></p>
                                 <span class="h-fit bg-gray-100 text-gray-800 text-xs font-medium inline-flex items-center px-1 py-0.5 rounded mr-2 dark:bg-gray-700 dark:text-gray-300">
-                                  28/25/2025 à 18h32
+                                  <?= $news->getDateCreated() ?>
                                 </span>
                             </div>
-                            <p class="font-medium mb-4">Description iption iption iption iption iption iption iption iption iption iption iption iption iption iption</p>
+                            <p class="font-medium mb-4"><?= $news->getDescription() ?></p>
                             <div class="flex justify-between">
-                                <a href="#" class=" px-3 py-2 text-base font-medium text-center text-white rounded-lg bg-blue-700 hover:bg-blue-800 dark:bg-blue-800 dark:hover:bg-blue-900 focus:ring-4 focus:ring-primary-300 dark:focus:ring-primary-900">
-                                    Lire la suite
+                                <a href="<?= EnvManager::getInstance()->getValue("PATH_SUBFOLDER") ?>news/<?= $news->getSlug() ?>" class=" px-3 py-2 text-base font-medium text-center text-white rounded-lg bg-blue-700 hover:bg-blue-800 dark:bg-blue-800 dark:hover:bg-blue-900 focus:ring-4 focus:ring-primary-300 dark:focus:ring-primary-900">
+                                    <?= ThemeModel::fetchConfigValue('news_button') ?>
                                 </a>
-                                <div class="self-end"><i class="fa-solid fa-heart"></i></div>
+                                <div class="cursor-pointer">
+                                <span data-tooltip-target="<?php if ($news->getLikes()->userCanLike()) {echo "tooltip-liked";} else {echo "tooltip-like";} ?>">
+                                <span class="text-base"><?= $news->getLikes()->getTotal() ?>
+                                    <?php if ($news->getLikes()->userCanLike()): ?>
+                                        <a href="#"><i class="fa-solid fa-heart"></i></a>
+                                        <div id="tooltip-liked" role="tooltip" class="hidden lg:inline-block absolute invisible z-10 py-2 px-3 text-sm font-medium text-white bg-gray-900 rounded-lg shadow-sm opacity-0 transition-opacity duration-300 tooltip">
+                                        <?php if(UsersController::isUserLogged()) {echo "Vous aimez déjà !";} else {echo "Connectez-vous pour aimé !";} ?>
+                                        <div class="tooltip-arrow" data-popper-arrow></div>
+                                    </div>
+                                    <?php else: ?>
+                                        <a href="<?= $news->getLikes()->getSendLike() ?>"><i class="fa-regular fa-heart"></i></a>
+                                        <div id="tooltip-like" role="tooltip" class="hidden lg:inline-block absolute invisible z-10 py-2 px-3 text-sm font-medium text-white bg-gray-900 rounded-lg shadow-sm opacity-0 transition-opacity duration-300 tooltip">
+                                        Merci pour votre soutien !
+                                        <div class="tooltip-arrow" data-popper-arrow></div>
+                                    </div>
+                                    <?php endif; ?>
+                                </span>
+                                </span>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-            <div class="p-4">
-                <div class="bg-[url('http://localhost:63342/theme-vega/dev/img/bg1.png')] bg-cover h-96 rounded-lg flex">
-                    <div class="bg-gray-900/70 self-end w-full rounded-b-lg text-white">
-                        <div class="p-4">
-                            <div class="flex justify-between">
-                                <p class="font-bold text-2xl">Titre</p>
-                                <span class="h-fit bg-gray-100 text-gray-800 text-xs font-medium inline-flex items-center px-1 py-0.5 rounded mr-2 dark:bg-gray-700 dark:text-gray-300">
-                                  28/25/2025 à 18h32
-                                </span>
-                            </div>
-                            <p class="font-medium mb-4">Description iption iption iption iption iption iption iption iption</p>
-                            <div class="flex justify-between">
-                                <a href="#" class=" px-3 py-2 text-base font-medium text-center text-white rounded-lg bg-blue-700 hover:bg-blue-800 dark:bg-blue-800 dark:hover:bg-blue-900 focus:ring-4 focus:ring-primary-300 dark:focus:ring-primary-900">
-                                    Lire la suite
-                                </a>
-                                <div class="self-end"><i class="fa-solid fa-heart"></i></div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+            <?php endforeach; ?>
         </div>
     </div>
 </section>
-
+    <?php endif; ?>
+<?php else: ?>
+    <?php if (UsersController::isAdminLogged()) : ?>
+        <section class="py-8">
+            <div class="container mx-auto px-4 relative">
+                <div id="alert-additional-content-4" class="p-4 mb-4 text-yellow-800 border border-yellow-300 rounded-lg bg-yellow-50 dark:bg-gray-800 dark:text-yellow-300 dark:border-yellow-800" role="alert">
+                    <div class="flex items-center">
+                        <svg aria-hidden="true" class="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z" clip-rule="evenodd"></path></svg>
+                        <span class="sr-only">Info</span>
+                        <h3 class="text-lg font-medium">Vous n'utilisez pas le package News</h3>
+                    </div>
+                    <div class="mt-2 mb-4 text-sm">
+                        Le thème Wipe prend en charge le package News, pour le moment vous ne l'utilisez pas, installez le si vous voulez en bénéficier.<br>Seuls les administrateurs voient ce message !
+                    </div>
+                    <div class="flex">
+                        <a href="<?= EnvManager::getInstance()->getValue("PATH_SUBFOLDER") ?>cmw-admin" target="_blank" type="button" class="text-white bg-yellow-800 hover:bg-yellow-900 focus:ring-4 focus:outline-none focus:ring-yellow-300 font-medium rounded-lg text-xs px-3 py-1.5 mr-2 text-center inline-flex items-center dark:bg-yellow-300 dark:text-gray-800 dark:hover:bg-yellow-400 dark:focus:ring-yellow-800">
+                            <p><i class="fa-solid fa-download"></i> Installer le package</p>
+                        </a>
+                        <button type="button" class="text-yellow-800 bg-transparent border border-yellow-800 hover:bg-yellow-900 hover:text-white focus:ring-4 focus:outline-none focus:ring-yellow-300 font-medium rounded-lg text-xs px-3 py-1.5 text-center dark:hover:bg-yellow-300 dark:border-yellow-300 dark:text-yellow-300 dark:hover:text-gray-800 dark:focus:ring-yellow-800" data-dismiss-target="#alert-additional-content-4" aria-label="Close">
+                            <p><i class="fa-solid fa-eye-slash"></i> Masquer</p>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+    <?php endif; ?>
+<?php endif; ?>
 <!--CUSTOM SECTION 1-->
+<?php if(ThemeModel::fetchConfigValue('custom_section_active_1')): ?>
 <section class="bg-gray-100 dark:bg-gray-900">
     <div class="px-4 lg:px-24 2xl:px-72 py-6 dark:text-gray-300">
-        test
+        <?= ThemeModel::fetchConfigValue('custom_section_content_1') ?>
     </div>
 </section>
-
+<?php endif; ?>
+<?php if(ThemeModel::fetchConfigValue('custom_section_active_2')): ?>
 <!--CUSTOM SECTION 2-->
 <section class="dark:text-gray-300">
     <div class="px-4 lg:px-24 2xl:px-72 py-6">
-        test
+        <?= ThemeModel::fetchConfigValue('custom_section_content_2') ?>
     </div>
 </section>
-
-<!--STATS SECTION-->
+<?php endif; ?>
+<?php if(ThemeModel::fetchConfigValue('custom_section_active_3')): ?>
+<!--CUSTOM SECTION 3-->
 <section class="bg-gray-100 dark:bg-gray-900 dark:text-gray-300">
     <div class="px-4 lg:px-24 2xl:px-72 py-6">
-        test
+        <?= ThemeModel::fetchConfigValue('custom_section_content_3') ?>
     </div>
 </section>
-
-<!--CONTACT SECTION-->
+<?php endif; ?>
+<?php if(ThemeModel::fetchConfigValue('custom_section_active_4')): ?>
+<!--CUSTOM SECTION 4-->
 <section class="dark:text-gray-300">
     <div class="px-4 lg:px-24 2xl:px-72 py-6">
-        test
+        <?= ThemeModel::fetchConfigValue('custom_section_content_4') ?>
     </div>
 </section>
-
+<?php endif; ?>
 <!--CONTACT SECTION-->
+<?php if (PackageController::isInstalled("Contact")): ?>
+<?php if(ThemeModel::fetchConfigValue('contact_section_active')): ?>
 <section class="bg-gray-100 dark:bg-gray-900">
     <div class="px-4 lg:px-24 2xl:px-72 py-16">
         <div class="w-full font-medium rounded-lg p-2 bg-white dark:bg-gray-800 dark:text-white"><i class="fa-solid fa-address-book"></i> Nous contacter</div>
         <div class="p-4">
+            <form action="contact" method="post" class="rounded-md shadow-lg p-8">
+                <?php (new SecurityManager())->insertHiddenToken() ?>
             <div class="p-4 bg-white dark:bg-gray-800 rounded-lg">
                 <div class="lg:grid grid-cols-2 gap-6 ">
                     <div>
@@ -201,7 +264,7 @@ $description = Website::getDescription();
                             <div class="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
                                 <i class="text-gray-500 dark:text-gray-400 fa-solid fa-envelope"></i>
                             </div>
-                            <input type="text" id="input-group-1" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full pl-10 p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="votre@mail.com">
+                            <input name="email" type="text" id="input-group-1" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full pl-10 p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="votre@mail.com">
                         </div>
                     </div>
                     <div>
@@ -210,7 +273,7 @@ $description = Website::getDescription();
                             <div class="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
                                 <i class="text-gray-500 dark:text-gray-400 fa-solid fa-signature"></i>
                             </div>
-                            <input type="text" id="input-group-1" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full pl-10 p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Jean Dupont">
+                            <input name="name" type="text" id="input-group-1" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full pl-10 p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Jean Dupont">
                         </div>
                     </div>
                 </div>
@@ -219,20 +282,49 @@ $description = Website::getDescription();
                     <div class="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
                         <i class="text-gray-500 dark:text-gray-400 fa-solid fa-circle-info"></i>
                     </div>
-                    <input type="text" id="input-group-1" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full pl-10 p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Votre site est super">
+                    <input name="object" type="text" id="input-group-1" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full pl-10 p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Votre site est super">
                 </div>
 
                 <label for="message" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Votre message</label>
-                <textarea id="message" rows="4" class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Bonjour,"></textarea>
+                <textarea id="message" name="content" rows="4" class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Bonjour,"></textarea>
+                <?php SecurityController::getPublicData(); ?>
                 <div class="mt-4 text-center">
                     <button type="submit" class=" px-3 py-2 text-base font-medium text-center text-white rounded-lg bg-blue-700 hover:bg-blue-800 dark:bg-blue-800 dark:hover:bg-blue-900 focus:ring-4 focus:ring-primary-300 dark:focus:ring-primary-900">
                         Soumettre <i class="fa-solid fa-paper-plane"></i>
                     </button>
                 </div>
             </div>
+            </form>
 
 
         </div>
 
     </div>
 </section>
+    <?php endif; ?>
+<?php else: ?>
+    <?php if (UsersController::isAdminLogged()) : ?>
+        <section class="py-8">
+            <div class="container mx-auto px-4 relative">
+                <div id="alert-additional-content-4" class="p-4 mb-4 text-yellow-800 border border-yellow-300 rounded-lg bg-yellow-50 dark:bg-gray-800 dark:text-yellow-300 dark:border-yellow-800" role="alert">
+                    <div class="flex items-center">
+                        <svg aria-hidden="true" class="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z" clip-rule="evenodd"></path></svg>
+                        <span class="sr-only">Info</span>
+                        <h3 class="text-lg font-medium">Vous n'utilisez pas le package Contact</h3>
+                    </div>
+                    <div class="mt-2 mb-4 text-sm">
+                        Le thème Wipe prend en charge le package Contact, pour le moment vous ne l'utilisez pas, installez le si vous voulez en bénéficier.<br>Seuls les administrateurs voient ce message !
+                    </div>
+                    <div class="flex">
+                        <a href="<?= EnvManager::getInstance()->getValue("PATH_SUBFOLDER") ?>cmw-admin" target="_blank" type="button" class="text-white bg-yellow-800 hover:bg-yellow-900 focus:ring-4 focus:outline-none focus:ring-yellow-300 font-medium rounded-lg text-xs px-3 py-1.5 mr-2 text-center inline-flex items-center dark:bg-yellow-300 dark:text-gray-800 dark:hover:bg-yellow-400 dark:focus:ring-yellow-800">
+                            <p><i class="fa-solid fa-download"></i> Installer le package</p>
+                        </a>
+                        <button type="button" class="text-yellow-800 bg-transparent border border-yellow-800 hover:bg-yellow-900 hover:text-white focus:ring-4 focus:outline-none focus:ring-yellow-300 font-medium rounded-lg text-xs px-3 py-1.5 text-center dark:hover:bg-yellow-300 dark:border-yellow-300 dark:text-yellow-300 dark:hover:text-gray-800 dark:focus:ring-yellow-800" data-dismiss-target="#alert-additional-content-4" aria-label="Close">
+                            <p><i class="fa-solid fa-eye-slash"></i> Masquer</p>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+    <?php endif; ?>
+<?php endif; ?>
