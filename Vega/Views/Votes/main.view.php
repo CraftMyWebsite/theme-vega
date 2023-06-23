@@ -12,8 +12,8 @@ $description = ThemeModel::fetchConfigValue('vote_description');
 
 <section style="background-image: url('<?= ThemeModel::fetchImageLink('hero_img_bg') ?>');" class="bg-cover mb-4">
     <div class="text-center text-white py-8">
-        <h2 class="font-bold">Voter</h2>
-        <p>Description de la page de fifou</p>
+        <h2 class="font-bold"><?= ThemeModel::fetchConfigValue('votes_page_title') ?></h2>
+        <p><?= ThemeModel::fetchConfigValue('vote_description') ?></p>
     </div>
 
     <!--SEPARATOR-->
@@ -33,7 +33,7 @@ $description = ThemeModel::fetchConfigValue('vote_description');
 <section class="px-4 lg:px-24 2xl:px-60 py-6">
     <div class="lg:grid grid-cols-3 gap-4">
         <div class="bg-gray-100 dark:bg-gray-900 dark:text-gray-300 rounded-lg shadow p-4 h-fit">
-            <h4 class="font-bold text-center">Voter</h4>
+            <h4 class="font-bold text-center"><?= ThemeModel::fetchConfigValue('votes_participate_title') ?></h4>
             <?php if (usersModel::getLoggedUser() === -1): ?>
                 <div class="bg-white dark:bg-gray-700 rounded-lg shadow-lg p-2 mb-2">
                     <p>Pour pouvoir voter et récupérer vos récompenses vous devez être connecté sur le site, alors
@@ -69,7 +69,7 @@ $description = ThemeModel::fetchConfigValue('vote_description');
 
         </div>
         <div class="col-span-2 bg-gray-100 dark:bg-gray-900 dark:text-gray-300 rounded-lg shadow p-4 h-fit">
-            <h4 class="font-bold text-center mb-2">Top 10 du mois</h4>
+            <h4 class="font-bold text-center mb-2"><?= ThemeModel::fetchConfigValue('votes_top_10_title') ?></h4>
             <div class="overflow-x-auto relative shadow-md sm:rounded-lg">
                 <table class="w-full text-sm text-left">
                     <thead class="text-xs uppercase bg-gray-50 dark:bg-gray-700 ">
@@ -133,10 +133,10 @@ $description = ThemeModel::fetchConfigValue('vote_description');
         </div>
     </div>
 </section>
-
+<?php if(ThemeModel::fetchConfigValue('votes_display_global')): ?>
 <section class="px-4 lg:px-24 2xl:px-96 py-6">
     <div class="bg-gray-100 dark:bg-gray-900 dark:text-gray-300 rounded-lg shadow p-4 h-fit">
-        <h4 class="font-bold text-center mb-2">Top 10 global</h4>
+        <h4 class="font-bold text-center mb-2"><?= ThemeModel::fetchConfigValue('votes_top_10_global_title') ?></h4>
         <div class="overflow-x-auto relative shadow-md sm:rounded-lg">
             <table class="w-full text-sm text-left">
                 <thead class="text-xs uppercase bg-gray-50 dark:bg-gray-700 ">
@@ -193,3 +193,4 @@ $description = ThemeModel::fetchConfigValue('vote_description');
         </div>
     </div>
 </section>
+<?php endif; ?>

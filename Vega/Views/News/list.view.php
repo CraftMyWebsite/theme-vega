@@ -5,6 +5,7 @@ use CMW\Manager\Env\EnvManager;
 use CMW\Model\Core\ThemeModel;
 use CMW\Utils\Website;
 
+$newsList = $newsModel->getSomeNews(ThemeModel::fetchConfigValue('news_page_number_display'), 'DESC');
 
 $title = Website::getName() . ' - '. ThemeModel::fetchConfigValue('news_title');
 $description = ThemeModel::fetchConfigValue('news_description');
@@ -12,8 +13,8 @@ $description = ThemeModel::fetchConfigValue('news_description');
 
 <section style="background-image: url('<?= ThemeModel::fetchImageLink('hero_img_bg') ?>');" class="bg-cover mb-4">
     <div class="text-center text-white py-8">
-        <h2 class="font-bold">Nouveautés</h2>
-        <p>Description de la page</p>
+        <h2 class="font-bold"><?= ThemeModel::fetchConfigValue('news_page_title') ?></h2>
+        <p><?= ThemeModel::fetchConfigValue('news_description') ?></p>
     </div>
 
     <!--SEPARATOR-->

@@ -12,8 +12,8 @@ $description = ThemeModel::fetchConfigValue('faq_description');
 
 <section style="background-image: url('<?= ThemeModel::fetchImageLink('hero_img_bg') ?>');" class="bg-cover mb-4">
     <div class="text-center text-white py-8">
-        <h2 class="font-bold">F.A.Q</h2>
-        <p>Description de la page</p>
+        <h2 class="font-bold"><?= ThemeModel::fetchConfigValue('faq_page_title') ?></h2>
+        <p><?= ThemeModel::fetchConfigValue('faq_description') ?></p>
     </div>
 
     <!--SEPARATOR-->
@@ -31,11 +31,12 @@ $description = ThemeModel::fetchConfigValue('faq_description');
 </section>
 
 
-<div class="lg:grid grid-cols-3 py-6 px-4 lg:px-24 2xl:px-60 gap-8">
+<div class="<?php if(ThemeModel::fetchConfigValue('faq_display_form')): {echo "lg:grid grid-cols-3 gap-6";} endif ?> py-6 px-4 lg:px-24 2xl:px-60 ">
     <section class="">
+        <?php if(ThemeModel::fetchConfigValue('faq_display_form')): ?>
         <div class="rounded-lg shadow bg-gray-100 dark:bg-gray-900">
             <div class="p-4 rounded-lg">
-                <p class="text-center text-lg font-medium mb-4">Posez nous une question</p>
+                <p class="text-center text-lg font-medium mb-4"><?= ThemeModel::fetchConfigValue('faq_question_title') ?></p>
                 <form action="contact" method="post" class="">
                     <?php (new SecurityManager())->insertHiddenToken() ?>
                     <div class="lg:grid grid-cols-2 gap-6 ">
@@ -88,14 +89,15 @@ $description = ThemeModel::fetchConfigValue('faq_description');
                             Soumettre <i class="fa-solid fa-paper-plane"></i>
                         </button>
                     </div>
-                </form>>
+                </form>
             </div>
         </div>
+        <?php endif; ?>
     </section>
 
     <section class="col-span-2 mt-4 lg:mt-0">
         <div class="bg-gray-100 dark:bg-gray-900 dark:text-gray-300 rounded-lg shadow p-4">
-            <p class="text-center text-lg font-medium mb-4">Trouvez des réponses</p>
+            <p class="text-center text-lg font-medium mb-4"><?= ThemeModel::fetchConfigValue('faq_answer_title') ?></p>
 
             <div id="accordion-collapse" data-accordion="collapse">
                 <?php foreach ($faqList as $faq) : ?>
@@ -116,7 +118,9 @@ $description = ThemeModel::fetchConfigValue('faq_description');
                 <div id="accordion-collapse-body-<?= $faq->getFaqId() ?>" class="hidden" aria-labelledby="accordion-collapse-heading-<?= $faq->getFaqId() ?>">
                     <div class="p-5 border border-b-0 border-gray-200 dark:border-gray-700">
                         <p class="mb-2 "><?= $faq->getResponse() ?></p>
+                        <?php if(ThemeModel::fetchConfigValue('faq_display_autor')): ?>
                         <p><small><?= $faq->getAuthor()->getPseudo() ?></small></p>
+                        <?php endif; ?>
                     </div>
                 </div>
                 <?php endforeach; ?>
