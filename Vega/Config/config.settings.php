@@ -18,7 +18,42 @@ return [
     /*TITLE DESC*/
     "home_title" => "Accueil",
     "home_description" => "Ceci est la page d'accueil",
+    "hero_title" => "Bienvenue !",
+    "hero_description" => "Une super description pour mon serveur !",
+    "hero_button_text" => "Texte du bouton",
+    "hero_button_link" => "#",
     "hero_img_bg" => "Config/Default/Img/bg.webp",
+    /*FEATURE SECTION*/
+    "feature_section_active" => "1",
+    "feature_section_title" => "Fonctionnalités",
+    "feature_img_1" => "Config/Default/Img/feature1.webp",
+    "feature_title_1" => "Communauté",
+    "feature_description_1" => "Amet minim mollit non deserunt ullamco est sit aliqua",
+    "feature_img_2" => "Config/Default/Img/feature2.webp",
+    "feature_title_2" => "Savoir faire",
+    "feature_description_2" => "Amet minim mollit non deserunt ullamco est sit aliqua",
+    "feature_img_3" => "Config/Default/Img/feature3.webp",
+    "feature_title_3" => "Réactif",
+    "feature_description_3" => "Amet minim mollit non deserunt ullamco est sit aliqua",
+    /*NEWS SECTION*/
+    "news_section_active" => "1",
+    "news_section_title" => "Nouveautés",
+    "news_number_display" => "4",
+    /*CONTACT SECTION*/
+    "contact_section_active" => "1",
+    "contact_section_title" => "Nous contacter",
+    /*CUSTOM SECTION #1*/
+    "custom_section_active_1" => "0",
+    "custom_section_title_1" => "Titre personnalisé 1",
+    "custom_section_content_1" => "<h1>Personnalise moi</h1> <br> <p>Comme du code HTML !</p>",
+    /*CUSTOM SECTION #2*/
+    "custom_section_active_2" => "0",
+    "custom_section_title_2" => "Titre personnalisé 2",
+    "custom_section_content_2" => "<h1>Personnalise moi</h1> <br> <p>Comme du code HTML !</p>",
+    /*CUSTOM SECTION #3*/
+    "custom_section_active_3" => "0",
+    "custom_section_title_3" => "Titre personnalisé 3",
+    "custom_section_content_3" => "<h1>Personnalise moi</h1> <br> <p>Comme du code HTML !</p>",
 
     /* - - - - - - - -
          - - CONTACT - -

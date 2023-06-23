@@ -13,8 +13,12 @@ $menus = MenusModel::getInstance()->getMenus();
 <nav class="lg:px-12 py-2 bg-gray-50 border-gray-200 dark:bg-gray-900 dark:border-gray-700">
     <div class=" flex flex-wrap  items-center mx-auto">
         <a href="<?= EnvManager::getInstance()->getValue("PATH_SUBFOLDER") ?>" class="flex items-center">
+            <?php if (ThemeModel::fetchConfigValue('header_active_logo')): ?>
             <img src="<?= ThemeModel::fetchImageLink('header_img_logo') ?>" class="mr-3 w-10" alt="Logo">
+            <?php endif; ?>
+            <?php if (ThemeModel::fetchConfigValue('header_active_title')): ?>
             <span class="self-center text-xl font-semibold whitespace-nowrap dark:text-white"><?= Website::getName() ?></span>
+            <?php endif; ?>
         </a>
         <div class="flex ml-auto lg:order-2 text-sm">
             <?php if(UsersController::isUserLogged()): ?>
@@ -38,8 +42,12 @@ $menus = MenusModel::getInstance()->getMenus();
                 </li>
             </ul>
             <?php else: ?>
+                <?php if (ThemeModel::fetchConfigValue('header_allow_login_button')): ?>
                 <a class="hidden lg:flex justify-between items-center" href="<?= EnvManager::getInstance()->getValue("PATH_SUBFOLDER") ?>login"><button class="py-2 pr-4 pl-3 w-full font-medium text-blue-500 border-b border-gray-100 hover:bg-gray-50 lg:hover:bg-transparent lg:border-0 lg:hover:text-blue-700 lg:p-0 lg:w-auto dark:text-blue-500 dark:hover:text-white dark:focus:text-white dark:border-gray-700 dark:hover:bg-gray-700 lg:dark:hover:bg-transparent">Connexion</button></a>
+                <?php endif; ?>
+                <?php if (ThemeModel::fetchConfigValue('header_allow_register_button')): ?>
                 <a class="hidden lg:flex justify-between items-center ml-4" href="<?= EnvManager::getInstance()->getValue("PATH_SUBFOLDER") ?>register"><button class="py-2 pr-4 pl-3 w-full font-medium text-gray-700 border-b border-gray-100 hover:bg-gray-50 lg:hover:bg-transparent lg:border-0 lg:hover:text-blue-700 lg:p-0 lg:w-auto dark:text-gray-400 dark:hover:text-white dark:focus:text-white dark:border-gray-700 dark:hover:bg-gray-700 lg:dark:hover:bg-transparent">Inscription</button></a>
+                <?php endif; ?>
             <?php endif; ?>
             <button data-collapse-toggle="navbar-multi-level" type="button" class="inline-flex justify-center items-center lg:ml-3 text-gray-400 rounded-lg lg:hidden hover:text-gray-900 focus:outline-none focus:ring-2 focus:ring-blue-300 dark:text-gray-400 dark:hover:text-white dark:focus:ring-gray-500" aria-controls="navbar-multi-level" aria-expanded="false">
                 <span class="sr-only">Open main menu</span>
