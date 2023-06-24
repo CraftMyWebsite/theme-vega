@@ -14,7 +14,6 @@ $description = Website::getDescription();
 <section style="background-image: url('<?= ThemeModel::fetchImageLink('hero_img_bg') ?>');" class="bg-cover mb-4">
     <div class="text-center text-white py-8">
         <h2 class="font-bold">Inscription</h2>
-        <p>Description de la page</p>
     </div>
 
     <!--SEPARATOR-->
@@ -31,6 +30,7 @@ $description = Website::getDescription();
     </svg>
 </section>
 
+<?php if(ThemeModel::fetchConfigValue('header_allow_register_button')): ?>
 <section class="mx-auto lg:w-1/3">
     <form class="space-y-6" action="" method="post">
         <?php (new SecurityManager())->insertHiddenToken() ?>
@@ -125,3 +125,14 @@ $description = Website::getDescription();
         </div>
     </form>
 </section>
+<?php else: ?>
+<section class="mx-auto lg:w-1/3">
+    <div class="mx-auto relative p-4 w-full max-w-md h-full md:h-auto mb-6 mt-6">
+        <div class="relative bg-white rounded-lg shadow">
+            <div class="py-6 px-6 lg:px-8">
+                <?= ThemeModel::fetchConfigValue('global_no_register_message') ?>
+            </div>
+        </div>
+    </div>
+</section>
+<?php endif; ?>
