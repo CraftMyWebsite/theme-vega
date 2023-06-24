@@ -85,10 +85,10 @@ $description = Website::getDescription();
                         <div class="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
                             <i class="text-gray-500 dark:text-gray-400 fa-solid fa-lock"></i>
                         </div>
-                        <input name="register_password_verify" type="password" id="passwordInput"
+                        <input name="register_password_verify" type="password" id="passwordInputV"
                                class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-l-lg focus:ring-blue-500 focus:border-blue-500 block w-full pl-10 p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                                placeholder="••••••••">
-                        <div onclick="showPassword()"
+                        <div onclick="showPasswordV()"
                              class="cursor-pointer p-2.5 text-sm font-medium text-white bg-blue-700 rounded-r-lg border border-blue-700 hover:bg-blue-800">
                             <i class="fa fa-eye-slash" aria-hidden="true"></i></div>
                     </div>
@@ -136,3 +136,21 @@ $description = Website::getDescription();
     </div>
 </section>
 <?php endif; ?>
+<script>
+    function showPassword() {
+        var x = document.getElementById("passwordInput");
+        if (x.type === "password") {
+            x.type = "text";
+        } else {
+            x.type = "password";
+        }
+    }
+    function showPasswordV() {
+        var x = document.getElementById("passwordInputV");
+        if (x.type === "password") {
+            x.type = "text";
+        } else {
+            x.type = "password";
+        }
+    }
+</script>
