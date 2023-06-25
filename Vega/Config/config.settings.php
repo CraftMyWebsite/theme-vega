@@ -18,7 +18,7 @@ return [
     /*TITLE DESC*/
     "home_title" => "Accueil",
     "home_description" => "Ceci est la page d'accueil",
-    "hero_show_minecraft_player" => "1",
+    "hero_show_minecraft_player" => "0",
     "hero_show_footer_icon" => "1",
     "hero_join_prefix" => "Rejoins les",
     "hero_join_suffix" => "joueurs en ligne",
