@@ -25,6 +25,6 @@ $description = Website::getDescription();
 
 <section class="px-4 lg:px-24 2xl:px-60 py-6 text-center ">
     <h1 class="text-9xl font-bold">{errorCode}</h1>
-    <p>Il semblrais que vous vous êtes predu !</p>
-    <p>Pas de panique vous pouvez tourjours <a class="text-blue-500 hover:text-blue-600" href="<?= EnvManager::getInstance()->getValue("PATH_SUBFOLDER") ?>">retourner à l'accueil</a> !</p>
+    <p>Il semblerais que vous vous êtes predu !</p>
+    <p>Pas de panique vous pouvez toujours <a class="text-blue-500 hover:text-blue-600" href="<?= EnvManager::getInstance()->getValue("PATH_SUBFOLDER") ?>">retourner à l'accueil</a> !</p>
 </section>

@@ -6,7 +6,7 @@ use CMW\Model\Core\ThemeModel;
 use CMW\Utils\Website;
 
 
-$title = Website::getName() . ' - Profile de ' . $user->getPseudo() ;
+$title = Website::getName() . ' - Profil de ' . $user->getPseudo() ;
 $description = Website::getDescription();
 ?>
 

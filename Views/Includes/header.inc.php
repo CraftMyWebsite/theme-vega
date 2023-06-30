@@ -32,7 +32,7 @@ $menus = MenusModel::getInstance()->getMenus();
                                 <a href="<?= EnvManager::getInstance()->getValue("PATH_SUBFOLDER") ?>cmw-admin" target="_blank" class="block py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"><i class="fa-solid fa-screwdriver-wrench"></i> Administration</a>
                             </li>
                             <li>
-                                <a href="<?= EnvManager::getInstance()->getValue("PATH_SUBFOLDER") ?>profile" class="block py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"><i class="fa-regular fa-address-card"></i> Profile</a>
+                                <a href="<?= EnvManager::getInstance()->getValue("PATH_SUBFOLDER") ?>profile" class="block py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"><i class="fa-regular fa-address-card"></i> Profil</a>
                             </li>
                         </ul>
                         <div class="py-1">

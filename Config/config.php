@@ -88,7 +88,7 @@ if (PackageController::isInstalled("Minecraft")) {
                         </div>
                         <input class="mt-2 form-control form-control-sm" type="file" id="header_img_logo"
                                name="header_img_logo" accept=".png, .jpg, .jpeg, .webp, .gif">
-                        <span>Fichiers autorisé ; png, jpg, jpeg, webp, svg, gif</span>
+                        <span>Fichiers autorisés : png, jpg, jpeg, webp, svg, gif</span>
                         <div class="form-check form-switch mt-2">
                             <input class="form-check-input" type="checkbox" value="1" name="header_active_title"
                                    id="header_active_title" <?= ThemeModel::fetchConfigValue('header_active_title') ? 'checked' : '' ?>>
@@ -136,7 +136,7 @@ if (PackageController::isInstalled("Minecraft")) {
                                                     class="fa-sharp fa-solid fa-circle-question"></i></h6></label>
                                 </div>
                             </div>
-                            <h6>Message d'inscription désactiver :</h6>
+                            <h6>Message lorsque l'inscription est désactivée :</h6>
                             <textarea name="global_no_register_message"
                                       class="tinymce"><?= ThemeModel::fetchConfigValue('global_no_register_message') ?></textarea>
                         </div>
@@ -153,10 +153,9 @@ if (PackageController::isInstalled("Minecraft")) {
                 <h4>Indéxation de la page (meta) :</h4>
                 <div class="alert alert-warning">
                     <h4 class="alert-heading">Bien comprendre l'indéxation</h4>
-                    <p>Ces options change le titre et la déscription de votre page dans l'onglet mais également lors des
-                        affichage dans discord, twitter ...<br>Ceci n'est aucunment lié au titre de la page en cours
-                        cette option ce trouve un peu plus bas (Si votre page est éligible à ce réglage.)<br>Si vous ne
-                        comprenez toujours pas ce que sa modifie merci de contacter le support de CraftMyWebsite</p>
+                    <p>Ces options changent le titre et la description de votre page dans l'onglet, mais également lors des affichages sur Discord, Twitter...<br>
+                        Ceci n'est aucunement lié au titre de la page en cours de modification. Cette option se trouve un peu plus bas (Si votre page est éligible à ce réglage).<br>
+                        Si vous avez besoin d'aide supplémentaire vous pouvez contacter le support CraftMyWebsite.</p>
                 </div>
                 <h6>Titre de la page :</h6>
                 <input type="text" class="form-control" id="home_title" name="home_title"
@@ -170,7 +169,7 @@ if (PackageController::isInstalled("Minecraft")) {
                 <h6>Images :</h6>
                 <input class="mt-2 form-control form-control-sm" type="file" id="hero_img_bg" name="hero_img_bg"
                        accept="png,jpg,jpeg,webp,svg,gif">
-                <span>Fichiers autorisé ; png, jpg, jpeg, webp, svg, gif</span>
+                <span>Fichiers autorisés : png, jpg, jpeg, webp, svg, gif</span>
                 <h6>Réglages :</h6>
                 <?php ?>
                 <div class="form-check form-switch">
@@ -400,7 +399,7 @@ if (PackageController::isInstalled("Minecraft")) {
                                     data-bs-toggle="tooltip" title="Vous pouvez activer ou non cette section."
                                     class="fa-sharp fa-solid fa-circle-question"></i></h6></label>
                 </div>
-                <label>Contenue :</label>
+                <label>Contenu :</label>
                 <textarea name="custom_section_content_1"
                           class="tinymce"><?= ThemeModel::fetchConfigValue('custom_section_content_1') ?></textarea>
             </div>
@@ -415,7 +414,7 @@ if (PackageController::isInstalled("Minecraft")) {
                                     data-bs-toggle="tooltip" title="Vous pouvez activer ou non cette section."
                                     class="fa-sharp fa-solid fa-circle-question"></i></h6></label>
                 </div>
-                <label>Contenue :</label>
+                <label>Contenu :</label>
                 <textarea name="custom_section_content_2"
                           class="tinymce"><?= ThemeModel::fetchConfigValue('custom_section_content_2') ?></textarea>
             </div>
@@ -430,7 +429,7 @@ if (PackageController::isInstalled("Minecraft")) {
                                     data-bs-toggle="tooltip" title="Vous pouvez activer ou non cette section."
                                     class="fa-sharp fa-solid fa-circle-question"></i></h6></label>
                 </div>
-                <label>Contenue :</label>
+                <label>Contenu :</label>
                 <textarea name="custom_section_content_3"
                           class="tinymce"><?= ThemeModel::fetchConfigValue('custom_section_content_3') ?></textarea>
             </div>
@@ -445,7 +444,7 @@ if (PackageController::isInstalled("Minecraft")) {
                                     data-bs-toggle="tooltip" title="Vous pouvez activer ou non cette section."
                                     class="fa-sharp fa-solid fa-circle-question"></i></h6></label>
                 </div>
-                <label>Contenue :</label>
+                <label>Contenu :</label>
                 <textarea name="custom_section_content_4"
                           class="tinymce"><?= ThemeModel::fetchConfigValue('custom_section_content_4') ?></textarea>
             </div>
@@ -473,11 +472,9 @@ if (PackageController::isInstalled("Minecraft")) {
                     <h4>Indéxation de la page (meta) :</h4>
                     <div class="alert alert-warning">
                         <h4 class="alert-heading">Bien comprendre l'indéxation</h4>
-                        <p>Ces options change le titre et la déscription de votre page dans l'onglet mais également lors
-                            des affichage dans discord, twitter ...<br>Ceci n'est aucunment lié au titre de la page en
-                            cours cette option ce trouve un peu plus bas (Si votre page est éligible à ce réglage.)<br>Si
-                            vous ne comprenez toujours pas ce que sa modifier merci de contacter le support de
-                            CraftMyWebsite</p>
+                        <p>Ces options changent le titre et la description de votre page dans l'onglet, mais également lors des affichages sur Discord, Twitter...<br>
+                            Ceci n'est aucunement lié au titre de la page en cours de modification. Cette option se trouve un peu plus bas (Si votre page est éligible à ce réglage).<br>
+                            Si vous avez besoin d'aide supplémentaire vous pouvez contacter le support CraftMyWebsite.</p>
                     </div>
                     <div class="row">
                         <div class="col-12 col-lg-6">
@@ -521,11 +518,9 @@ if (PackageController::isInstalled("Minecraft")) {
                     <h4>Indéxation de la page (meta) :</h4>
                     <div class="alert alert-warning">
                         <h4 class="alert-heading">Bien comprendre l'indéxation</h4>
-                        <p>Ces options change le titre et la déscription de votre page dans l'onglet mais également lors
-                            des affichage dans discord, twitter ...<br>Ceci n'est aucunment lié au titre de la page en
-                            cours cette option ce trouve un peu plus bas (Si votre page est éligible à ce réglage.)<br>Si
-                            vous ne comprenez toujours pas ce que sa modifier merci de contacter le support de
-                            CraftMyWebsite</p>
+                        <p>Ces options changent le titre et la description de votre page dans l'onglet, mais également lors des affichages sur Discord, Twitter...<br>
+                            Ceci n'est aucunement lié au titre de la page en cours de modification. Cette option se trouve un peu plus bas (Si votre page est éligible à ce réglage).<br>
+                            Si vous avez besoin d'aide supplémentaire vous pouvez contacter le support CraftMyWebsite.</p>
                     </div>
                     <div class="row">
                         <div class="col-12 col-lg-6">
@@ -592,11 +587,9 @@ if (PackageController::isInstalled("Minecraft")) {
                     <h4>Indéxation de la page (meta) :</h4>
                     <div class="alert alert-warning">
                         <h4 class="alert-heading">Bien comprendre l'indéxation</h4>
-                        <p>Ces options change le titre et la déscription de votre page dans l'onglet mais également lors
-                            des affichage dans discord, twitter ...<br>Ceci n'est aucunment lié au titre de la page en
-                            cours cette option ce trouve un peu plus bas (Si votre page est éligible à ce réglage.)<br>Si
-                            vous ne comprenez toujours pas ce que sa modifier merci de contacter le support de
-                            CraftMyWebsite</p>
+                        <p>Ces options changent le titre et la description de votre page dans l'onglet, mais également lors des affichages sur Discord, Twitter...<br>
+                            Ceci n'est aucunement lié au titre de la page en cours de modification. Cette option se trouve un peu plus bas (Si votre page est éligible à ce réglage).<br>
+                            Si vous avez besoin d'aide supplémentaire vous pouvez contacter le support CraftMyWebsite.</p>
                     </div>
                     <div class="row">
                         <div class="col-12 col-lg-6">
@@ -664,11 +657,9 @@ if (PackageController::isInstalled("Minecraft")) {
                     <h4>Indéxation de la page (meta) :</h4>
                     <div class="alert alert-warning">
                         <h4 class="alert-heading">Bien comprendre l'indéxation</h4>
-                        <p>Ces options change le titre et la déscription de votre page dans l'onglet mais également lors
-                            des affichage dans discord, twitter ...<br>Ceci n'est aucunment lié au titre de la page en
-                            cours cette option ce trouve un peu plus bas (Si votre page est éligible à ce réglage.)<br>Si
-                            vous ne comprenez toujours pas ce que sa modifier merci de contacter le support de
-                            CraftMyWebsite</p>
+                        <p>Ces options changent le titre et la description de votre page dans l'onglet, mais également lors des affichages sur Discord, Twitter...<br>
+                            Ceci n'est aucunement lié au titre de la page en cours de modification. Cette option se trouve un peu plus bas (Si votre page est éligible à ce réglage).<br>
+                            Si vous avez besoin d'aide supplémentaire vous pouvez contacter le support CraftMyWebsite.</p>
                     </div>
                     <div class="row">
                         <div class="col-12 col-lg-6">
@@ -762,11 +753,9 @@ if (PackageController::isInstalled("Minecraft")) {
                     <h4>Indéxation de la page (meta) :</h4>
                     <div class="alert alert-warning">
                         <h4 class="alert-heading">Bien comprendre l'indéxation</h4>
-                        <p>Ces options change le titre et la déscription de votre page dans l'onglet mais également lors
-                            des affichage dans discord, twitter ...<br>Ceci n'est aucunment lié au titre de la page en
-                            cours cette option ce trouve un peu plus bas (Si votre page est éligible à ce réglage.)<br>Si
-                            vous ne comprenez toujours pas ce que sa modifier merci de contacter le support de
-                            CraftMyWebsite</p>
+                        <p>Ces options changent le titre et la description de votre page dans l'onglet, mais également lors des affichages sur Discord, Twitter...<br>
+                            Ceci n'est aucunement lié au titre de la page en cours de modification. Cette option se trouve un peu plus bas (Si votre page est éligible à ce réglage).<br>
+                            Si vous avez besoin d'aide supplémentaire vous pouvez contacter le support CraftMyWebsite.</p>
                     </div>
                     <div class="row">
                         <div class="col-12 col-lg-6">
@@ -830,7 +819,7 @@ if (PackageController::isInstalled("Minecraft")) {
                                     <input class="mt-2 form-control form-control-sm" type="file"
                                            id="forum_nobody_send_message_img" name="forum_nobody_send_message_img"
                                            accept=".png, .jpg, .jpeg, .webp, .gif">
-                                    <span>Fichiers autorisé ; png, jpg, jpeg, webp, svg, gif</span>
+                                    <span>Fichiers autorisés : png, jpg, jpeg, webp, svg, gif</span>
                                 </div>
                             </div>
                         </div>
@@ -958,7 +947,7 @@ if (PackageController::isInstalled("Minecraft")) {
                                        name="forum_widgets_custom_title"
                                        value="<?= ThemeModel::fetchConfigValue('forum_widgets_custom_title') ?>"
                                        required>
-                                <h6>Contenue :</h6>
+                                <h6>Contenu :</h6>
                                 <textarea name="forum_widgets_custom_text"
                                           class="tinymce"><?= ThemeModel::fetchConfigValue('forum_widgets_custom_text') ?></textarea>
                             </div>
@@ -996,7 +985,7 @@ if (PackageController::isInstalled("Minecraft")) {
         </div>
         <div class="card-in-card mt-4">
             <div class="card-body">
-                <h4>Conditions general :</h4>
+                <h4>Conditions générales :</h4>
                 <div class="row">
                     <div class="col-12 col-lg-6">
                         <h6>Titre de section :</h6>
@@ -1030,7 +1019,7 @@ if (PackageController::isInstalled("Minecraft")) {
         <div class="card-in-card mt-4">
             <div class="card-body">
                 <h4>Icônes :</h4>
-                <p>Retrouvez les incônes ici : <a href="https://fontawesome.com/search?o=r&m=free" target="_blank">FontAwesome
+                <p>Retrouvez les icônes ici : <a href="https://fontawesome.com/search?o=r&m=free" target="_blank">FontAwesome
                         (gratuit)</a></p>
                 <div class="row">
                     <div class="col-12 col-lg-3">
