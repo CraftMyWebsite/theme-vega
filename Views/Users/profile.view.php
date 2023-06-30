@@ -39,7 +39,7 @@ $description = Website::getDescription();
                  alt="...">
             <label class="block mt-4 mb-2 text-sm font-medium text-gray-900 dark:text-white" for="file_input">Changer
                 d'image :</label>
-            <form action="" method="post" enctype="multipart/form-data">
+            <form action="<?= EnvManager::getInstance()->getValue("PATH_SUBFOLDER") ?>profile" method="post" enctype="multipart/form-data">
                 <?php (new SecurityManager())->insertHiddenToken() ?>
                 <input name="pictureProfile" accept=".png, .jpg, .jpeg, .webp, .gif" required
                     class="block w-full text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 dark:text-gray-400 focus:outline-none dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400"
