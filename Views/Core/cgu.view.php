@@ -25,6 +25,6 @@ $description = ThemeModel::fetchConfigValue('cgu_description');
 <section class="px-4 lg:px-24 2xl:px-60 py-6">
     <div class="bg-gray-100 dark:bg-gray-900 dark:text-gray-300 rounded-lg shadow p-4">
         <p><?= $cgu->getContent() ?></p>
-        <p>Écrit par <b><?= $cgu->getLastEditor()->getPseudo() ?></b>, mis à jours le <?= $cgu->getUpdate() ?></p>
+        <p>Écrit par <b><?= $cgu->getLastEditor()->getPseudo() ?></b>, mis à jour le <?= $cgu->getUpdate() ?></p>
     </div>
 </section>
