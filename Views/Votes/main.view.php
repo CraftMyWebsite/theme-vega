@@ -34,7 +34,7 @@ $description = ThemeModel::fetchConfigValue('vote_description');
     <div class="lg:grid grid-cols-3 gap-4">
         <div class="bg-gray-100 dark:bg-gray-900 dark:text-gray-300 rounded-lg shadow p-4 h-fit">
             <h4 class="font-bold text-center"><?= ThemeModel::fetchConfigValue('votes_participate_title') ?></h4>
-            <?php if (usersModel::getLoggedUser() === -1): ?>
+            <?php if (UsersModel::getCurrentUser()?->getId() === -1): ?>
                 <div class="bg-white dark:bg-gray-700 rounded-lg shadow-lg p-2 mb-2">
                     <p>Pour pouvoir voter et récupérer vos récompenses vous devez être connecté sur le site, alors
                         n'attendez plus pour obtenir des récompenses uniques !</p>
