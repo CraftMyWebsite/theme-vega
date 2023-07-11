@@ -7,7 +7,7 @@ use CMW\Model\Core\ThemeModel;
 use CMW\Utils\Website;
 
 
-$title = Website::getName() . ' - Connexion';
+$title = Website::getWebsiteName() . ' - Connexion';
 $description = Website::getDescription();
 ?>
 

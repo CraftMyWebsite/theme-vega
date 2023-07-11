@@ -4,7 +4,7 @@ use CMW\Model\Core\ThemeModel;
 use CMW\Utils\Website;
 
 
-$title = Website::getName() . ' - '. ThemeModel::fetchConfigValue('cgu_title');
+$title = Website::getWebsiteName() . ' - '. ThemeModel::fetchConfigValue('cgu_title');
 $description = ThemeModel::fetchConfigValue('cgu_description');
 ?>
 

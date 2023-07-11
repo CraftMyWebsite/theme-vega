@@ -9,7 +9,7 @@ use CMW\Utils\Website;
 <div class="border-t-2 text-sm mt-auto dark:text-gray-300">
     <div class="flex flex-wrap  items-center">
         <div class="px-6 py-6 md:flex-1">
-            <p>Copyright © <?= ThemeModel::fetchConfigValue('footer_year') ?><br>Par <b><a href="https://craftmywebsite.fr/" target="_blank">CraftMyWebsite</a></b> pour <b><?= Website::getName() ?></b></p>
+            <p>Copyright © <?= ThemeModel::fetchConfigValue('footer_year') ?><br>Par <b><a href="https://craftmywebsite.fr/" target="_blank">CraftMyWebsite</a></b> pour <b><?= Website::getWebsiteName() ?></b></p>
             <p class="hidden">Credit thème : Z0mblard</p>
         </div>
         <?php if(ThemeModel::fetchConfigValue('footer_active_condition')): ?>

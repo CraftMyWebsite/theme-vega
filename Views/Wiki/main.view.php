@@ -5,7 +5,7 @@ use CMW\Model\Core\ThemeModel;
 use CMW\Utils\Website;
 
 
-$title = Website::getName() . ' - '. ThemeModel::fetchConfigValue('wiki_title');
+$title = Website::getWebsiteName() . ' - '. ThemeModel::fetchConfigValue('wiki_title');
 $description = ThemeModel::fetchConfigValue('wiki_description');
 ?>
 

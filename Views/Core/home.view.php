@@ -24,7 +24,7 @@ if (PackageController::isInstalled("Minecraft")) {
 
 }
 
-$title = Website::getName() . ' - ' . ThemeModel::fetchConfigValue('home_title');
+$title = Website::getWebsiteName() . ' - ' . ThemeModel::fetchConfigValue('home_title');
 $description = Website::getDescription();
 ?>
     <!--HERO SECTION-->
@@ -77,7 +77,7 @@ $description = Website::getDescription();
                     <?php endif; ?>
                 <?php endif; ?>
                 <div class="max-w-2xl mb-4 text-2xl md:text-3xl xl:text-4xl font-bold tracking-tight leading-none text-white"><?= ThemeModel::fetchConfigValue('hero_title') ?>
-                    <span class="text-3xl md:text-4xl xl:text-5xl underline"><?= Website::getName() ?></span></div>
+                    <span class="text-3xl md:text-4xl xl:text-5xl underline"><?= Website::getWebsiteName() ?></span></div>
                 <div class="max-w-2xl mb-4 text-white font-light  md:text-lg lg:text-xl"><?= ThemeModel::fetchConfigValue('hero_description') ?></div>
                 <a href="<?= ThemeModel::fetchConfigValue('hero_button_link') ?>"
                    class="inline-flex items-center justify-center px-5 py-3 mr-3 text-base font-medium text-center text-white rounded-lg bg-blue-700 hover:bg-blue-800 dark:bg-blue-800 dark:hover:bg-blue-900 focus:ring-4 focus:ring-primary-300 dark:focus:ring-primary-900">

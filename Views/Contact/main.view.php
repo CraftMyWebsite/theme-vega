@@ -6,7 +6,7 @@ use CMW\Model\Core\ThemeModel;
 use CMW\Utils\Website;
 
 
-$title = Website::getName() . ' - ' . ThemeModel::fetchConfigValue('contact_title');
+$title = Website::getWebsiteName() . ' - ' . ThemeModel::fetchConfigValue('contact_title');
 $description = ThemeModel::fetchConfigValue('contact_description');
 ?>
 <section style="background-image: url('<?= ThemeModel::fetchImageLink('hero_img_bg') ?>');" class="bg-cover mb-4">

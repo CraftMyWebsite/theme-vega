@@ -5,7 +5,7 @@ use CMW\Model\Core\ThemeModel;
 use CMW\Utils\Website;
 
 
-$title = Website::getName() . ' - ERREUR';
+$title = Website::getWebsiteName() . ' - ERREUR';
 $description = Website::getDescription();
 ?>
 

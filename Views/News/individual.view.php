@@ -8,7 +8,7 @@ use CMW\Utils\Website;
 
 /* @var \CMW\Entity\News\NewsEntity $news */
 
-$title = Website::getName() . ' - ' . $news->getTitle();
+$title = Website::getWebsiteName() . ' - ' . $news->getTitle();
 $description = $news->getDescription();
 ?>
 

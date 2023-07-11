@@ -5,7 +5,7 @@ use CMW\Model\Core\ThemeModel;
 use CMW\Utils\Website;
 
 
-$title = Website::getName() . ' - 404';
+$title = Website::getWebsiteName() . ' - 404';
 $description = Website::getDescription();
 ?>
 

@@ -7,7 +7,7 @@ use CMW\Utils\Website;
 
 $newsList = $newsModel->getSomeNews(ThemeModel::fetchConfigValue('news_page_number_display'), 'DESC');
 
-$title = Website::getName() . ' - '. ThemeModel::fetchConfigValue('news_title');
+$title = Website::getWebsiteName() . ' - '. ThemeModel::fetchConfigValue('news_title');
 $description = ThemeModel::fetchConfigValue('news_description');
 ?>
 

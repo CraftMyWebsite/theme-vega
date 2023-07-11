@@ -6,7 +6,7 @@ use CMW\Utils\Website;
 
 /** @var CMW\Entity\Faq\FaqEntity $faqList */
 
-$title = Website::getName() . ' - ' . ThemeModel::fetchConfigValue('faq_title');
+$title = Website::getWebsiteName() . ' - ' . ThemeModel::fetchConfigValue('faq_title');
 $description = ThemeModel::fetchConfigValue('faq_description');
 ?>
 

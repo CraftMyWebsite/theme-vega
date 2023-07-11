@@ -6,7 +6,7 @@ use CMW\Model\Users\UsersModel;
 use CMW\Utils\Website;
 
 
-$title = Website::getName() . ' - ' . ThemeModel::fetchConfigValue('vote_title');
+$title = Website::getWebsiteName() . ' - ' . ThemeModel::fetchConfigValue('vote_title');
 $description = ThemeModel::fetchConfigValue('vote_description');
 ?>
 

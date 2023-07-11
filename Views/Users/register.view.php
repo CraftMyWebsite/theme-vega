@@ -7,7 +7,7 @@ use CMW\Model\Core\ThemeModel;
 use CMW\Utils\Website;
 
 
-$title = Website::getName() . ' - Inscription';
+$title = Website::getWebsiteName() . ' - Inscription';
 $description = Website::getDescription();
 ?>
 

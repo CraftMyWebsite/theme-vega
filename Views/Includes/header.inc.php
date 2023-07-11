@@ -17,7 +17,7 @@ $menus = MenusModel::getInstance()->getMenus();
             <img src="<?= ThemeModel::fetchImageLink('header_img_logo') ?>" class="mr-3 w-10" alt="Logo">
             <?php endif; ?>
             <?php if (ThemeModel::fetchConfigValue('header_active_title')): ?>
-            <span class="self-center text-xl font-semibold whitespace-nowrap dark:text-white"><?= Website::getName() ?></span>
+            <span class="self-center text-xl font-semibold whitespace-nowrap dark:text-white"><?= Website::getWebsiteName() ?></span>
             <?php endif; ?>
         </a>
         <div class="flex ml-auto lg:order-2 text-sm">

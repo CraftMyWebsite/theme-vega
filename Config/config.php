@@ -216,7 +216,7 @@ if (PackageController::isInstalled("Minecraft")) {
                                                value="<?= ThemeModel::fetchConfigValue('hero_title') ?>">
                                     </div>
                                     <div class="col-lg-6 text-start">
-                                        <p><?= Website::getName() ?></p>
+                                        <p><?= Website::getWebsiteName() ?></p>
                                     </div>
                                 </div>
                                 <div class="form-group">
