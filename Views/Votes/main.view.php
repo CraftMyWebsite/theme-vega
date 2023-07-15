@@ -58,7 +58,7 @@ $description = ThemeModel::fetchConfigValue('vote_description');
                                     class="font-bold"><?= $site->getRewards()?->getTitle() ?></span>
                             </div>
                             <div class="pt-4 pb-2">
-                                <a onclick="sendVote('<?= $site->getSiteId() ?>')" target="_blank"
+                                <a href="<?= $site->getUrl() ?>" target="_blank"
                                    class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg px-4 py-2">Voter
                                     <i class="fa-solid fa-award"></i></a>
                             </div>
