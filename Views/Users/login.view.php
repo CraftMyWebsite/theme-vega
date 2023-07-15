@@ -68,7 +68,7 @@ $description = Website::getWebsiteDescription();
                     </div>
                     <label for="login_keep_connect" class="ml-2 text-sm font-medium">Se souvenir de moi</label>
                 </div>
-                <a href="#" class="text-sm text-blue-700 hover:underline">Mot de passe oublié ?</a>
+                <a href="<?= EnvManager::getInstance()->getValue("PATH_SUBFOLDER") ?>login/forgot" class="text-sm text-blue-700 hover:underline">Mot de passe oublié ?</a>
             </div>
             <?php SecurityController::getPublicData(); ?>
             <button type="submit"

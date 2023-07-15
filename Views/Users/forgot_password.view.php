@@ -1,5 +1,6 @@
 <?php
 
+use CMW\Manager\Security\SecurityManager;
 use CMW\Model\Core\ThemeModel;
 use CMW\Utils\Website;
 
@@ -25,12 +26,15 @@ $description = Website::getWebsiteDescription();
 <section class="mx-auto lg:w-1/4">
     <div class="bg-gray-100 dark:bg-gray-900 dark:text-gray-300 rounded-lg shadow p-4">
         <label for="input-group-1" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Votre mail :</label>
+        <form action="" method="post">
+            <?php (new SecurityManager())->insertHiddenToken() ?>
         <div class="relative mb-2">
             <div class="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
                 <i class="text-gray-500 dark:text-gray-400 fa-solid fa-envelope"></i>
             </div>
-            <input type="text" id="input-group-1" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full pl-10 p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="votre@mail.com">
+            <input type="email" name="mail" id="input-group-1" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full pl-10 p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="votre@mail.com">
         </div>
         <button type="submit" class="w-full mt-4 text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center">Envoyer</button>
+        </form>
     </div>
 </section>
