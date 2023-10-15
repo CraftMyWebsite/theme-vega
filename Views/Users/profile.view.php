@@ -13,7 +13,6 @@ $description = Website::getWebsiteDescription();
 <section style="background-image: url('<?= ThemeModel::fetchImageLink('hero_img_bg') ?>');" class="bg-cover mb-4">
     <div class="text-center text-white py-8">
         <h2 class="font-bold"><?= $user->getPseudo() ?></h2>
-        <p>Description de la page de fifou</p>
     </div>
 
     <!--SEPARATOR-->
@@ -102,6 +101,65 @@ $description = Website::getWebsiteDescription();
                 </button>
             </form>
         </div>
+
+
+        <div class="bg-gray-100 dark:bg-gray-900 dark:text-gray-300 rounded-lg shadow p-4 mb-6">
+            <div class="space-y-6">
+                <h4 class="text-center font-bold"><?php if ($user->get2Fa()->isEnabled()): ?>
+                        <span style="color: #188c1a;">Sécurité <i class="fa-solid fa-check"></i></span>
+                    <?php else: ?>
+                        <span style="color: #bc2015;">Sécurité <i class="fa-solid fa-triangle-exclamation"></i></span>
+                    <?php endif; ?></h4>
+
+                <?php if (!$user->get2Fa()->isEnabled()): ?>
+                    <p class="block mb-2 text-sm font-medium text-gray-900">Pour activer l'authentification à double facteur scannez le QR code dans une application
+                        d'authentification (GoogleAuthenticator, Aegis ...)</p>
+                <?php endif; ?>
+
+
+                <form class="space-y-6" action="<?= EnvManager::getInstance()->getValue('PATH_SUBFOLDER') ?>profile/2fa/toggle" method="post">
+                    <?php (new SecurityManager())->insertHiddenToken() ?>
+                <div class="lg:grid grid-cols-2 gap-6">
+                    <div class="text-center">
+                        <img class="mx-auto" height="85%" width="85%" src='<?= $user->get2Fa()->getQrCode(250) ?>'
+                             alt="QR Code double authentification">
+                        <span><?= $user->get2Fa()->get2FaSecretDecoded() ?></span>
+                    </div>
+                    <div>
+                        <label for="secret" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Code d'authentification
+                            :</label>
+                        <div class="relative mb-2">
+                            <div class="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
+                                <i class="text-gray-500 dark:text-gray-400 fa-solid fa-shield-halved"></i>
+                            </div>
+                            <input required name="secret" type="text" id="secret"
+                                   class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full pl-10 p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+                        </div>
+                        <div class="text-center">
+                            <button type="submit"
+                                    class="mt-4 text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center">
+                                <?= $user->get2Fa()->isEnabled() ? 'Désactiver' : 'Activer' ?>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                </form>
+            </div>
+        </div>
+
+        <div class="bg-gray-100 dark:bg-gray-900 dark:text-gray-300 rounded-lg shadow p-4 mb-6 h-fit">
+            <div class="space-y-6">
+                <?php (new SecurityManager())->insertHiddenToken() ?>
+                <h4 class="text-center font-bold">Vous nous quittez ?</h4>
+                <p class="text-center block mt-4 mb-4 text-sm font-medium">Nous somme triste de vous voir partir !</p>
+                <div class="text-center mt-4 mb-6">
+                    <a href="<?= EnvManager::getInstance()->getValue("PATH_SUBFOLDER") ?>profile/delete/<?= $user->getId() ?>" style="background: #a21111" class="mb-4 text-white font-medium rounded-lg text-sm px-5 py-2.5 text-center">Supprimer mon compte</a>
+                </div>
+            </div>
+        </div>
+
+
+
     </div>
 
 </section>
