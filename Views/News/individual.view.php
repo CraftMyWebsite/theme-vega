@@ -89,7 +89,7 @@ $description = $news->getDescription();
                 <div class="lg:grid grid-cols-5 gap-2">
                     <div class="mx-auto text-center">
                         <img style="height: 100px; width: 100px" class="rounded-lg"
-                             src="<?= $comment->getUser()->getUserPicture()->getImageLink() ?>" alt="...">
+                             src="<?= $comment->getUser()->getUserPicture()->getImage() ?>" alt="...">
                         <p><b>Zomb</b></p>
                         <small>25/03/2345 à 11h25</small>
                     </div>

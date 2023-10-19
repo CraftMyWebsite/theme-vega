@@ -95,7 +95,7 @@ $description = ThemeModel::fetchConfigValue('vote_description');
                         <th scope="row"
                             class="flex items-center px-6 font-medium text-gray-900 whitespace-nowrap dark:text-white">
                             <img class="w-10 h-10 rounded-full"
-                                 src="<?= $top->getUser()->getUserPicture()->getImageLink() ?>"
+                                 src="<?= $top->getUser()->getUserPicture()->getImage() ?>"
                                  alt="...">
                             <div class="pl-3">
                                 <div class="text-base font-semibold"><?= $top->getUser()->getPseudo() ?></div>
@@ -157,7 +157,7 @@ $description = ThemeModel::fetchConfigValue('vote_description');
                 <tr class="bg-white dark:bg-gray-800 hover:bg-gray-50 dark:hover:bg-gray-600">
                     <th scope="row"
                         class="flex items-center px-6 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                        <img class="w-10 h-10 rounded-full" src="<?= $top->getUser()->getUserPicture()->getImageLink() ?>" alt="...">
+                        <img class="w-10 h-10 rounded-full" src="<?= $top->getUser()->getUserPicture()->getImage() ?>" alt="...">
                         <div class="pl-3">
                             <div class="text-base font-semibold"><?= $top->getUser()->getPseudo() ?></div>
                         </div>

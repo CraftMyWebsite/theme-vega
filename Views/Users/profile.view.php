@@ -34,7 +34,7 @@ $description = Website::getWebsiteDescription();
         <div class="bg-gray-100 dark:bg-gray-900 dark:text-gray-300 rounded-lg shadow p-4">
             <h4 class="text-center font-bold">Identité visuel</h4>
             <img style="height: 200px; width: 200px" class="rounded-lg shadow-lg mx-auto"
-                 src="<?= EnvManager::getInstance()->getValue("PATH_SUBFOLDER") ?>Public/Uploads/Users/<?= $user->getUserPicture()->getImageName() ?>"
+                 src="<?= $user->getUserPicture()->getImage() ?>"
                  alt="...">
             <label class="block mt-4 mb-2 text-sm font-medium text-gray-900 dark:text-white" for="file_input">Changer
                 d'image :</label>
