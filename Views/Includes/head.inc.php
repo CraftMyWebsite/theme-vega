@@ -1,5 +1,6 @@
 <?php
 
+use CMW\Controller\Core\CoreController;
 use CMW\Manager\Env\EnvManager;
 use CMW\Manager\Uploads\ImagesManager;
 use CMW\Model\Core\ThemeModel;
@@ -33,3 +34,4 @@ use CMW\Model\Core\ThemeModel;
 </head>
 
 <body class="bg-white dark:bg-gray-800 dark:text-gray-300 flex flex-col min-h-screen">
+<?php echo CoreController::getInstance()->cmwWarn(); ?>
