@@ -4,8 +4,8 @@ use CMW\Model\Core\ThemeModel;
 use CMW\Utils\Website;
 
 
-$title = Website::getWebsiteName() . ' - Calendrier';
-$description = "Découvrez nos futur événements";
+Website::setTitle("Calendrier");
+Website::setDescription("Découvrez nos futur événements");
 ?>
 
 <section style="background-image: url('<?= ThemeModel::fetchImageLink('hero_img_bg') ?>');" class="bg-cover mb-4">

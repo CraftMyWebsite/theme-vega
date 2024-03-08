@@ -6,8 +6,8 @@ use CMW\Model\Users\UsersModel;
 use CMW\Utils\Website;
 
 
-$title = Website::getWebsiteName() . ' - ' . ThemeModel::fetchConfigValue('vote_title');
-$description = ThemeModel::fetchConfigValue('vote_description');
+Website::setTitle("Votez");
+Website::setDescription("Votez, obtenez des points de vote et plein d'autres cadeaux!");
 ?>
 
 <section style="background-image: url('<?= ThemeModel::fetchImageLink('hero_img_bg') ?>');" class="bg-cover mb-4">

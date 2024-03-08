@@ -7,8 +7,8 @@ use CMW\Utils\Website;
 
 /* @var CMW\Entity\Support\SupportEntity[] $privateSupport */
 
-$title = Website::getWebsiteName() . ' - Support';
-$description = 'Parfait pour vos demande de support';
+Website::setTitle("Support");
+Website::setDescription("Consultez les réponses de nos experts.");
 ?>
 
 <section style="background-image: url('<?= ThemeModel::fetchImageLink('hero_img_bg') ?>');" class="bg-cover mb-4">

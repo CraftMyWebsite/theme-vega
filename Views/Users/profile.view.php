@@ -6,8 +6,8 @@ use CMW\Model\Core\ThemeModel;
 use CMW\Utils\Website;
 
 
-$title = Website::getWebsiteName() . ' - Profil de ' . $user->getPseudo() ;
-$description = Website::getWebsiteDescription();
+Website::setTitle("Votre profil");
+Website::setDescription("Éditez votre profil");
 ?>
 
 <section style="background-image: url('<?= ThemeModel::fetchImageLink('hero_img_bg') ?>');" class="bg-cover mb-4">

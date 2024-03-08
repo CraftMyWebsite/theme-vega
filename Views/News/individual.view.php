@@ -8,8 +8,8 @@ use CMW\Utils\Website;
 
 /* @var \CMW\Entity\News\NewsEntity $news */
 
-$title = Website::getWebsiteName() . ' - ' . $news->getTitle();
-$description = $news->getDescription();
+Website::setTitle($news->getTitle());
+Website::setDescription($news->getDescription());
 ?>
 
 <section style="background-image: url('<?= ThemeModel::fetchImageLink('hero_img_bg') ?>');" class="bg-cover mb-4">

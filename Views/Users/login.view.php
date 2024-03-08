@@ -7,8 +7,8 @@ use CMW\Model\Core\ThemeModel;
 use CMW\Utils\Website;
 
 
-$title = Website::getWebsiteName() . ' - Connexion';
-$description = Website::getWebsiteDescription();
+Website::setTitle("Connexion");
+Website::setDescription("Connectez-vous sur " . Website::getWebsiteName());
 ?>
 
 <section style="background-image: url('<?= ThemeModel::fetchImageLink('hero_img_bg') ?>');" class="bg-cover mb-4">

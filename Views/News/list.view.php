@@ -7,8 +7,8 @@ use CMW\Utils\Website;
 
 $newsList = $newsModel->getSomeNews(ThemeModel::fetchConfigValue('news_page_number_display'), 'DESC');
 
-$title = Website::getWebsiteName() . ' - '. ThemeModel::fetchConfigValue('news_title');
-$description = ThemeModel::fetchConfigValue('news_description');
+Website::setTitle(ThemeModel::fetchConfigValue('news_title'));
+Website::setDescription(ThemeModel::fetchConfigValue('news_description'));
 ?>
 
 <section style="background-image: url('<?= ThemeModel::fetchImageLink('hero_img_bg') ?>');" class="bg-cover mb-4">

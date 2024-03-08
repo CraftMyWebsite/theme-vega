@@ -6,8 +6,8 @@ use CMW\Utils\Website;
 
 /** @var CMW\Entity\Faq\FaqEntity $faqList */
 
-$title = Website::getWebsiteName() . ' - ' . ThemeModel::fetchConfigValue('faq_title');
-$description = ThemeModel::fetchConfigValue('faq_description');
+Website::setTitle(ThemeModel::fetchConfigValue('faq_title'));
+Website::setDescription(ThemeModel::fetchConfigValue('faq_description'));
 ?>
 
 <section style="background-image: url('<?= ThemeModel::fetchImageLink('hero_img_bg') ?>');" class="bg-cover mb-4">

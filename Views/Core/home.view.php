@@ -24,8 +24,8 @@ if (PackageController::isInstalled("Minecraft")) {
 
 }
 
-$title = Website::getWebsiteName() . ' - ' . ThemeModel::fetchConfigValue('home_title');
-$description = Website::getWebsiteDescription();
+Website::setTitle(ThemeModel::fetchConfigValue('home_title'));
+Website::setDescription(Website::getWebsiteDescription());
 ?>
     <!--HERO SECTION-->
     <section style="background-image: url('<?= ThemeModel::fetchImageLink('hero_img_bg') ?>');" class="bg-cover mb-4">

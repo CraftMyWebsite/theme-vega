@@ -3,9 +3,13 @@
 use CMW\Model\Core\ThemeModel;
 use CMW\Utils\Website;
 
+/* @var \CMW\Entity\Pages\PageEntity $page */
+/* @var \CMW\Model\Pages\PagesModel $pages */
+/* @var \CMW\Controller\CoreController $core */
+/* @var \CMW\Controller\Menus\MenusController $menu */
 
-$title = Website::getWebsiteName() . ' - '. ucfirst($page->getTitle());
-$description = Website::getWebsiteDescription();
+Website::setTitle(ucfirst($page->getTitle()));
+Website::setDescription(ucfirst($page->getTitle()));
 ?>
 
 <section style="background-image: url('<?= ThemeModel::fetchImageLink('hero_img_bg') ?>');" class="bg-cover mb-4">

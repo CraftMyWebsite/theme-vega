@@ -5,8 +5,8 @@ use CMW\Model\Core\ThemeModel;
 use CMW\Utils\Website;
 
 
-$title = Website::getWebsiteName() . ' - '. ThemeModel::fetchConfigValue('wiki_title');
-$description = ThemeModel::fetchConfigValue('wiki_description');
+Website::setTitle(ThemeModel::fetchConfigValue('wiki_title'));
+Website::setDescription(ThemeModel::fetchConfigValue('wiki_description'));
 ?>
 
 <section style="background-image: url('<?= ThemeModel::fetchImageLink('hero_img_bg') ?>');" class="bg-cover mb-4">

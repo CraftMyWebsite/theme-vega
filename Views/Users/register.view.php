@@ -7,8 +7,8 @@ use CMW\Model\Core\ThemeModel;
 use CMW\Utils\Website;
 
 
-$title = Website::getWebsiteName() . ' - Inscription';
-$description = Website::getWebsiteDescription();
+Website::setTitle("Inscription");
+Website::setDescription("Inscrivez-vous");
 ?>
 
 <section style="background-image: url('<?= ThemeModel::fetchImageLink('hero_img_bg') ?>');" class="bg-cover mb-4">
