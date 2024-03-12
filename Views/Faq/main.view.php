@@ -6,14 +6,14 @@ use CMW\Utils\Website;
 
 /** @var CMW\Entity\Faq\FaqEntity $faqList */
 
-Website::setTitle(ThemeModel::fetchConfigValue('faq_title'));
-Website::setDescription(ThemeModel::fetchConfigValue('faq_description'));
+Website::setTitle(ThemeModel::getInstance()->fetchConfigValue('faq_title'));
+Website::setDescription(ThemeModel::getInstance()->fetchConfigValue('faq_description'));
 ?>
 
-<section style="background-image: url('<?= ThemeModel::fetchImageLink('hero_img_bg') ?>');" class="bg-cover mb-4">
+<section style="background-image: url('<?= ThemeModel::getInstance()->fetchImageLink('hero_img_bg') ?>');" class="bg-cover mb-4">
     <div class="text-center text-white py-8">
-        <h2 class="font-bold"><?= ThemeModel::fetchConfigValue('faq_page_title') ?></h2>
-        <p><?= ThemeModel::fetchConfigValue('faq_description') ?></p>
+        <h2 class="font-bold"><?= ThemeModel::getInstance()->fetchConfigValue('faq_page_title') ?></h2>
+        <p><?= ThemeModel::getInstance()->fetchConfigValue('faq_description') ?></p>
     </div>
 
     <!--SEPARATOR-->
@@ -31,12 +31,12 @@ Website::setDescription(ThemeModel::fetchConfigValue('faq_description'));
 </section>
 
 
-<div class="<?php if(ThemeModel::fetchConfigValue('faq_display_form')): {echo "lg:grid grid-cols-3 gap-6";} endif ?> py-6 px-4 lg:px-24 2xl:px-60 ">
+<div class="<?php if(ThemeModel::getInstance()->fetchConfigValue('faq_display_form')): {echo "lg:grid grid-cols-3 gap-6";} endif ?> py-6 px-4 lg:px-24 2xl:px-60 ">
     <section class="">
-        <?php if(ThemeModel::fetchConfigValue('faq_display_form')): ?>
+        <?php if(ThemeModel::getInstance()->fetchConfigValue('faq_display_form')): ?>
         <div class="rounded-lg shadow bg-gray-100 dark:bg-gray-900">
             <div class="p-4 rounded-lg">
-                <p class="text-center text-lg font-medium mb-4"><?= ThemeModel::fetchConfigValue('faq_question_title') ?></p>
+                <p class="text-center text-lg font-medium mb-4"><?= ThemeModel::getInstance()->fetchConfigValue('faq_question_title') ?></p>
                 <form action="contact" method="post" class="">
                     <?php (new SecurityManager())->insertHiddenToken() ?>
                     <div class="lg:grid grid-cols-2 gap-6 ">
@@ -97,7 +97,7 @@ Website::setDescription(ThemeModel::fetchConfigValue('faq_description'));
 
     <section class="col-span-2 mt-4 lg:mt-0">
         <div class="bg-gray-100 dark:bg-gray-900 dark:text-gray-300 rounded-lg shadow p-4">
-            <p class="text-center text-lg font-medium mb-4"><?= ThemeModel::fetchConfigValue('faq_answer_title') ?></p>
+            <p class="text-center text-lg font-medium mb-4"><?= ThemeModel::getInstance()->fetchConfigValue('faq_answer_title') ?></p>
 
             <div id="accordion-collapse" data-accordion="collapse">
                 <?php foreach ($faqList as $faq) : ?>
@@ -118,7 +118,7 @@ Website::setDescription(ThemeModel::fetchConfigValue('faq_description'));
                 <div id="accordion-collapse-body-<?= $faq->getFaqId() ?>" class="hidden" aria-labelledby="accordion-collapse-heading-<?= $faq->getFaqId() ?>">
                     <div class="p-5 border border-b-0 border-gray-200 dark:border-gray-700">
                         <p class="mb-2 "><?= $faq->getResponse() ?></p>
-                        <?php if(ThemeModel::fetchConfigValue('faq_display_autor')): ?>
+                        <?php if(ThemeModel::getInstance()->fetchConfigValue('faq_display_autor')): ?>
                         <p><small><?= $faq->getAuthor()->getPseudo() ?></small></p>
                         <?php endif; ?>
                     </div>

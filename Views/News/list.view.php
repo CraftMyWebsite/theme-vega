@@ -5,16 +5,16 @@ use CMW\Manager\Env\EnvManager;
 use CMW\Model\Core\ThemeModel;
 use CMW\Utils\Website;
 
-$newsList = $newsModel->getSomeNews(ThemeModel::fetchConfigValue('news_page_number_display'), 'DESC');
+$newsList = $newsModel->getSomeNews(ThemeModel::getInstance()->fetchConfigValue('news_page_number_display'), 'DESC');
 
-Website::setTitle(ThemeModel::fetchConfigValue('news_title'));
-Website::setDescription(ThemeModel::fetchConfigValue('news_description'));
+Website::setTitle(ThemeModel::getInstance()->fetchConfigValue('news_title'));
+Website::setDescription(ThemeModel::getInstance()->fetchConfigValue('news_description'));
 ?>
 
-<section style="background-image: url('<?= ThemeModel::fetchImageLink('hero_img_bg') ?>');" class="bg-cover mb-4">
+<section style="background-image: url('<?= ThemeModel::getInstance()->fetchImageLink('hero_img_bg') ?>');" class="bg-cover mb-4">
     <div class="text-center text-white py-8">
-        <h2 class="font-bold"><?= ThemeModel::fetchConfigValue('news_page_title') ?></h2>
-        <p><?= ThemeModel::fetchConfigValue('news_description') ?></p>
+        <h2 class="font-bold"><?= ThemeModel::getInstance()->fetchConfigValue('news_page_title') ?></h2>
+        <p><?= ThemeModel::getInstance()->fetchConfigValue('news_description') ?></p>
     </div>
 
     <!--SEPARATOR-->

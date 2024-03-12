@@ -13,7 +13,7 @@ use CMW\Utils\Website;
 
 if (PackageController::isInstalled("News")) {
     $newsLists = new newsModel;
-    $newsList = $newsLists->getSomeNews(ThemeModel::fetchConfigValue('news_number_display'));
+    $newsList = $newsLists->getSomeNews(ThemeModel::getInstance()->fetchConfigValue('news_number_display'));
 }
 if (PackageController::isInstalled("Minecraft")) {
     $mc = new minecraftModel;
@@ -24,19 +24,19 @@ if (PackageController::isInstalled("Minecraft")) {
 
 }
 
-Website::setTitle(ThemeModel::fetchConfigValue('home_title'));
+Website::setTitle(ThemeModel::getInstance()->fetchConfigValue('home_title'));
 Website::setDescription(Website::getWebsiteDescription());
 ?>
     <!--HERO SECTION-->
-    <section style="background-image: url('<?= ThemeModel::fetchImageLink('hero_img_bg') ?>');" class="bg-cover mb-4">
+    <section style="background-image: url('<?= ThemeModel::getInstance()->fetchImageLink('hero_img_bg') ?>');" class="bg-cover mb-4">
         <div class="grid max-w-screen-xl px-4 py-8 mx-auto lg:gap-8 xl:gap-0 lg:pt-24 lg:pb-24 lg:grid-cols-12">
             <div class="mr-auto place-self-center lg:col-span-7">
                 <?php if (PackageController::isInstalled("Minecraft") ): ?>
-                    <?php if (ThemeModel::fetchConfigValue('hero_show_minecraft_player')): ?>
+                    <?php if (ThemeModel::getInstance()->fetchConfigValue('hero_show_minecraft_player')): ?>
                         <?php if ($favExist): ?>
                             <div class="max-w-2xl text-white font-light md:text-lg lg:text-xl"><i
-                                        class="text-green-500 fa-regular fa-circle-dot fa-beat-fade"></i> <?= ThemeModel::fetchConfigValue('hero_join_prefix') ?>
-                                <b><?= $minecraft ?></b> <?= ThemeModel::fetchConfigValue('hero_join_suffix') ?></div>
+                                        class="text-green-500 fa-regular fa-circle-dot fa-beat-fade"></i> <?= ThemeModel::getInstance()->fetchConfigValue('hero_join_prefix') ?>
+                                <b><?= $minecraft ?></b> <?= ThemeModel::getInstance()->fetchConfigValue('hero_join_suffix') ?></div>
                         <?php else: ?>
                             <?php if (UsersController::isAdminLogged()) : ?>
                                 <section class="py-8">
@@ -76,42 +76,42 @@ Website::setDescription(Website::getWebsiteDescription());
                         <?php endif; ?>
                     <?php endif; ?>
                 <?php endif; ?>
-                <div class="max-w-2xl mb-4 text-2xl md:text-3xl xl:text-4xl font-bold tracking-tight leading-none text-white"><?= ThemeModel::fetchConfigValue('hero_title') ?>
+                <div class="max-w-2xl mb-4 text-2xl md:text-3xl xl:text-4xl font-bold tracking-tight leading-none text-white"><?= ThemeModel::getInstance()->fetchConfigValue('hero_title') ?>
                     <span class="text-3xl md:text-4xl xl:text-5xl underline"><?= Website::getWebsiteName() ?></span></div>
-                <div class="max-w-2xl mb-4 text-white font-light  md:text-lg lg:text-xl"><?= ThemeModel::fetchConfigValue('hero_description') ?></div>
-                <a href="<?= ThemeModel::fetchConfigValue('hero_button_link') ?>"
+                <div class="max-w-2xl mb-4 text-white font-light  md:text-lg lg:text-xl"><?= ThemeModel::getInstance()->fetchConfigValue('hero_description') ?></div>
+                <a href="<?= ThemeModel::getInstance()->fetchConfigValue('hero_button_link') ?>"
                    class="inline-flex items-center justify-center px-5 py-3 mr-3 text-base font-medium text-center text-white rounded-lg bg-blue-700 hover:bg-blue-800 dark:bg-blue-800 dark:hover:bg-blue-900 focus:ring-4 focus:ring-primary-300 dark:focus:ring-primary-900">
-                    <?= ThemeModel::fetchConfigValue('hero_button_text') ?>
+                    <?= ThemeModel::getInstance()->fetchConfigValue('hero_button_text') ?>
                 </a>
-                <?php if (ThemeModel::fetchConfigValue('hero_show_footer_icon')): ?>
+                <?php if (ThemeModel::getInstance()->fetchConfigValue('hero_show_footer_icon')): ?>
                     <div class="py-2 w-full sm:w-auto mt-4 text-4xl text-white">
                         <div class="flex-wrap inline-flex space-x-4 lg:space-x-6">
-                            <?php if (ThemeModel::fetchConfigValue('footer_active_facebook')): ?>
-                                <a href="<?= ThemeModel::fetchConfigValue('footer_link_facebook') ?>"
-                                   <?php if (ThemeModel::fetchConfigValue('footer_open_link_new_tab')): ?>target="_blank"<?php endif; ?>
+                            <?php if (ThemeModel::getInstance()->fetchConfigValue('footer_active_facebook')): ?>
+                                <a href="<?= ThemeModel::getInstance()->fetchConfigValue('footer_link_facebook') ?>"
+                                   <?php if (ThemeModel::getInstance()->fetchConfigValue('footer_open_link_new_tab')): ?>target="_blank"<?php endif; ?>
                                    class="hover:text-blue-600">
-                                    <i class=" <?= ThemeModel::fetchConfigValue('footer_icon_facebook') ?>"></i>
+                                    <i class=" <?= ThemeModel::getInstance()->fetchConfigValue('footer_icon_facebook') ?>"></i>
                                 </a>
                             <?php endif; ?>
-                            <?php if (ThemeModel::fetchConfigValue('footer_active_twitter')): ?>
-                                <a href="<?= ThemeModel::fetchConfigValue('footer_link_twitter') ?>"
-                                   <?php if (ThemeModel::fetchConfigValue('footer_open_link_new_tab')): ?>target="_blank"<?php endif; ?>
+                            <?php if (ThemeModel::getInstance()->fetchConfigValue('footer_active_twitter')): ?>
+                                <a href="<?= ThemeModel::getInstance()->fetchConfigValue('footer_link_twitter') ?>"
+                                   <?php if (ThemeModel::getInstance()->fetchConfigValue('footer_open_link_new_tab')): ?>target="_blank"<?php endif; ?>
                                    class="hover:text-blue-600">
-                                    <i class=" <?= ThemeModel::fetchConfigValue('footer_icon_twitter') ?>"></i>
+                                    <i class=" <?= ThemeModel::getInstance()->fetchConfigValue('footer_icon_twitter') ?>"></i>
                                 </a>
                             <?php endif; ?>
-                            <?php if (ThemeModel::fetchConfigValue('footer_active_instagram')): ?>
-                                <a href="<?= ThemeModel::fetchConfigValue('footer_link_instagram') ?>"
-                                   <?php if (ThemeModel::fetchConfigValue('footer_open_link_new_tab')): ?>target="_blank"<?php endif; ?>
+                            <?php if (ThemeModel::getInstance()->fetchConfigValue('footer_active_instagram')): ?>
+                                <a href="<?= ThemeModel::getInstance()->fetchConfigValue('footer_link_instagram') ?>"
+                                   <?php if (ThemeModel::getInstance()->fetchConfigValue('footer_open_link_new_tab')): ?>target="_blank"<?php endif; ?>
                                    class="hover:text-blue-600">
-                                    <i class=" <?= ThemeModel::fetchConfigValue('footer_icon_instagram') ?>"></i>
+                                    <i class=" <?= ThemeModel::getInstance()->fetchConfigValue('footer_icon_instagram') ?>"></i>
                                 </a>
                             <?php endif; ?>
-                            <?php if (ThemeModel::fetchConfigValue('footer_active_discord')): ?>
-                                <a href="<?= ThemeModel::fetchConfigValue('footer_link_discord') ?>"
-                                   <?php if (ThemeModel::fetchConfigValue('footer_open_link_new_tab')): ?>target="_blank"<?php endif; ?>
+                            <?php if (ThemeModel::getInstance()->fetchConfigValue('footer_active_discord')): ?>
+                                <a href="<?= ThemeModel::getInstance()->fetchConfigValue('footer_link_discord') ?>"
+                                   <?php if (ThemeModel::getInstance()->fetchConfigValue('footer_open_link_new_tab')): ?>target="_blank"<?php endif; ?>
                                    class="hover:text-blue-600">
-                                    <i class=" <?= ThemeModel::fetchConfigValue('footer_icon_discord') ?>"></i>
+                                    <i class=" <?= ThemeModel::getInstance()->fetchConfigValue('footer_icon_discord') ?>"></i>
                                 </a>
                             <?php endif; ?>
                         </div>
@@ -119,7 +119,7 @@ Website::setDescription(Website::getWebsiteDescription());
                 <?php endif; ?>
             </div>
             <div class="hidden lg:mt-0 lg:col-span-5 lg:flex">
-                <img src="<?= ThemeModel::fetchImageLink('header_img_logo') ?>" alt="...">
+                <img src="<?= ThemeModel::getInstance()->fetchImageLink('header_img_logo') ?>" alt="...">
             </div>
 
         </div>
@@ -137,7 +137,7 @@ Website::setDescription(Website::getWebsiteDescription());
 
 
     <!--WHY US SECTION-->
-<?php if (ThemeModel::fetchConfigValue('feature_section_active')): ?>
+<?php if (ThemeModel::getInstance()->fetchConfigValue('feature_section_active')): ?>
     <section>
         <div class="container mx-auto px-4 py-16 relative">
 
@@ -145,28 +145,28 @@ Website::setDescription(Website::getWebsiteDescription());
                 <div class="w-full p-4  xl:w-4/12 sm:w-6/12">
                     <div class="bg-gray-100 block group px-6 py-16 rounded-lg shadow-lg dark:bg-gray-900 dark:text-white">
                         <div class="text-center">
-                            <i class="mb-4 text-blue-700 text-4xl <?= ThemeModel::fetchConfigValue("feature_img_1") ?>"></i>
+                            <i class="mb-4 text-blue-700 text-4xl <?= ThemeModel::getInstance()->fetchConfigValue("feature_img_1") ?>"></i>
                         </div>
-                        <h4 class="font-bold mb-2 text-gray-900 text-xl dark:text-white"><?= ThemeModel::fetchConfigValue('feature_title_1') ?></h4>
-                        <p><?= ThemeModel::fetchConfigValue('feature_description_1') ?></p>
+                        <h4 class="font-bold mb-2 text-gray-900 text-xl dark:text-white"><?= ThemeModel::getInstance()->fetchConfigValue('feature_title_1') ?></h4>
+                        <p><?= ThemeModel::getInstance()->fetchConfigValue('feature_description_1') ?></p>
                     </div>
                 </div>
                 <div class="w-full p-4  xl:w-4/12 sm:w-6/12">
                     <div class="bg-gray-100 block px-6 py-16 rounded-lg shadow-lg dark:bg-gray-900 dark:text-white">
                         <div class="text-center">
-                            <i class="mb-4 text-blue-700 text-4xl <?= ThemeModel::fetchConfigValue("feature_img_2") ?>"></i>
+                            <i class="mb-4 text-blue-700 text-4xl <?= ThemeModel::getInstance()->fetchConfigValue("feature_img_2") ?>"></i>
                         </div>
-                        <h4 class="font-bold mb-2 text-gray-900 text-xl dark:text-white"><?= ThemeModel::fetchConfigValue('feature_title_2') ?></h4>
-                        <p><?= ThemeModel::fetchConfigValue('feature_description_2') ?></p>
+                        <h4 class="font-bold mb-2 text-gray-900 text-xl dark:text-white"><?= ThemeModel::getInstance()->fetchConfigValue('feature_title_2') ?></h4>
+                        <p><?= ThemeModel::getInstance()->fetchConfigValue('feature_description_2') ?></p>
                     </div>
                 </div>
                 <div class="w-full p-4  xl:w-4/12 sm:w-6/12">
                     <div class="bg-gray-100 block px-6 py-16 rounded-lg shadow-lg dark:bg-gray-900 dark:text-white">
                         <div class="text-center">
-                            <i class="mb-4 text-blue-700 text-4xl <?= ThemeModel::fetchConfigValue("feature_img_3") ?>"></i>
+                            <i class="mb-4 text-blue-700 text-4xl <?= ThemeModel::getInstance()->fetchConfigValue("feature_img_3") ?>"></i>
                         </div>
-                        <h4 class="font-bold mb-2 text-gray-900 text-xl dark:text-white"><?= ThemeModel::fetchConfigValue('feature_title_3') ?></h4>
-                        <p><?= ThemeModel::fetchConfigValue('feature_description_3') ?></p>
+                        <h4 class="font-bold mb-2 text-gray-900 text-xl dark:text-white"><?= ThemeModel::getInstance()->fetchConfigValue('feature_title_3') ?></h4>
+                        <p><?= ThemeModel::getInstance()->fetchConfigValue('feature_description_3') ?></p>
                     </div>
                 </div>
             </div>
@@ -174,23 +174,23 @@ Website::setDescription(Website::getWebsiteDescription());
     </section>
 <?php endif; ?>
     <!--Trailer-->
-<?php if (ThemeModel::fetchConfigValue('trailer_section_active')): ?>
+<?php if (ThemeModel::getInstance()->fetchConfigValue('trailer_section_active')): ?>
     <section class="bg-gray-100 dark:bg-gray-900 dark:text-white">
         <div class="px-4 py-6 lg:px-24 2xl:px-48">
             <div class="lg:grid lg:grid-cols-2">
                 <div class="text-center my-auto lg:px-16">
-                    <div class="font-bold text-3xl mb-4"><?= ThemeModel::fetchConfigValue('trailer_title') ?></div>
-                    <div><?= ThemeModel::fetchConfigValue('trailer_text') ?></div>
+                    <div class="font-bold text-3xl mb-4"><?= ThemeModel::getInstance()->fetchConfigValue('trailer_title') ?></div>
+                    <div><?= ThemeModel::getInstance()->fetchConfigValue('trailer_text') ?></div>
                     <div class="mt-4">
-                        <a href="<?= ThemeModel::fetchConfigValue('trailer_button_link') ?>"
+                        <a href="<?= ThemeModel::getInstance()->fetchConfigValue('trailer_button_link') ?>"
                            class=" px-3 py-2 text-base font-medium text-center text-white rounded-lg bg-blue-700 hover:bg-blue-800 dark:bg-blue-800 dark:hover:bg-blue-900 focus:ring-4 focus:ring-primary-300 dark:focus:ring-primary-900">
-                            <?= ThemeModel::fetchConfigValue('trailer_button_text') ?>
+                            <?= ThemeModel::getInstance()->fetchConfigValue('trailer_button_text') ?>
                         </a>
                     </div>
                 </div>
                 <div class="rounded-lg bg-white p-2 mx-auto dark:bg-gray-800 mt-8 lg:mt-0">
                     <iframe class="w-full h-[12rem] lg:w-[36rem] lg:h-[24rem]"
-                            src="https://www.youtube.com/embed/<?= ThemeModel::fetchConfigValue('trailer_youtube_link') ?>"
+                            src="https://www.youtube.com/embed/<?= ThemeModel::getInstance()->fetchConfigValue('trailer_youtube_link') ?>"
                             title="YouTube video player" frameborder="0"
                             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                             allowfullscreen></iframe>
@@ -202,11 +202,11 @@ Website::setDescription(Website::getWebsiteDescription());
 
     <!--NEWS SECTION-->
 <?php if (PackageController::isInstalled("News")): ?>
-    <?php if (ThemeModel::fetchConfigValue('news_section_active')): ?>
+    <?php if (ThemeModel::getInstance()->fetchConfigValue('news_section_active')): ?>
         <section>
             <div class="px-4 lg:px-24 2xl:px-72 py-16">
                 <div class="w-full font-medium rounded-lg p-2 bg-gray-100 dark:bg-gray-900 dark:text-white"><i
-                            class="fa-solid fa-newspaper"></i> <?= ThemeModel::fetchConfigValue('news_section_title') ?>
+                            class="fa-solid fa-newspaper"></i> <?= ThemeModel::getInstance()->fetchConfigValue('news_section_title') ?>
                 </div>
                 <div class="lg:grid grid-cols-2">
                     <?php foreach ($newsList as $news): ?>
@@ -225,7 +225,7 @@ Website::setDescription(Website::getWebsiteDescription());
                                         <div class="flex justify-between">
                                             <a href="<?= EnvManager::getInstance()->getValue("PATH_SUBFOLDER") ?>news/<?= $news->getSlug() ?>"
                                                class=" px-3 py-2 text-base font-medium text-center text-white rounded-lg bg-blue-700 hover:bg-blue-800 dark:bg-blue-800 dark:hover:bg-blue-900 focus:ring-4 focus:ring-primary-300 dark:focus:ring-primary-900">
-                                                <?= ThemeModel::fetchConfigValue('news_button') ?>
+                                                <?= ThemeModel::getInstance()->fetchConfigValue('news_button') ?>
                                             </a>
                                             <div class="cursor-pointer">
                                 <span data-tooltip-target="<?php if ($news->getLikes()->userCanLike()) {
@@ -306,40 +306,40 @@ Website::setDescription(Website::getWebsiteDescription());
     <?php endif; ?>
 <?php endif; ?>
     <!--CUSTOM SECTION 1-->
-<?php if (ThemeModel::fetchConfigValue('custom_section_active_1')): ?>
+<?php if (ThemeModel::getInstance()->fetchConfigValue('custom_section_active_1')): ?>
     <section class="bg-gray-100 dark:bg-gray-900">
         <div class="px-4 lg:px-24 2xl:px-72 py-6 dark:text-gray-300">
-            <?= ThemeModel::fetchConfigValue('custom_section_content_1') ?>
+            <?= ThemeModel::getInstance()->fetchConfigValue('custom_section_content_1') ?>
         </div>
     </section>
 <?php endif; ?>
-<?php if (ThemeModel::fetchConfigValue('custom_section_active_2')): ?>
+<?php if (ThemeModel::getInstance()->fetchConfigValue('custom_section_active_2')): ?>
     <!--CUSTOM SECTION 2-->
     <section class="dark:text-gray-300">
         <div class="px-4 lg:px-24 2xl:px-72 py-6">
-            <?= ThemeModel::fetchConfigValue('custom_section_content_2') ?>
+            <?= ThemeModel::getInstance()->fetchConfigValue('custom_section_content_2') ?>
         </div>
     </section>
 <?php endif; ?>
-<?php if (ThemeModel::fetchConfigValue('custom_section_active_3')): ?>
+<?php if (ThemeModel::getInstance()->fetchConfigValue('custom_section_active_3')): ?>
     <!--CUSTOM SECTION 3-->
     <section class="bg-gray-100 dark:bg-gray-900 dark:text-gray-300">
         <div class="px-4 lg:px-24 2xl:px-72 py-6">
-            <?= ThemeModel::fetchConfigValue('custom_section_content_3') ?>
+            <?= ThemeModel::getInstance()->fetchConfigValue('custom_section_content_3') ?>
         </div>
     </section>
 <?php endif; ?>
-<?php if (ThemeModel::fetchConfigValue('custom_section_active_4')): ?>
+<?php if (ThemeModel::getInstance()->fetchConfigValue('custom_section_active_4')): ?>
     <!--CUSTOM SECTION 4-->
     <section class="dark:text-gray-300">
         <div class="px-4 lg:px-24 2xl:px-72 py-6">
-            <?= ThemeModel::fetchConfigValue('custom_section_content_4') ?>
+            <?= ThemeModel::getInstance()->fetchConfigValue('custom_section_content_4') ?>
         </div>
     </section>
 <?php endif; ?>
     <!--CONTACT SECTION-->
 <?php if (PackageController::isInstalled("Contact")): ?>
-    <?php if (ThemeModel::fetchConfigValue('contact_section_active')): ?>
+    <?php if (ThemeModel::getInstance()->fetchConfigValue('contact_section_active')): ?>
         <section class="bg-gray-100 dark:bg-gray-900">
             <div class="px-4 lg:px-24 2xl:px-72 py-16">
                 <div class="w-full font-medium rounded-lg p-2 bg-white dark:bg-gray-800 dark:text-white"><i

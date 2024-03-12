@@ -5,14 +5,14 @@ use CMW\Model\Core\ThemeModel;
 use CMW\Utils\Website;
 
 
-Website::setTitle(ThemeModel::fetchConfigValue('wiki_title'));
-Website::setDescription(ThemeModel::fetchConfigValue('wiki_description'));
+Website::setTitle(ThemeModel::getInstance()->fetchConfigValue('wiki_title'));
+Website::setDescription(ThemeModel::getInstance()->fetchConfigValue('wiki_description'));
 ?>
 
-<section style="background-image: url('<?= ThemeModel::fetchImageLink('hero_img_bg') ?>');" class="bg-cover mb-4">
+<section style="background-image: url('<?= ThemeModel::getInstance()->fetchImageLink('hero_img_bg') ?>');" class="bg-cover mb-4">
     <div class="text-center text-white py-8">
-        <h2 class="font-bold"><?= ThemeModel::fetchConfigValue('wiki_page_title') ?></h2>
-        <p><?= ThemeModel::fetchConfigValue('wiki_description') ?></p>
+        <h2 class="font-bold"><?= ThemeModel::getInstance()->fetchConfigValue('wiki_page_title') ?></h2>
+        <p><?= ThemeModel::getInstance()->fetchConfigValue('wiki_description') ?></p>
     </div>
 
     <!--SEPARATOR-->
@@ -26,25 +26,25 @@ Website::setDescription(ThemeModel::fetchConfigValue('wiki_description'));
 <section class="px-4 lg:px-24 2xl:px-60 py-6">
     <div class="lg:grid grid-cols-4 gap-4">
         <div class="bg-gray-100 dark:bg-gray-900 dark:text-gray-300 rounded-lg shadow p-4">
-            <h4 class="font-bold text-center"><?= ThemeModel::fetchConfigValue('wiki_menu_title') ?></h4>
+            <h4 class="font-bold text-center"><?= ThemeModel::getInstance()->fetchConfigValue('wiki_menu_title') ?></h4>
             <?php foreach ($categories as $categorie): ?>
-            <p class="font-medium mt-4"><?php if(ThemeModel::fetchConfigValue('wiki_display_categorie_icon')): ?><i class="<?= $categorie->getIcon() ?>"></i><?php endif; ?><?= $categorie->getName() ?></p>
+            <p class="font-medium mt-4"><?php if(ThemeModel::getInstance()->fetchConfigValue('wiki_display_categorie_icon')): ?><i class="<?= $categorie->getIcon() ?>"></i><?php endif; ?><?= $categorie->getName() ?></p>
             <?php foreach ($categorie?->getArticles() as $menuArticle): ?>
             <a href="<?=   EnvManager::getInstance()->getValue("PATH_SUBFOLDER") . "wiki/" . $categorie->getSlug() . "/" . $menuArticle->getSlug() ?>">
-                <p class="pl-2 py-1 mt-1 cursor-pointer rounded hover:bg-gray-200 dark:hover:bg-gray-600"><?php if(ThemeModel::fetchConfigValue('wiki_display_article_categorie_icon')): ?><i class="<?= $menuArticle->getIcon() ?>"></i><?php endif; ?> <?= $menuArticle->getTitle() ?></p>
+                <p class="pl-2 py-1 mt-1 cursor-pointer rounded hover:bg-gray-200 dark:hover:bg-gray-600"><?php if(ThemeModel::getInstance()->fetchConfigValue('wiki_display_article_categorie_icon')): ?><i class="<?= $menuArticle->getIcon() ?>"></i><?php endif; ?> <?= $menuArticle->getTitle() ?></p>
             </a>
                 <?php endforeach; ?>
             <?php endforeach; ?>
         </div>
         <div class="col-span-3 bg-gray-100 dark:bg-gray-900 dark:text-gray-300 rounded-lg shadow p-4 h-fit">
             <?php if($article !== null): ?>
-            <h4 class="font-bold text-center mb-2"><?php if(ThemeModel::fetchConfigValue('wiki_display_article_icon')): ?><i class="<?= $article->getIcon() ?>"></i><?php endif; ?> <?= $article->getTitle() ?></h4>
+            <h4 class="font-bold text-center mb-2"><?php if(ThemeModel::getInstance()->fetchConfigValue('wiki_display_article_icon')): ?><i class="<?= $article->getIcon() ?>"></i><?php endif; ?> <?= $article->getTitle() ?></h4>
             <p><?= $article->getContent() ?></p>
             <hr class="border-b-1 border-white dark:border-gray-500 mt-2">
             <div class="flex justify-between">
-                <?php if(ThemeModel::fetchConfigValue('wiki_display_creation_date')): ?><div class="mt-1">Crée le : <?= date("d/m/Y", strtotime($article->getDateCreate())) ?></div><?php endif; ?>
-                <?php if(ThemeModel::fetchConfigValue('wiki_display_autor')): ?><div class="bg-gray-300 font-medium inline-block px-3 py-1 rounded-sm text-xs mt-1"><?= $article->getAuthor()->getPseudo() ?></div><?php endif; ?>
-                <?php if(ThemeModel::fetchConfigValue('wiki_display_edit_date')): ?><div class="mt-1">Modifié le : <?= date("d/m/Y", strtotime($article->getDateUpdate())) ?></div><?php endif; ?>
+                <?php if(ThemeModel::getInstance()->fetchConfigValue('wiki_display_creation_date')): ?><div class="mt-1">Crée le : <?= date("d/m/Y", strtotime($article->getDateCreate())) ?></div><?php endif; ?>
+                <?php if(ThemeModel::getInstance()->fetchConfigValue('wiki_display_autor')): ?><div class="bg-gray-300 font-medium inline-block px-3 py-1 rounded-sm text-xs mt-1"><?= $article->getAuthor()->getPseudo() ?></div><?php endif; ?>
+                <?php if(ThemeModel::getInstance()->fetchConfigValue('wiki_display_edit_date')): ?><div class="mt-1">Modifié le : <?= date("d/m/Y", strtotime($article->getDateUpdate())) ?></div><?php endif; ?>
             </div>
             <?php elseif($firstArticle === null && $article !== null): ?>
             <h4 class="font-bold text-center mb-2">Aucun article</h4>
@@ -56,13 +56,13 @@ Website::setDescription(ThemeModel::fetchConfigValue('wiki_description'));
                 <div class="mt-1">Modifié le : Jamais</div>
             </div>
             <?php else: ?>
-                <h4 class="font-bold text-center mb-2"><?php if(ThemeModel::fetchConfigValue('wiki_display_article_icon')): ?><i class="<?= $firstArticle->getIcon() ?>"></i><?php endif; ?> <?= $firstArticle->getTitle() ?></h4>
+                <h4 class="font-bold text-center mb-2"><?php if(ThemeModel::getInstance()->fetchConfigValue('wiki_display_article_icon')): ?><i class="<?= $firstArticle->getIcon() ?>"></i><?php endif; ?> <?= $firstArticle->getTitle() ?></h4>
                 <p><?= $firstArticle->getContent() ?></p>
                 <hr class="border-b-1 border-white dark:border-gray-500 mt-2">
                 <div class="flex justify-between">
-                    <?php if(ThemeModel::fetchConfigValue('wiki_display_creation_date')): ?><div class="mt-1">Crée le : <?= date("d/m/Y", strtotime($firstArticle->getDateCreate())) ?></div><?php endif; ?>
-                    <?php if(ThemeModel::fetchConfigValue('wiki_display_autor')): ?><div class="bg-gray-300 font-medium inline-block px-3 py-1 rounded-sm text-xs mt-1"><?= $firstArticle->getAuthor()->getPseudo() ?></div><?php endif; ?>
-                    <?php if(ThemeModel::fetchConfigValue('wiki_display_edit_date')): ?><div class="mt-1">Modifié le : <?= date("d/m/Y", strtotime($firstArticle->getDateUpdate())) ?></div><?php endif; ?>
+                    <?php if(ThemeModel::getInstance()->fetchConfigValue('wiki_display_creation_date')): ?><div class="mt-1">Crée le : <?= date("d/m/Y", strtotime($firstArticle->getDateCreate())) ?></div><?php endif; ?>
+                    <?php if(ThemeModel::getInstance()->fetchConfigValue('wiki_display_autor')): ?><div class="bg-gray-300 font-medium inline-block px-3 py-1 rounded-sm text-xs mt-1"><?= $firstArticle->getAuthor()->getPseudo() ?></div><?php endif; ?>
+                    <?php if(ThemeModel::getInstance()->fetchConfigValue('wiki_display_edit_date')): ?><div class="mt-1">Modifié le : <?= date("d/m/Y", strtotime($firstArticle->getDateUpdate())) ?></div><?php endif; ?>
                 </div>
             <?php endif; ?>
         </div>
