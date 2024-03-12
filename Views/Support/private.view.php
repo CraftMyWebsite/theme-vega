@@ -11,7 +11,7 @@ Website::setTitle("Support");
 Website::setDescription("Consultez les réponses de nos experts.");
 ?>
 
-<section style="background-image: url('<?= ThemeModel::fetchImageLink('hero_img_bg') ?>');" class="bg-cover mb-4">
+<section style="background-image: url('<?= ThemeModel::getInstance()->fetchImageLink('hero_img_bg') ?>');" class="bg-cover mb-4">
     <div class="text-center text-white py-8">
         <h2 class="font-bold">Mes demandes</h2>
     </div>

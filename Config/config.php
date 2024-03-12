@@ -83,7 +83,7 @@ if (PackageController::isInstalled("Minecraft")) {
                                             class="fa-sharp fa-solid fa-circle-question"></i></h6></label>
                         </div>
                         <div class="text-center ">
-                            <img class="w-25" src="<?= ThemeModel::fetchImageLink("header_img_logo") ?>"
+                            <img class="w-25" src="<?= ThemeModel::getInstance()->fetchImageLink("header_img_logo") ?>"
                                  alt="Image introuvable !">
                         </div>
                         <input class="mt-2 form-control form-control-sm" type="file" id="header_img_logo"
@@ -187,7 +187,7 @@ if (PackageController::isInstalled("Minecraft")) {
                                     class="fa-sharp fa-solid fa-circle-question"></i></h6></label>
                 </div>
                 <section class="bg-gray-800 position-relative text-white">
-                    <img width="1080" height="720" src="<?= ThemeModel::fetchImageLink("hero_img_bg") ?>"
+                    <img width="1080" height="720" src="<?= ThemeModel::getInstance()->fetchImageLink("hero_img_bg") ?>"
                          class="position-absolute h-full inset-0 object-center object-cover w-full"
                          style="width: 100%; height: 100%; object-fit: cover;"
                          alt="Vous devez upload bg.webp depuis votre panel !"/>
@@ -240,7 +240,7 @@ if (PackageController::isInstalled("Minecraft")) {
                         </div>
                         <div class="col-12 col-lg-6">
                             <div class="text-center">
-                                <img class="w-25" src="<?= ThemeModel::fetchImageLink("header_img_logo") ?>"
+                                <img class="w-25" src="<?= ThemeModel::getInstance()->fetchImageLink("header_img_logo") ?>"
                                      alt="Image introuvable !">
                             </div>
 
@@ -813,7 +813,7 @@ if (PackageController::isInstalled("Minecraft")) {
                                     <h6>Image :</h6>
                                     <div class="text-center ">
                                         <img class="w-25"
-                                             src="<?= ThemeModel::fetchImageLink("forum_nobody_send_message_img") ?>"
+                                             src="<?= ThemeModel::getInstance()->fetchImageLink("forum_nobody_send_message_img") ?>"
                                              alt="Image introuvable !">
                                     </div>
                                     <input class="mt-2 form-control form-control-sm" type="file"
