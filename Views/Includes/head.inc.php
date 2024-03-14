@@ -3,6 +3,7 @@
 use CMW\Controller\Core\CoreController;
 use CMW\Manager\Env\EnvManager;
 use CMW\Manager\Uploads\ImagesManager;
+use CMW\Manager\Views\View;
 use CMW\Model\Core\ThemeModel;
 use CMW\Utils\Website;
 
@@ -42,6 +43,10 @@ $siteName = Website::getWebsiteName();
 
     <?= ImagesManager::getFaviconInclude() ?>
 
+    <?php
+    View::loadInclude($includes, "styles");
+    ?>
+
     <?php if(ThemeModel::getInstance()->fetchConfigValue('dark_light')): ?>
     <script>
 		// On page load or when changing themes, best to add inline in `head` to avoid FOUC
@@ -56,4 +61,7 @@ $siteName = Website::getWebsiteName();
 </head>
 
 <body class="bg-white dark:bg-gray-800 dark:text-gray-300 flex flex-col min-h-screen">
-<?php echo CoreController::getInstance()->cmwWarn(); ?>
+<?php
+View::loadInclude($includes, "beforeScript");
+echo CoreController::getInstance()->cmwWarn();
+?>
