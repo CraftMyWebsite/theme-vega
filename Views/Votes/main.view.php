@@ -58,9 +58,9 @@ Website::setDescription("Votez, obtenez des points de vote et plein d'autres cad
                                     class="font-bold"><?= $site->getRewards()?->getTitle() ?></span>
                             </div>
                             <div class="pt-4 pb-2">
-                                <a href="<?= $site->getUrl() ?>" target="_blank"
+                                <button id="<?= $site->getSiteId() ?>" onclick="sendVote('<?= $site->getSiteId() ?>')"
                                    class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg px-4 py-2">Voter
-                                    <i class="fa-solid fa-award"></i></a>
+                                    <i class="fa-solid fa-award"></i></button>
                             </div>
                         </div>
                     </div>
