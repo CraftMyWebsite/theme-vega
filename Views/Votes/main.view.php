@@ -1,8 +1,10 @@
 <?php
 
+use CMW\Controller\Users\UsersController;
 use CMW\Manager\Env\EnvManager;
 use CMW\Model\Core\ThemeModel;
 use CMW\Model\Users\UsersModel;
+use CMW\Model\Votes\VotesConfigModel;
 use CMW\Utils\Website;
 
 
@@ -34,7 +36,7 @@ Website::setDescription("Votez, obtenez des points de vote et plein d'autres cad
     <div class="lg:grid grid-cols-3 gap-4">
         <div class="bg-gray-100 dark:bg-gray-900 dark:text-gray-300 rounded-lg shadow p-4 h-fit">
             <h4 class="font-bold text-center"><?= ThemeModel::getInstance()->fetchConfigValue('votes_participate_title') ?></h4>
-            <?php if (UsersModel::getCurrentUser()?->getId() === -1): ?>
+            <?php if (!UsersController::isUserLogged()): ?>
                 <div class="bg-white dark:bg-gray-700 rounded-lg shadow-lg p-2 mb-2">
                     <p>Pour pouvoir voter et récupérer vos récompenses vous devez être connecté sur le site, alors
                         n'attendez plus pour obtenir des récompenses uniques !</p>
@@ -69,7 +71,7 @@ Website::setDescription("Votez, obtenez des points de vote et plein d'autres cad
 
         </div>
         <div class="col-span-2 bg-gray-100 dark:bg-gray-900 dark:text-gray-300 rounded-lg shadow p-4 h-fit">
-            <h4 class="font-bold text-center mb-2"><?= ThemeModel::getInstance()->fetchConfigValue('votes_top_10_title') ?></h4>
+            <h4 class="font-bold text-center mb-2">Top <?= VotesConfigModel::getInstance()->getConfig()->getTopShow() ?> du mois</h4>
             <div class="overflow-x-auto relative shadow-md sm:rounded-lg">
                 <table class="w-full text-sm text-left">
                     <thead class="text-xs uppercase bg-gray-50 dark:bg-gray-700 ">
@@ -136,7 +138,7 @@ Website::setDescription("Votez, obtenez des points de vote et plein d'autres cad
 <?php if(ThemeModel::getInstance()->fetchConfigValue('votes_display_global')): ?>
 <section class="px-4 lg:px-24 2xl:px-96 py-6">
     <div class="bg-gray-100 dark:bg-gray-900 dark:text-gray-300 rounded-lg shadow p-4 h-fit">
-        <h4 class="font-bold text-center mb-2"><?= ThemeModel::getInstance()->fetchConfigValue('votes_top_10_global_title') ?></h4>
+        <h4 class="font-bold text-center mb-2">Top <?= VotesConfigModel::getInstance()->getConfig()->getTopShow() ?> global</h4>
         <div class="overflow-x-auto relative shadow-md sm:rounded-lg">
             <table class="w-full text-sm text-left">
                 <thead class="text-xs uppercase bg-gray-50 dark:bg-gray-700 ">
