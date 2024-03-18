@@ -228,6 +228,7 @@ Website::setDescription(Website::getWebsiteDescription());
                                                 <?= ThemeModel::getInstance()->fetchConfigValue('news_button') ?>
                                             </a>
                                             <div class="cursor-pointer">
+            <?php if ($news->isLikesStatus()): ?>
                                 <span data-tooltip-target="<?php if ($news->getLikes()->userCanLike()) {
                                     echo "tooltip-liked";
                                 } else {
@@ -256,6 +257,7 @@ Website::setDescription(Website::getWebsiteDescription());
                                     <?php endif; ?>
                                 </span>
                                 </span>
+            <?php endif; ?>
                                             </div>
                                         </div>
                                     </div>

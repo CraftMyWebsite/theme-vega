@@ -46,6 +46,7 @@ Website::setDescription($news->getDescription());
         </div>
         <div class="flex justify-end">
             <div class="cursor-pointer">
+                <?php if ($news->isLikesStatus()): ?>
                         <span data-tooltip-target="<?php if ($news->getLikes()->userCanLike()) {
                             echo "tooltip-liked";
                         } else {
@@ -74,11 +75,13 @@ Website::setDescription($news->getDescription());
                             <?php endif; ?>
                         </span>
                         </span>
+                <?php endif; ?>
             </div>
         </div>
     </div>
 </section>
 
+<?php if ($news->isCommentsStatus()): ?>
 <section class="px-4 lg:px-24 2xl:px-96 py-6">
     <div class="w-full font-medium rounded-lg p-2 bg-gray-100 dark:bg-gray-900 dark:text-white mb-4"><i
             class="fa-solid fa-newspaper"></i> Espace commentaires
@@ -167,3 +170,4 @@ Website::setDescription($news->getDescription());
     </div>
 
 </section>
+<?php endif; ?>
