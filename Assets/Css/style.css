@@ -1194,6 +1194,9 @@ pre {
 .w-6 {
   width: 1.5rem;
 }
+.w-64 {
+    width: 16rem;
+}
 .w-\[10\%\] {
   width: 10%;
 }
@@ -2297,6 +2300,9 @@ pre {
   .lg\:order-2 {
     order: 2;
   }
+    .lg\:w-96 {
+        width: 24rem;
+    }
 
   .lg\:col-span-3 {
     grid-column: span 3 / span 3;
