@@ -6,6 +6,7 @@ use CMW\Manager\Security\SecurityManager;
 use CMW\Model\Core\ThemeModel;
 use CMW\Utils\Website;
 
+/* @var \CMW\Interface\Users\IUsersOAuth[] $oAuths */
 
 Website::setTitle("Inscription");
 Website::setDescription("Inscrivez-vous");
@@ -109,16 +110,13 @@ Website::setDescription("Inscrivez-vous");
             </div>
             <div class="px-4 py-2 justify-center text-center w-full sm:w-auto">
                 <div class="flex-wrap inline-flex space-x-3">
-                    <a href="#" class="hover:text-blue-600" aria-label="facebook">
-                        <i class="fa-xl fa-brands fa-github"></i>
-                    </a> <a href="#" class="hover:text-blue-600" aria-label="twitter">
-                        <i class="fa-xl fa-brands fa-square-twitter"></i>
-                    </a> <a href="#" class="hover:text-blue-600" aria-label="instagram">
-                        <i class="fa-xl fa-brands fa-instagram"></i>
-                    </a><a href="#" class="hover:text-blue-600" aria-label="discord">
-                        <i class="fa-xl fa-brands fa-discord"></i></a>
-                    <a href="#" class="hover:text-blue-600" aria-label="discord">
-                        <i class="fa-xl fa-brands fa-google"></i></a>
+                    <?php foreach ($oAuths as $oAuth): ?>
+                        <a href="oauth/<?= $oAuth->methodIdentifier() ?>" class="hover:text-blue-600"
+                           aria-label="<?= $oAuth->methodeName() ?>">
+                            <img src="<?= $oAuth->methodeIconLink() ?>"
+                                 alt="<?= $oAuth->methodeName() ?>" width="32" height="32"/>
+                        </a>
+                    <?php endforeach; ?>
                 </div>
             </div>
             <label class="block text-sm mt-4">Déjà un comtpe, <a href="<?= EnvManager::getInstance()->getValue("PATH_SUBFOLDER") ?>login" class="text-blue-500">connexion</a></label>
