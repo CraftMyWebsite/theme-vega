@@ -53,6 +53,11 @@ return [
     /*CONTACT SECTION*/
     "contact_section_active" => "1",
     "contact_section_title" => "Nous contacter",
+    /* NEWSLETTER SECTION */
+    'newsletter_section_active' => '1',
+    'newsletter_section_title' => 'NewsLetter',
+    'newsletter_section_description' => 'Abonnez-vous à notre newsletter pour ne louper aucune news !',
+    'newsletter_section_button' => 'S\'abonner !',
     /*CUSTOM SECTION #1*/
     "custom_section_active_1" => "0",
     "custom_section_content_1" => "<h1>Personnalise moi</h1> <br> <p>Comme du code HTML !</p>",
