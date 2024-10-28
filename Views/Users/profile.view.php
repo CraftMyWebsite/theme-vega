@@ -32,7 +32,7 @@ Website::setDescription("Éditez votre profil");
 <section class="mx-auto lg:w-1/2">
     <div class="lg:grid grid-cols-2 gap-6">
         <div class="bg-gray-100 dark:bg-gray-900 dark:text-gray-300 rounded-lg shadow p-4">
-            <h4 class="text-center font-bold">Identité visuel</h4>
+            <h4 class="text-center font-bold">Identité visuelle</h4>
             <img style="height: 200px; width: 200px" class="rounded-lg shadow-lg mx-auto"
                  src="<?= $user->getUserPicture()->getImage() ?>"
                  alt="...">
@@ -54,7 +54,7 @@ Website::setDescription("Éditez votre profil");
         <div class="bg-gray-100 dark:bg-gray-900 dark:text-gray-300 rounded-lg shadow p-4">
             <form class="space-y-6" action="profile/update" method="post">
                 <?php (new SecurityManager())->insertHiddenToken() ?>
-                <h4 class="text-center font-bold">Informations personnel</h4>
+                <h4 class="text-center font-bold">Informations personnelles</h4>
                 <label for="input-group-1" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Mail
                     :</label>
                 <div class="relative mb-2">
@@ -151,7 +151,7 @@ Website::setDescription("Éditez votre profil");
             <div class="space-y-6">
                 <?php (new SecurityManager())->insertHiddenToken() ?>
                 <h4 class="text-center font-bold">Vous nous quittez ?</h4>
-                <p class="text-center block mt-4 mb-4 text-sm font-medium">Nous somme triste de vous voir partir !</p>
+                <p class="text-center block mt-4 mb-4 text-sm font-medium">Nous sommes triste de vous voir partir !</p>
                 <div class="text-center mt-4 mb-6">
                     <a href="<?= EnvManager::getInstance()->getValue("PATH_SUBFOLDER") ?>profile/delete/<?= $user->getId() ?>" style="background: #a21111" class="mb-4 text-white font-medium rounded-lg text-sm px-5 py-2.5 text-center">Supprimer mon compte</a>
                 </div>
