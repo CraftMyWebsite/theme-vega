@@ -1,10 +1,10 @@
 <?php
 
 use CMW\Controller\Users\UsersController;
+use CMW\Controller\Users\UsersSessionsController;
 use CMW\Manager\Env\EnvManager;
 use CMW\Model\Core\MenusModel;
 use CMW\Model\Core\ThemeModel;
-use CMW\Model\Users\UsersModel;
 use CMW\Utils\Website;
 
 $menus = MenusModel::getInstance()->getMenus();
@@ -24,7 +24,7 @@ $menus = MenusModel::getInstance()->getMenus();
             <?php if(UsersController::isUserLogged()): ?>
             <ul class="flex flex-col p-4">
                 <li>
-                    <button id="dropdownNavbarLinkProfil" data-dropdown-toggle="dropdownNavbarProfil" class="flex justify-between items-center py-2  w-full font-medium text-gray-700 hover:bg-gray-50 lg:hover:bg-transparent lg:hover:text-blue-700 lg:p-0 lg:w-auto dark:text-gray-400 dark:hover:text-white dark:focus:text-white dark:hover:bg-gray-700 lg:dark:hover:bg-transparent"><i class="mr-2 fa-solid fa-user"></i> <?= UsersModel::getCurrentUser()->getPseudo() ?></button>
+                    <button id="dropdownNavbarLinkProfil" data-dropdown-toggle="dropdownNavbarProfil" class="flex justify-between items-center py-2  w-full font-medium text-gray-700 hover:bg-gray-50 lg:hover:bg-transparent lg:hover:text-blue-700 lg:p-0 lg:w-auto dark:text-gray-400 dark:hover:text-white dark:focus:text-white dark:hover:bg-gray-700 lg:dark:hover:bg-transparent"><i class="mr-2 fa-solid fa-user"></i> <?= UsersSessionsController::getInstance()->getCurrentUser()->getPseudo() ?></button>
                     <!-- Dropdown menu -->
                     <div id="dropdownNavbarProfil" class="hidden z-10 w-44 font-normal bg-white rounded divide-y divide-gray-100 shadow dark:bg-gray-700 dark:divide-gray-600">
                         <ul class="py-1 text-sm text-gray-700 dark:text-gray-400" aria-labelledby="dropdownLargeButton">
