@@ -39,7 +39,7 @@ Website::setDescription("Éditez votre profil");
             <label class="block mt-4 mb-2 text-sm font-medium text-gray-900 dark:text-white" for="file_input">Changer
                 d'image :</label>
             <form action="<?= EnvManager::getInstance()->getValue("PATH_SUBFOLDER") ?>profile" method="post" enctype="multipart/form-data">
-                <?php (new SecurityManager())->insertHiddenToken() ?>
+                <?php SecurityManager::getInstance()->insertHiddenToken() ?>
                 <input name="pictureProfile" accept=".png, .jpg, .jpeg, .webp, .gif" required
                     class="block w-full text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 dark:text-gray-400 focus:outline-none dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400"
                     aria-describedby="file_input_help" id="file_input" type="file">
@@ -53,7 +53,7 @@ Website::setDescription("Éditez votre profil");
         </div>
         <div class="bg-gray-100 dark:bg-gray-900 dark:text-gray-300 rounded-lg shadow p-4">
             <form class="space-y-6" action="profile/update" method="post">
-                <?php (new SecurityManager())->insertHiddenToken() ?>
+                <?php SecurityManager::getInstance()->insertHiddenToken() ?>
                 <h4 class="text-center font-bold">Informations personnelles</h4>
                 <label for="input-group-1" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Mail
                     :</label>
@@ -118,7 +118,7 @@ Website::setDescription("Éditez votre profil");
 
 
                 <form class="space-y-6" action="<?= EnvManager::getInstance()->getValue('PATH_SUBFOLDER') ?>profile/2fa/toggle" method="post">
-                    <?php (new SecurityManager())->insertHiddenToken() ?>
+                    <?php SecurityManager::getInstance()->insertHiddenToken() ?>
                 <div class="lg:grid grid-cols-2 gap-6">
                     <div class="text-center">
                         <img class="mx-auto" height="85%" width="85%" src='<?= $user->get2Fa()->getQrCode(250) ?>'
@@ -149,7 +149,7 @@ Website::setDescription("Éditez votre profil");
 
         <div class="bg-gray-100 dark:bg-gray-900 dark:text-gray-300 rounded-lg shadow p-4 mb-6 h-fit">
             <div class="space-y-6">
-                <?php (new SecurityManager())->insertHiddenToken() ?>
+                <?php SecurityManager::getInstance()->insertHiddenToken() ?>
                 <h4 class="text-center font-bold">Vous nous quittez ?</h4>
                 <p class="text-center block mt-4 mb-4 text-sm font-medium">Nous sommes triste de vous voir partir !</p>
                 <div class="text-center mt-4 mb-6">

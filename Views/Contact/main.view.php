@@ -32,7 +32,7 @@ Website::setDescription("Contactez-nous dès maintenant");
 <section class="px-4 lg:px-24 2xl:px-60 py-6">
     <div class="bg-gray-100 dark:bg-gray-900 dark:text-gray-300 rounded-lg shadow p-4">
         <form action="" method="post">
-            <?php (new SecurityManager())->insertHiddenToken() ?>
+            <?php SecurityManager::getInstance()->insertHiddenToken() ?>
             <div class="p-4">
                 <div class="p-4 rounded-lg">
                     <div class="lg:grid grid-cols-2 gap-6 ">

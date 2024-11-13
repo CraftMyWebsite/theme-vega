@@ -137,7 +137,7 @@ Website::setDescription($news->getDescription());
         <hr class="my-4 border-t-2">
         <div class=" bg-white dark:bg-gray-800 dark:text-gray-300 rounded-lg shadow p-4">
             <form method="post" action="<?= $news->sendComments() ?>" class="">
-                <?php (new SecurityManager())->insertHiddenToken() ?>
+                <?php SecurityManager::getInstance()->insertHiddenToken() ?>
                 <div class="lg:grid grid-cols-5 gap-2">
                     <div class="mx-auto text-center">
                         <img style="height: 100px; width: 100px" class="rounded-lg"

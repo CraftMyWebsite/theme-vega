@@ -38,7 +38,7 @@ Website::setDescription(ThemeModel::getInstance()->fetchConfigValue('faq_descrip
             <div class="p-4 rounded-lg">
                 <p class="text-center text-lg font-medium mb-4"><?= ThemeModel::getInstance()->fetchConfigValue('faq_question_title') ?></p>
                 <form action="contact" method="post" class="">
-                    <?php (new SecurityManager())->insertHiddenToken() ?>
+                    <?php SecurityManager::getInstance()->insertHiddenToken() ?>
                     <div class="lg:grid grid-cols-2 gap-6 ">
                         <div>
                             <label for="input-group-1"

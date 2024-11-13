@@ -28,7 +28,7 @@ Website::setDescription("C'est pas très bien d'oublié son mot de passe ...");
     <div class="bg-gray-100 dark:bg-gray-900 dark:text-gray-300 rounded-lg shadow p-4">
         <label for="input-group-1" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Votre mail :</label>
         <form action="" method="post">
-            <?php (new SecurityManager())->insertHiddenToken() ?>
+            <?php SecurityManager::getInstance()->insertHiddenToken() ?>
         <div class="relative mb-2">
             <div class="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
                 <i class="text-gray-500 dark:text-gray-400 fa-solid fa-envelope"></i>

@@ -349,7 +349,7 @@ Website::setDescription(Website::getWebsiteDescription());
                 </div>
                 <div class="p-4">
                     <form action="contact" method="post" class="rounded-md shadow-lg p-8">
-                        <?php (new SecurityManager())->insertHiddenToken() ?>
+                        <?php SecurityManager::getInstance()->insertHiddenToken() ?>
                         <div class="p-4 bg-white dark:bg-gray-800 rounded-lg">
                             <div class="lg:grid grid-cols-2 gap-6 ">
                                 <div>
@@ -459,7 +459,7 @@ Website::setDescription(Website::getWebsiteDescription());
                 </div>
                 <div class="p-4">
                     <form action="newsletter" method="post" class="rounded-md shadow-lg p-8">
-                    <?php (new SecurityManager())->insertHiddenToken() ?>
+                    <?php SecurityManager::getInstance()->insertHiddenToken() ?>
                     <?= ThemeModel::getInstance()->fetchConfigValue('newsletter_section_description') ?>
                         <div class="relative mb-6">
                             <div class="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
