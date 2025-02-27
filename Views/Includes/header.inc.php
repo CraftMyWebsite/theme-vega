@@ -1,11 +1,17 @@
 <?php
 
+use CMW\Controller\Core\PackageController;
 use CMW\Controller\Users\UsersController;
 use CMW\Controller\Users\UsersSessionsController;
 use CMW\Manager\Env\EnvManager;
 use CMW\Model\Core\MenusModel;
 use CMW\Model\Core\ThemeModel;
+use CMW\Model\Shop\Cart\ShopCartItemModel;
 use CMW\Utils\Website;
+
+if (PackageController::isInstalled('Shop')) {
+    $itemInCart = ShopCartItemModel::getInstance()->countItemsByUserId(UsersSessionsController::getInstance()->getCurrentUser()?->getId(), session_id());
+}
 
 $menus = MenusModel::getInstance()->getMenus();
 
@@ -34,6 +40,18 @@ $menus = MenusModel::getInstance()->getMenus();
                             <li>
                                 <a href="<?= EnvManager::getInstance()->getValue("PATH_SUBFOLDER") ?>profile" class="block py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"><i class="fa-regular fa-address-card"></i> Profil</a>
                             </li>
+                            <?php if (PackageController::isInstalled('Shop')): ?>
+                                <li>
+                                    <a href="<?= EnvManager::getInstance()->getValue('PATH_SUBFOLDER') ?>shop/settings"
+                                       class="block py-2 px-4 hover:bg-gray-100"><i class="fa-solid fa-gear"></i>
+                                        Paramètres</a>
+                                </li>
+                                <li>
+                                    <a href="<?= EnvManager::getInstance()->getValue('PATH_SUBFOLDER') ?>shop/history"
+                                       class="block py-2 px-4 hover:bg-gray-100"><i class="fa-solid fa-clipboard-list"></i>
+                                        Commandes</a>
+                                </li>
+                            <?php endif; ?>
                         </ul>
                         <div class="py-1">
                             <a href="<?= EnvManager::getInstance()->getValue("PATH_SUBFOLDER") ?>logout" class="block py-2 px-4 text-sm text-red-700 hover:bg-gray-100"><i class="fa-solid fa-right-from-bracket"></i> Déconnexion</a>
@@ -41,6 +59,15 @@ $menus = MenusModel::getInstance()->getMenus();
                     </div>
                 </li>
             </ul>
+                <?php if (PackageController::isInstalled('Shop')): ?>
+                    <div>
+                        <a href="<?= Website::getProtocol() ?>://<?= $_SERVER['SERVER_NAME'] ?><?= EnvManager::getInstance()->getValue('PATH_SUBFOLDER') ?>shop/cart" style="display: inline-flex; position: relative; align-items: center; padding: .75rem;font-size: 0.875rem;line-height: 1.25rem">
+                            <i class="text-lg fa-solid fa-cart-shopping"></i>
+                            <span class="sr-only">Articles</span>
+                            <div style="display: inline-flex; position: absolute; top: -0.2rem; right: -0.2rem; justify-content: center; align-items: center;width: 1.2rem; height: 1.2rem; font-size: 0.75rem;line-height: 1rem;font-weight: 700; color: white; background: red; border-radius: 100%"><?= $itemInCart ?></div>
+                        </a>
+                    </div>
+                <?php endif; ?>
             <?php else: ?>
                 <?php if (ThemeModel::getInstance()->fetchConfigValue('header_allow_login_button')): ?>
                 <a class="hidden lg:flex justify-between items-center" href="<?= EnvManager::getInstance()->getValue("PATH_SUBFOLDER") ?>login"><button class="py-2 pr-4 pl-3 w-full font-medium text-blue-500 border-b border-gray-100 hover:bg-gray-50 lg:hover:bg-transparent lg:border-0 lg:hover:text-blue-700 lg:p-0 lg:w-auto dark:text-blue-500 dark:hover:text-white dark:focus:text-white dark:border-gray-700 dark:hover:bg-gray-700 lg:dark:hover:bg-transparent">Connexion</button></a>
