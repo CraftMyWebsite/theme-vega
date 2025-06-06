@@ -5,13 +5,13 @@ use CMW\Manager\Env\EnvManager;
 use CMW\Model\Core\ThemeModel;
 use CMW\Utils\Website;
 
-$newsList = \CMW\Model\News\NewsModel::getInstance()->getSomeNews(ThemeModel::getInstance()->fetchConfigValue('news_page_number_display'), 'DESC');
+$newsList = \CMW\Model\News\NewsModel::getInstance()->getSomeNews(ThemeModel::getInstance()->fetchConfigValue('news','news_page_number_display'), 'DESC');
 
 Website::setTitle(ThemeModel::getInstance()->fetchConfigValue('news_title'));
 Website::setDescription(ThemeModel::getInstance()->fetchConfigValue('news_description'));
 ?>
 
-<section style="background-image: url('<?= ThemeModel::getInstance()->fetchImageLink('hero_img_bg') ?>');" class="bg-cover mb-4">
+<section data-cmw-style="background:home-hero:hero_img_bg" style="background: no-repeat ;background-size: cover;" class="bg-cover mb-4">
     <div class="text-center text-white py-8">
         <h2 class="font-bold"><?= ThemeModel::getInstance()->fetchConfigValue('news_page_title') ?></h2>
         <p><?= ThemeModel::getInstance()->fetchConfigValue('news_description') ?></p>

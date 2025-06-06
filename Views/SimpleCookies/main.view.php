@@ -2,14 +2,13 @@
 
 /* @var \CMW\Entity\SimpleCookies\SimpleCookiesSettingsEntity $content */
 
-use CMW\Model\Core\ThemeModel;
 use CMW\Utils\Website;
 
 Website::setTitle('Cookies');
 Website::setDescription('Découvrez pourquoi on à besoin de cookies !');
 ?>
 
-<section style="background-image: url('<?= ThemeModel::getInstance()->fetchImageLink('hero_img_bg') ?>');" class="bg-cover mb-4">
+<section data-cmw-style="background:home-hero:hero_img_bg" style="background: no-repeat ;background-size: cover;" class="bg-cover mb-4">
     <div class="text-center text-white py-8">
         <h2 class="font-bold">Cookies</h2>
     </div>

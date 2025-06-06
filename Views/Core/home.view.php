@@ -13,7 +13,7 @@ use CMW\Utils\Website;
 
 if (PackageController::isInstalled("News")) {
     $newsLists = new newsModel;
-    $newsList = $newsLists->getSomeNews(ThemeModel::getInstance()->fetchConfigValue('news_number_display'));
+    $newsList = $newsLists->getSomeNews(ThemeModel::getInstance()->fetchConfigValue('home-news','news_number_display'));
 }
 if (PackageController::isInstalled("Minecraft")) {
     $mc = new minecraftModel;
@@ -24,102 +24,91 @@ if (PackageController::isInstalled("Minecraft")) {
 
 }
 
-Website::setTitle(ThemeModel::getInstance()->fetchConfigValue('home_title'));
+Website::setTitle(ThemeModel::getInstance()->fetchConfigValue('global', 'onglet_title'));
 Website::setDescription(Website::getWebsiteDescription());
 ?>
     <!--HERO SECTION-->
-    <section style="background-image: url('<?= ThemeModel::getInstance()->fetchImageLink('hero_img_bg') ?>');" class="bg-cover mb-4">
+    <section data-cmw-style="background:home-hero:hero_img_bg" style="background: no-repeat ;background-size: cover;" class="bg-cover mb-4">
         <div class="grid max-w-screen-xl px-4 py-8 mx-auto lg:gap-8 xl:gap-0 lg:pt-24 lg:pb-24 lg:grid-cols-12">
             <div class="mr-auto place-self-center lg:col-span-7">
                 <?php if (PackageController::isInstalled("Minecraft") ): ?>
-                    <?php if (ThemeModel::getInstance()->fetchConfigValue('hero_show_minecraft_player')): ?>
-                        <?php if ($favExist): ?>
-                            <div class="max-w-2xl text-white font-light md:text-lg lg:text-xl"><i
-                                        class="text-green-500 fa-regular fa-circle-dot fa-beat-fade"></i> <?= ThemeModel::getInstance()->fetchConfigValue('hero_join_prefix') ?>
-                                <b><?= $minecraft ?></b> <?= ThemeModel::getInstance()->fetchConfigValue('hero_join_suffix') ?></div>
-                        <?php else: ?>
-                            <?php if (UsersController::isAdminLogged()) : ?>
-                                <section class="py-8">
-                                    <div class="container mx-auto px-4 relative">
-                                        <div id="bg-blue-200"
-                                             class="p-4 mb-4 text-yellow-800 border border-yellow-300 rounded-lg bg-yellow-50 dark:bg-gray-800 dark:text-yellow-300 dark:border-yellow-800"
-                                             role="alert">
-                                            <div class="flex items-center">
-                                                <svg aria-hidden="true" class="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 20 20"
-                                                     xmlns="http://www.w3.org/2000/svg">
-                                                    <path fill-rule="evenodd"
-                                                          d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z"
-                                                          clip-rule="evenodd"></path>
-                                                </svg>
-                                                <span class="sr-only">Info</span>
-                                                <h3 class="text-lg font-medium">Vous n'avez pas de favoris !</h3>
-                                            </div>
-                                            <div class="mt-2 mb-4 text-sm">
-                                                Pour utilisez l'option "Afficher le nombre de joueurs minecraft" vous devez avoir un serveur en Favoris !<br>Seuls les administrateurs voient ce message !
-                                            </div>
-                                            <div class="flex">
-                                                <a href="<?= EnvManager::getInstance()->getValue("PATH_SUBFOLDER") ?>cmw-admin/minecraft/servers" target="_blank"
-                                                   type="button"
-                                                   class="text-white bg-yellow-800 hover:bg-yellow-900 focus:ring-4 focus:outline-none focus:ring-yellow-300 font-medium rounded-lg text-xs px-3 py-1.5 mr-2 text-center inline-flex items-center dark:bg-yellow-300 dark:text-gray-800 dark:hover:bg-yellow-400 dark:focus:ring-yellow-800">
-                                                    <p><i class="fa-solid fa-square-arrow-up-right"></i> Gérer les favoris</p>
-                                                </a>
-                                                <button type="button"
-                                                        class="text-yellow-800 bg-transparent border border-yellow-800 hover:bg-yellow-900 hover:text-white focus:ring-4 focus:outline-none focus:ring-yellow-300 font-medium rounded-lg text-xs px-3 py-1.5 text-center dark:hover:bg-yellow-300 dark:border-yellow-300 dark:text-yellow-300 dark:hover:text-gray-800 dark:focus:ring-yellow-800"
-                                                        data-dismiss-target="#alert-additional-content-4" aria-label="Close">
-                                                    <p><i class="fa-solid fa-eye-slash"></i> Masquer</p>
-                                                </button>
-                                            </div>
+                <div data-cmw-visible="home-hero:hero_show_minecraft_player">
+                    <?php if ($favExist): ?>
+                        <div data-cmw="" class="max-w-2xl text-white font-light md:text-lg lg:text-xl" ><i
+                                class="text-green-500 fa-regular fa-circle-dot fa-beat-fade"></i> <span data-cmw="home-hero:hero_join_prefix"></span>
+                            <b><?= $minecraft ?></b> <span data-cmw="home-hero:hero_join_suffix"></span></div>
+                    <?php else: ?>
+                        <?php if (UsersController::isAdminLogged()) : ?>
+                            <section class="py-8">
+                                <div class="container mx-auto px-4 relative">
+                                    <div id="bg-blue-200"
+                                         class="p-4 mb-4 text-yellow-800 border border-yellow-300 rounded-lg bg-yellow-50 dark:bg-gray-800 dark:text-yellow-300 dark:border-yellow-800"
+                                         role="alert">
+                                        <div class="flex items-center">
+                                            <svg aria-hidden="true" class="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 20 20"
+                                                 xmlns="http://www.w3.org/2000/svg">
+                                                <path fill-rule="evenodd"
+                                                      d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z"
+                                                      clip-rule="evenodd"></path>
+                                            </svg>
+                                            <span class="sr-only">Info</span>
+                                            <h3 class="text-lg font-medium">Vous n'avez pas de favoris !</h3>
+                                        </div>
+                                        <div class="mt-2 mb-4 text-sm">
+                                            Pour utilisez l'option "Afficher le nombre de joueurs minecraft" vous devez avoir un serveur en Favoris !<br>Seuls les administrateurs voient ce message !
+                                        </div>
+                                        <div class="flex">
+                                            <a href="<?= EnvManager::getInstance()->getValue("PATH_SUBFOLDER") ?>cmw-admin/minecraft/servers" target="_blank"
+                                               type="button"
+                                               class="text-white bg-yellow-800 hover:bg-yellow-900 focus:ring-4 focus:outline-none focus:ring-yellow-300 font-medium rounded-lg text-xs px-3 py-1.5 mr-2 text-center inline-flex items-center dark:bg-yellow-300 dark:text-gray-800 dark:hover:bg-yellow-400 dark:focus:ring-yellow-800">
+                                                <p><i class="fa-solid fa-square-arrow-up-right"></i> Gérer les favoris</p>
+                                            </a>
+                                            <button type="button"
+                                                    class="text-yellow-800 bg-transparent border border-yellow-800 hover:bg-yellow-900 hover:text-white focus:ring-4 focus:outline-none focus:ring-yellow-300 font-medium rounded-lg text-xs px-3 py-1.5 text-center dark:hover:bg-yellow-300 dark:border-yellow-300 dark:text-yellow-300 dark:hover:text-gray-800 dark:focus:ring-yellow-800"
+                                                    data-dismiss-target="#alert-additional-content-4" aria-label="Close">
+                                                <p><i class="fa-solid fa-eye-slash"></i> Masquer</p>
+                                            </button>
                                         </div>
                                     </div>
-                                </section>
-                            <?php endif; ?>
+                                </div>
+                            </section>
                         <?php endif; ?>
                     <?php endif; ?>
+                </div>
                 <?php endif; ?>
-                <div class="max-w-2xl mb-4 text-2xl md:text-3xl xl:text-4xl font-bold tracking-tight leading-none text-white"><?= ThemeModel::getInstance()->fetchConfigValue('hero_title') ?>
-                    <span class="text-3xl md:text-4xl xl:text-5xl underline"><?= Website::getWebsiteName() ?></span></div>
-                <div class="max-w-2xl mb-4 text-white font-light  md:text-lg lg:text-xl"><?= ThemeModel::getInstance()->fetchConfigValue('hero_description') ?></div>
-                <a href="<?= ThemeModel::getInstance()->fetchConfigValue('hero_button_link') ?>"
+                <div class="max-w-2xl mb-4 text-2xl md:text-3xl xl:text-4xl font-bold tracking-tight leading-none text-white" data-cmw="home-hero:hero_title">
+                    <span class="text-3xl md:text-4xl xl:text-5xl underline"></span></div>
+                <div class="max-w-2xl mb-4 text-white font-light  md:text-lg lg:text-xl" data-cmw="home-hero:hero_description"></div>
+                <a data-cmw-attr="href:home-hero:hero_button_link" data-cmw="home-hero:hero_button_text"
                    class="inline-flex items-center justify-center px-5 py-3 mr-3 text-base font-medium text-center text-white rounded-lg bg-blue-700 hover:bg-blue-800 dark:bg-blue-800 dark:hover:bg-blue-900 focus:ring-4 focus:ring-primary-300 dark:focus:ring-primary-900">
-                    <?= ThemeModel::getInstance()->fetchConfigValue('hero_button_text') ?>
                 </a>
-                <?php if (ThemeModel::getInstance()->fetchConfigValue('hero_show_footer_icon')): ?>
-                    <div class="py-2 w-full sm:w-auto mt-4 text-4xl text-white">
+                    <div data-cmw-visible="home-hero:hero_show_footer_icon" class="py-2 w-full sm:w-auto mt-4 text-4xl text-white">
                         <div class="flex-wrap inline-flex space-x-4 lg:space-x-6">
-                            <?php if (ThemeModel::getInstance()->fetchConfigValue('footer_active_facebook')): ?>
-                                <a href="<?= ThemeModel::getInstance()->fetchConfigValue('footer_link_facebook') ?>"
-                                   <?php if (ThemeModel::getInstance()->fetchConfigValue('footer_open_link_new_tab')): ?>target="_blank"<?php endif; ?>
+                                <a data-cmw-visible="footer:footer_active_facebook" data-cmw-attr="href:footer:footer_link_facebook"
+                                   <?php if (ThemeModel::getInstance()->fetchConfigValue('footer','footer_open_link_new_tab')): ?>target="_blank"<?php endif; ?>
                                    class="hover:text-blue-600">
-                                    <i class=" <?= ThemeModel::getInstance()->fetchConfigValue('footer_icon_facebook') ?>"></i>
+                                    <i data-cmw-class="footer:footer_icon_facebook"></i>
                                 </a>
-                            <?php endif; ?>
-                            <?php if (ThemeModel::getInstance()->fetchConfigValue('footer_active_twitter')): ?>
-                                <a href="<?= ThemeModel::getInstance()->fetchConfigValue('footer_link_twitter') ?>"
-                                   <?php if (ThemeModel::getInstance()->fetchConfigValue('footer_open_link_new_tab')): ?>target="_blank"<?php endif; ?>
+                                <a data-cmw-visible="footer:footer_active_x" data-cmw-attr="href:footer:footer_link_x"
+                                   <?php if (ThemeModel::getInstance()->fetchConfigValue('footer','footer_open_link_new_tab')): ?>target="_blank"<?php endif; ?>
                                    class="hover:text-blue-600">
-                                    <i class=" <?= ThemeModel::getInstance()->fetchConfigValue('footer_icon_twitter') ?>"></i>
+                                    <i data-cmw-class="footer:footer_icon_x"></i>
                                 </a>
-                            <?php endif; ?>
-                            <?php if (ThemeModel::getInstance()->fetchConfigValue('footer_active_instagram')): ?>
-                                <a href="<?= ThemeModel::getInstance()->fetchConfigValue('footer_link_instagram') ?>"
-                                   <?php if (ThemeModel::getInstance()->fetchConfigValue('footer_open_link_new_tab')): ?>target="_blank"<?php endif; ?>
+                                <a data-cmw-visible="footer:footer_active_instagram" data-cmw-attr="href:footer:footer_link_instagram"
+                                   <?php if (ThemeModel::getInstance()->fetchConfigValue('footer','footer_open_link_new_tab')): ?>target="_blank"<?php endif; ?>
                                    class="hover:text-blue-600">
-                                    <i class=" <?= ThemeModel::getInstance()->fetchConfigValue('footer_icon_instagram') ?>"></i>
+                                    <i data-cmw-class="footer:footer_icon_instagram"></i>
                                 </a>
-                            <?php endif; ?>
-                            <?php if (ThemeModel::getInstance()->fetchConfigValue('footer_active_discord')): ?>
-                                <a href="<?= ThemeModel::getInstance()->fetchConfigValue('footer_link_discord') ?>"
-                                   <?php if (ThemeModel::getInstance()->fetchConfigValue('footer_open_link_new_tab')): ?>target="_blank"<?php endif; ?>
+                                <a data-cmw-visible="footer:footer_active_discord" data-cmw-attr="href:footer:footer_link_discord"
+                                   <?php if (ThemeModel::getInstance()->fetchConfigValue('footer','footer_open_link_new_tab')): ?>target="_blank"<?php endif; ?>
                                    class="hover:text-blue-600">
-                                    <i class=" <?= ThemeModel::getInstance()->fetchConfigValue('footer_icon_discord') ?>"></i>
+                                    <i data-cmw-class="footer:footer_icon_discord"></i>
                                 </a>
-                            <?php endif; ?>
                         </div>
                     </div>
-                <?php endif; ?>
             </div>
             <div class="hidden lg:mt-0 lg:col-span-5 lg:flex">
-                <img src="<?= ThemeModel::getInstance()->fetchImageLink('header_img_logo') ?>" alt="...">
+                <img data-cmw-attr="src:global:header_img_logo"  alt="...">
             </div>
 
         </div>
@@ -137,60 +126,56 @@ Website::setDescription(Website::getWebsiteDescription());
 
 
     <!--WHY US SECTION-->
-<?php if (ThemeModel::getInstance()->fetchConfigValue('feature_section_active')): ?>
-    <section>
+    <section data-cmw-visible="home-feature:feature_section_active">
         <div class="container mx-auto px-4 py-16 relative">
 
             <div class="flex flex-wrap -mx-4">
                 <div class="w-full p-4  xl:w-4/12 sm:w-6/12">
                     <div class="bg-gray-100 block group px-6 py-16 rounded-lg shadow-lg dark:bg-gray-900 dark:text-white">
                         <div class="text-center">
-                            <i class="mb-4 text-blue-700 text-4xl <?= ThemeModel::getInstance()->fetchConfigValue("feature_img_1") ?>"></i>
+                            <i data-cmw-class="home-feature:feature_img_1" class="mb-4 text-blue-700 text-4xl "></i>
                         </div>
-                        <h4 class="font-bold mb-2 text-gray-900 text-xl dark:text-white"><?= ThemeModel::getInstance()->fetchConfigValue('feature_title_1') ?></h4>
-                        <p><?= ThemeModel::getInstance()->fetchConfigValue('feature_description_1') ?></p>
+                        <h4 class="font-bold mb-2 text-gray-900 text-xl dark:text-white" data-cmw="home-feature:feature_title_1"></h4>
+                        <p data-cmw="home-feature:feature_description_1"></p>
                     </div>
                 </div>
                 <div class="w-full p-4  xl:w-4/12 sm:w-6/12">
                     <div class="bg-gray-100 block px-6 py-16 rounded-lg shadow-lg dark:bg-gray-900 dark:text-white">
                         <div class="text-center">
-                            <i class="mb-4 text-blue-700 text-4xl <?= ThemeModel::getInstance()->fetchConfigValue("feature_img_2") ?>"></i>
+                            <i data-cmw-class="home-feature:feature_img_2" class="mb-4 text-blue-700 text-4xl "></i>
                         </div>
-                        <h4 class="font-bold mb-2 text-gray-900 text-xl dark:text-white"><?= ThemeModel::getInstance()->fetchConfigValue('feature_title_2') ?></h4>
-                        <p><?= ThemeModel::getInstance()->fetchConfigValue('feature_description_2') ?></p>
+                        <h4 class="font-bold mb-2 text-gray-900 text-xl dark:text-white" data-cmw="home-feature:feature_title_2"></h4>
+                        <p data-cmw="home-feature:feature_description_2"></p>
                     </div>
                 </div>
                 <div class="w-full p-4  xl:w-4/12 sm:w-6/12">
                     <div class="bg-gray-100 block px-6 py-16 rounded-lg shadow-lg dark:bg-gray-900 dark:text-white">
                         <div class="text-center">
-                            <i class="mb-4 text-blue-700 text-4xl <?= ThemeModel::getInstance()->fetchConfigValue("feature_img_3") ?>"></i>
+                            <i data-cmw-class="home-feature:feature_img_3" class="mb-4 text-blue-700 text-4xl "></i>
                         </div>
-                        <h4 class="font-bold mb-2 text-gray-900 text-xl dark:text-white"><?= ThemeModel::getInstance()->fetchConfigValue('feature_title_3') ?></h4>
-                        <p><?= ThemeModel::getInstance()->fetchConfigValue('feature_description_3') ?></p>
+                        <h4 class="font-bold mb-2 text-gray-900 text-xl dark:text-white" data-cmw="home-feature:feature_title_3"></h4>
+                        <p data-cmw="home-feature:feature_description_3"></p>
                     </div>
                 </div>
             </div>
         </div>
     </section>
-<?php endif; ?>
     <!--Trailer-->
-<?php if (ThemeModel::getInstance()->fetchConfigValue('trailer_section_active')): ?>
-    <section class="bg-gray-100 dark:bg-gray-900 dark:text-white">
+    <section data-cmw-visible="home-trailer:trailer_section_active" class="bg-gray-100 dark:bg-gray-900 dark:text-white">
         <div class="px-4 py-6 lg:px-24 2xl:px-48">
             <div class="lg:grid lg:grid-cols-2">
                 <div class="text-center my-auto lg:px-16">
-                    <div class="font-bold text-3xl mb-4"><?= ThemeModel::getInstance()->fetchConfigValue('trailer_title') ?></div>
-                    <div><?= ThemeModel::getInstance()->fetchConfigValue('trailer_text') ?></div>
+                    <div class="font-bold text-3xl mb-4" data-cmw="home-trailer:trailer_title" ></div>
+                    <div data-cmw="home-trailer:trailer_text"></div>
                     <div class="mt-4">
-                        <a href="<?= ThemeModel::getInstance()->fetchConfigValue('trailer_button_link') ?>"
+                        <a data-cmw="home-trailer:trailer_button_text" data-cmw-attr="href:home-trailer:trailer_button_link"
                            class=" px-3 py-2 text-base font-medium text-center text-white rounded-lg bg-blue-700 hover:bg-blue-800 dark:bg-blue-800 dark:hover:bg-blue-900 focus:ring-4 focus:ring-primary-300 dark:focus:ring-primary-900">
-                            <?= ThemeModel::getInstance()->fetchConfigValue('trailer_button_text') ?>
                         </a>
                     </div>
                 </div>
                 <div class="rounded-lg bg-white p-2 mx-auto dark:bg-gray-800 mt-8 lg:mt-0">
                     <iframe class="w-full h-[12rem] lg:w-[36rem] lg:h-[24rem]"
-                            src="https://www.youtube.com/embed/<?= ThemeModel::getInstance()->fetchConfigValue('trailer_youtube_link') ?>"
+                            src="https://www.youtube.com/embed/<?= ThemeModel::getInstance()->fetchConfigValue('home-trailer','trailer_youtube_link') ?>"
                             title="YouTube video player" frameborder="0"
                             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                             allowfullscreen></iframe>
@@ -198,15 +183,14 @@ Website::setDescription(Website::getWebsiteDescription());
             </div>
         </div>
     </section>
-<?php endif; ?>
 
     <!--NEWS SECTION-->
 <?php if (PackageController::isInstalled("News")): ?>
-    <?php if (ThemeModel::getInstance()->fetchConfigValue('news_section_active')): ?>
-        <section>
+
+        <section data-cmw-visible="home-news:news_section_active">
             <div class="px-4 lg:px-24 2xl:px-72 py-16">
                 <div class="w-full font-medium rounded-lg p-2 bg-gray-100 dark:bg-gray-900 dark:text-white"><i
-                            class="fa-solid fa-newspaper"></i> <?= ThemeModel::getInstance()->fetchConfigValue('news_section_title') ?>
+                            class="fa-solid fa-newspaper"></i> <span data-cmw="home-news:news_section_title"></span>
                 </div>
                 <div class="lg:grid grid-cols-2">
                     <?php foreach ($newsList as $news): ?>
@@ -223,9 +207,9 @@ Website::setDescription(Website::getWebsiteDescription());
                                         </div>
                                         <p class="font-medium mb-4"><?= $news->getDescription() ?></p>
                                         <div class="flex justify-between">
-                                            <a href="<?= EnvManager::getInstance()->getValue("PATH_SUBFOLDER") ?>news/<?= $news->getSlug() ?>"
+                                            <a data-cmw="home-news:news_button" href="<?= EnvManager::getInstance()->getValue("PATH_SUBFOLDER") ?>news/<?= $news->getSlug() ?>"
                                                class=" px-3 py-2 text-base font-medium text-center text-white rounded-lg bg-blue-700 hover:bg-blue-800 dark:bg-blue-800 dark:hover:bg-blue-900 focus:ring-4 focus:ring-primary-300 dark:focus:ring-primary-900">
-                                                <?= ThemeModel::getInstance()->fetchConfigValue('news_button') ?>
+
                                             </a>
                                             <div class="cursor-pointer">
             <?php if ($news->isLikesStatus()): ?>
@@ -269,83 +253,34 @@ Website::setDescription(Website::getWebsiteDescription());
             </div>
         </section>
     <?php endif; ?>
-<?php else: ?>
-    <?php if (UsersController::isAdminLogged()) : ?>
-        <section class="py-8">
-            <div class="container mx-auto px-4 relative">
-                <div id="alert-additional-content-4"
-                     class="p-4 mb-4 text-yellow-800 border border-yellow-300 rounded-lg bg-yellow-50 dark:bg-gray-800 dark:text-yellow-300 dark:border-yellow-800"
-                     role="alert">
-                    <div class="flex items-center">
-                        <svg aria-hidden="true" class="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 20 20"
-                             xmlns="http://www.w3.org/2000/svg">
-                            <path fill-rule="evenodd"
-                                  d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z"
-                                  clip-rule="evenodd"></path>
-                        </svg>
-                        <span class="sr-only">Info</span>
-                        <h3 class="text-lg font-medium">Vous n'utilisez pas le package News</h3>
-                    </div>
-                    <div class="mt-2 mb-4 text-sm">
-                        Le thème Wipe prend en charge le package News, pour le moment vous ne l'utilisez pas, installez
-                        le si vous voulez en bénéficier.<br>Seuls les administrateurs voient ce message !
-                    </div>
-                    <div class="flex">
-                        <a href="<?= EnvManager::getInstance()->getValue("PATH_SUBFOLDER") ?>cmw-admin" target="_blank"
-                           type="button"
-                           class="text-white bg-yellow-800 hover:bg-yellow-900 focus:ring-4 focus:outline-none focus:ring-yellow-300 font-medium rounded-lg text-xs px-3 py-1.5 mr-2 text-center inline-flex items-center dark:bg-yellow-300 dark:text-gray-800 dark:hover:bg-yellow-400 dark:focus:ring-yellow-800">
-                            <p><i class="fa-solid fa-download"></i> Installer le package</p>
-                        </a>
-                        <button type="button"
-                                class="text-yellow-800 bg-transparent border border-yellow-800 hover:bg-yellow-900 hover:text-white focus:ring-4 focus:outline-none focus:ring-yellow-300 font-medium rounded-lg text-xs px-3 py-1.5 text-center dark:hover:bg-yellow-300 dark:border-yellow-300 dark:text-yellow-300 dark:hover:text-gray-800 dark:focus:ring-yellow-800"
-                                data-dismiss-target="#alert-additional-content-4" aria-label="Close">
-                            <p><i class="fa-solid fa-eye-slash"></i> Masquer</p>
-                        </button>
-                    </div>
-                </div>
-            </div>
-        </section>
-    <?php endif; ?>
-<?php endif; ?>
+
     <!--CUSTOM SECTION 1-->
-<?php if (ThemeModel::getInstance()->fetchConfigValue('custom_section_active_1')): ?>
-    <section class="bg-gray-100 dark:bg-gray-900">
-        <div class="px-4 lg:px-24 2xl:px-72 py-6 dark:text-gray-300">
-            <?= ThemeModel::getInstance()->fetchConfigValue('custom_section_content_1') ?>
+    <section data-cmw-visible="home-custom:custom_section_active_1" class="bg-gray-100 dark:bg-gray-900">
+        <div data-cmw="home-custom:custom_section_content_1" class="px-4 lg:px-24 2xl:px-72 py-6 dark:text-gray-300">
         </div>
     </section>
-<?php endif; ?>
-<?php if (ThemeModel::getInstance()->fetchConfigValue('custom_section_active_2')): ?>
+
     <!--CUSTOM SECTION 2-->
-    <section class="dark:text-gray-300">
-        <div class="px-4 lg:px-24 2xl:px-72 py-6">
-            <?= ThemeModel::getInstance()->fetchConfigValue('custom_section_content_2') ?>
+    <section data-cmw-visible="home-custom:custom_section_active_2" class="dark:text-gray-300">
+        <div data-cmw="home-custom:custom_section_content_2" class="px-4 lg:px-24 2xl:px-72 py-6">
         </div>
     </section>
-<?php endif; ?>
-<?php if (ThemeModel::getInstance()->fetchConfigValue('custom_section_active_3')): ?>
     <!--CUSTOM SECTION 3-->
-    <section class="bg-gray-100 dark:bg-gray-900 dark:text-gray-300">
-        <div class="px-4 lg:px-24 2xl:px-72 py-6">
-            <?= ThemeModel::getInstance()->fetchConfigValue('custom_section_content_3') ?>
+    <section data-cmw-visible="home-custom:custom_section_active_3" class="bg-gray-100 dark:bg-gray-900 dark:text-gray-300">
+        <div data-cmw="home-custom:custom_section_content_3" class="px-4 lg:px-24 2xl:px-72 py-6">
         </div>
     </section>
-<?php endif; ?>
-<?php if (ThemeModel::getInstance()->fetchConfigValue('custom_section_active_4')): ?>
     <!--CUSTOM SECTION 4-->
-    <section class="dark:text-gray-300">
-        <div class="px-4 lg:px-24 2xl:px-72 py-6">
-            <?= ThemeModel::getInstance()->fetchConfigValue('custom_section_content_4') ?>
+    <section data-cmw-visible="home-custom:custom_section_active_4" class="dark:text-gray-300">
+        <div data-cmw="home-custom:custom_section_content_4" class="px-4 lg:px-24 2xl:px-72 py-6">
         </div>
     </section>
-<?php endif; ?>
     <!--CONTACT SECTION-->
 <?php if (PackageController::isInstalled("Contact")): ?>
-    <?php if (ThemeModel::getInstance()->fetchConfigValue('contact_section_active')): ?>
-        <section class="bg-gray-100 dark:bg-gray-900">
+        <section data-cmw-visible="home-contact:contact_section_active" class="bg-gray-100 dark:bg-gray-900">
             <div class="px-4 lg:px-24 2xl:px-72 py-16">
                 <div class="w-full font-medium rounded-lg p-2 bg-white dark:bg-gray-800 dark:text-white"><i
-                            class="fa-solid fa-address-book"></i> Nous contacter
+                            class="fa-solid fa-address-book"></i> <span data-cmw="home-contact:contact_section_title"></span>
                 </div>
                 <div class="p-4">
                     <form action="contact" method="post" class="rounded-md shadow-lg p-8">
@@ -410,57 +345,18 @@ Website::setDescription(Website::getWebsiteDescription());
 
             </div>
         </section>
-    <?php endif; ?>
-<?php else: ?>
-    <?php if (UsersController::isAdminLogged()) : ?>
-        <section class="py-8">
-            <div class="container mx-auto px-4 relative">
-                <div id="alert-additional-content-4"
-                     class="p-4 mb-4 text-yellow-800 border border-yellow-300 rounded-lg bg-yellow-50 dark:bg-gray-800 dark:text-yellow-300 dark:border-yellow-800"
-                     role="alert">
-                    <div class="flex items-center">
-                        <svg aria-hidden="true" class="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 20 20"
-                             xmlns="http://www.w3.org/2000/svg">
-                            <path fill-rule="evenodd"
-                                  d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z"
-                                  clip-rule="evenodd"></path>
-                        </svg>
-                        <span class="sr-only">Info</span>
-                        <h3 class="text-lg font-medium">Vous n'utilisez pas le package Contact</h3>
-                    </div>
-                    <div class="mt-2 mb-4 text-sm">
-                        Le thème Wipe prend en charge le package Contact, pour le moment vous ne l'utilisez pas,
-                        installez le si vous voulez en bénéficier.<br>Seuls les administrateurs voient ce message !
-                    </div>
-                    <div class="flex">
-                        <a href="<?= EnvManager::getInstance()->getValue("PATH_SUBFOLDER") ?>cmw-admin" target="_blank"
-                           type="button"
-                           class="text-white bg-yellow-800 hover:bg-yellow-900 focus:ring-4 focus:outline-none focus:ring-yellow-300 font-medium rounded-lg text-xs px-3 py-1.5 mr-2 text-center inline-flex items-center dark:bg-yellow-300 dark:text-gray-800 dark:hover:bg-yellow-400 dark:focus:ring-yellow-800">
-                            <p><i class="fa-solid fa-download"></i> Installer le package</p>
-                        </a>
-                        <button type="button"
-                                class="text-yellow-800 bg-transparent border border-yellow-800 hover:bg-yellow-900 hover:text-white focus:ring-4 focus:outline-none focus:ring-yellow-300 font-medium rounded-lg text-xs px-3 py-1.5 text-center dark:hover:bg-yellow-300 dark:border-yellow-300 dark:text-yellow-300 dark:hover:text-gray-800 dark:focus:ring-yellow-800"
-                                data-dismiss-target="#alert-additional-content-4" aria-label="Close">
-                            <p><i class="fa-solid fa-eye-slash"></i> Masquer</p>
-                        </button>
-                    </div>
-                </div>
-            </div>
-        </section>
-    <?php endif; ?>
 <?php endif; ?>
 
 <?php if (PackageController::isInstalled('Newsletter')): ?>
-    <?php if (ThemeModel::getInstance()->fetchConfigValue('newsletter_section_active')): ?>
-        <section class="bg-gray-100 dark:bg-gray-900">
+        <section data-cmw-visible="home-newsletter:newsletter_section_active" class="bg-gray-100 dark:bg-gray-900">
             <div class="px-4 lg:px-24 2xl:px-72 py-16">
                 <div class="w-full font-medium rounded-lg p-2 bg-white dark:bg-gray-800 dark:text-white"><i
-                        class="fa-solid fa-address-book"></i> <?= ThemeModel::getInstance()->fetchConfigValue('newsletter_section_title') ?>
+                        class="fa-solid fa-address-book"></i> <span data-cmw="home-newsletter:newsletter_section_title"></span>
                 </div>
                 <div class="p-4">
                     <form action="newsletter" method="post" class="rounded-md shadow-lg p-8">
                     <?php SecurityManager::getInstance()->insertHiddenToken() ?>
-                    <?= ThemeModel::getInstance()->fetchConfigValue('newsletter_section_description') ?>
+                        <p data-cmw="home-newsletter:newsletter_section_description"></p>
                         <div class="relative mb-6">
                             <div class="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
                                 <i class="text-gray-500 dark:text-gray-400 fa-solid fa-envelope"></i>
@@ -471,14 +367,13 @@ Website::setDescription(Website::getWebsiteDescription());
                         </div>
                         <?php SecurityController::getPublicData(); ?>
                         <div class="mt-4 text-center">
-                            <button type="submit"
+                            <button data-cmw="home-newsletter:newsletter_section_button" type="submit"
                                     class=" px-3 py-2 text-base font-medium text-center text-white rounded-lg bg-blue-700 hover:bg-blue-800 dark:bg-blue-800 dark:hover:bg-blue-900 focus:ring-4 focus:ring-primary-300 dark:focus:ring-primary-900">
-                                <?= ThemeModel::getInstance()->fetchConfigValue('newsletter_section_button') ?>
+
                             </button>
                         </div>
                     </form>
                 </div>
             </div>
         </section>
-    <?php endif; ?>
 <?php endif; ?>

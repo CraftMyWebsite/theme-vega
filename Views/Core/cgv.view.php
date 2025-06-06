@@ -1,6 +1,5 @@
 <?php
 
-use CMW\Model\Core\ThemeModel;
 use CMW\Utils\Website;
 
 
@@ -8,10 +7,10 @@ Website::setTitle("CGV");
 Website::setDescription("Condition de vente");
 ?>
 
-<section style="background-image: url('<?= ThemeModel::getInstance()->fetchImageLink('hero_img_bg') ?>');" class="bg-cover mb-4">
+<section data-cmw-style="background:home-hero:hero_img_bg" style="background: no-repeat ;background-size: cover;" class="bg-cover mb-4">
     <div class="text-center text-white py-8">
-        <h2 class="font-bold">Nom de la page</h2>
-        <p>Description de la page de fifou</p>
+        <h2 data-cmw="cgv:cgv_page_title" class="font-bold"></h2>
+        <p data-cmw="cgv:cgv_page_desc"></p>
     </div>
 
     <!--SEPARATOR-->

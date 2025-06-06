@@ -1,7 +1,6 @@
 <?php
 
 use CMW\Manager\Env\EnvManager;
-use CMW\Model\Core\ThemeModel;
 use CMW\Utils\Website;
 
 
@@ -9,7 +8,7 @@ Website::setTitle("Erreur");
 Website::setDescription("Erreur");
 ?>
 
-<section style="background-image: url('<?= ThemeModel::getInstance()->fetchImageLink('hero_img_bg') ?>');" class="bg-cover mb-4">
+<section data-cmw-style="background:home-hero:hero_img_bg" style="background: no-repeat ;background-size: cover;" class="bg-cover mb-4">
     <div class="text-center text-white py-8">
         <h2 class="font-bold">WOoupss !!!</h2>
         <p>Description de la page</p>

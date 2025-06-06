@@ -8,14 +8,14 @@ use CMW\Model\Votes\VotesConfigModel;
 use CMW\Utils\Website;
 
 
-Website::setTitle("Votez");
-Website::setDescription("Votez, obtenez des points de vote et plein d'autres cadeaux!");
+Website::setTitle(ThemeModel::getInstance()->fetchConfigValue('votes','votes_page_title'));
+Website::setDescription(ThemeModel::getInstance()->fetchConfigValue('votes','vote_description'));
 ?>
 
-<section style="background-image: url('<?= ThemeModel::getInstance()->fetchImageLink('hero_img_bg') ?>');" class="bg-cover mb-4">
+<section data-cmw-style="background:home-hero:hero_img_bg" style="background: no-repeat ;background-size: cover;" class="bg-cover mb-4">
     <div class="text-center text-white py-8">
-        <h2 class="font-bold"><?= ThemeModel::getInstance()->fetchConfigValue('votes_page_title') ?></h2>
-        <p><?= ThemeModel::getInstance()->fetchConfigValue('vote_description') ?></p>
+        <h2 data-cmw="votes:votes_page_title" class="font-bold"></h2>
+        <p data-cmw="votes:vote_description"></p>
     </div>
 
     <!--SEPARATOR-->
@@ -35,7 +35,7 @@ Website::setDescription("Votez, obtenez des points de vote et plein d'autres cad
 <section class="px-4 lg:px-24 2xl:px-60 py-6">
     <div class="lg:grid grid-cols-3 gap-4">
         <div class="bg-gray-100 dark:bg-gray-900 dark:text-gray-300 rounded-lg shadow p-4 h-fit">
-            <h4 class="font-bold text-center"><?= ThemeModel::getInstance()->fetchConfigValue('votes_participate_title') ?></h4>
+            <h4 class="font-bold text-center" data-cmw="votes:votes_participate_title"></h4>
             <?php if (!UsersController::isUserLogged()): ?>
                 <div class="bg-white dark:bg-gray-700 rounded-lg shadow-lg p-2 mb-2">
                     <p>Pour pouvoir voter et récupérer vos récompenses vous devez être connecté sur le site, alors
@@ -135,8 +135,7 @@ Website::setDescription("Votez, obtenez des points de vote et plein d'autres cad
         </div>
     </div>
 </section>
-<?php if(ThemeModel::getInstance()->fetchConfigValue('votes_display_global')): ?>
-<section class="px-4 lg:px-24 2xl:px-96 py-6">
+<section data-cmw-visible="votes:votes_display_global" class="px-4 lg:px-24 2xl:px-96 py-6">
     <div class="bg-gray-100 dark:bg-gray-900 dark:text-gray-300 rounded-lg shadow p-4 h-fit">
         <h4 class="font-bold text-center mb-2">Top <?= VotesConfigModel::getInstance()->getConfig()->getTopShow() ?> global</h4>
         <div class="overflow-x-auto relative shadow-md sm:rounded-lg">
@@ -195,4 +194,3 @@ Website::setDescription("Votez, obtenez des points de vote et plein d'autres cad
         </div>
     </div>
 </section>
-<?php endif; ?>

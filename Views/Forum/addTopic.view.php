@@ -2,7 +2,6 @@
 
 use CMW\Controller\Forum\Admin\ForumPermissionController;
 use CMW\Manager\Env\EnvManager;
-use CMW\Model\Core\ThemeModel;
 use CMW\Manager\Security\SecurityManager;
 use CMW\Controller\Users\UsersController;
 use CMW\Utils\Website;
@@ -23,10 +22,10 @@ Website::setTitle("Forum");
 Website::setDescription("Ajouter un sujet");
 ?>
 
-<section style="background-image: url('<?= ThemeModel::getInstance()->fetchImageLink('hero_img_bg') ?>');"
+<section data-cmw-style="background:home-hero:hero_img_bg" style="background: no-repeat ;background-size: cover;"
          class="bg-cover mb-4">
     <div class="text-center text-white py-8">
-        <h2 class="font-bold"><?= ThemeModel::getInstance()->fetchConfigValue('forum_title') ?></h2>
+        <h2 class="font-bold">Forum</h2>
     </div>
 
     <!--SEPARATOR-->
@@ -50,9 +49,8 @@ Website::setDescription("Ajouter un sujet");
             <nav class="flex" aria-label="Breadcrumb">
                 <ol class="inline-flex items-center space-x-1">
                     <li class="inline-flex items-center">
-                        <a href="<?= EnvManager::getInstance()->getValue("PATH_SUBFOLDER") ?>forum"
+                        <a data-cmw="forum:forum_breadcrumb_home" href="<?= EnvManager::getInstance()->getValue("PATH_SUBFOLDER") ?>forum"
                            class="inline-flex items-center text-sm font-medium text-gray-700 hover:text-blue-600 dark:text-gray-400 dark:hover:text-white">
-                            <?= ThemeModel::getInstance()->fetchConfigValue('forum_breadcrumb_home') ?>
                         </a>
                     </li>
                     <li>

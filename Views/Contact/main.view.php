@@ -2,17 +2,15 @@
 
 use CMW\Controller\Core\SecurityController;
 use CMW\Manager\Security\SecurityManager;
-use CMW\Model\Core\ThemeModel;
 use CMW\Utils\Website;
 
 
 Website::setTitle("Contactez-nous");
 Website::setDescription("Contactez-nous dès maintenant");
 ?>
-<section style="background-image: url('<?= ThemeModel::getInstance()->fetchImageLink('hero_img_bg') ?>');" class="bg-cover mb-4">
+<section data-cmw-style="background:home-hero:hero_img_bg" style="background: no-repeat ;background-size: cover;" class="bg-cover mb-4">
     <div class="text-center text-white py-8">
         <h2 class="font-bold">Contact</h2>
-        <p>Description de la page</p>
     </div>
 
     <!--SEPARATOR-->

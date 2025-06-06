@@ -1,6 +1,5 @@
 <?php
 
-use CMW\Model\Core\ThemeModel;
 use CMW\Utils\Website;
 
 /* @var \CMW\Entity\Pages\PageEntity $page */
@@ -12,7 +11,7 @@ Website::setTitle(ucfirst($page->getTitle()));
 Website::setDescription(ucfirst($page->getTitle()));
 ?>
 
-<section style="background-image: url('<?= ThemeModel::getInstance()->fetchImageLink('hero_img_bg') ?>');" class="bg-cover mb-4">
+<section data-cmw-style="background:home-hero:hero_img_bg" style="background: no-repeat ;background-size: cover;" class="bg-cover mb-4">
     <div class="text-center text-white py-8">
         <h2 class="font-bold"><?= ucfirst($page->getTitle())?></h2>
     </div>
