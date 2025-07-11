@@ -7,14 +7,14 @@ use CMW\Utils\Website;
 
 $newsList = \CMW\Model\News\NewsModel::getInstance()->getSomeNews(ThemeModel::getInstance()->fetchConfigValue('news','news_page_number_display'), 'DESC');
 
-Website::setTitle(ThemeModel::getInstance()->fetchConfigValue('news_title'));
-Website::setDescription(ThemeModel::getInstance()->fetchConfigValue('news_description'));
+Website::setTitle(ThemeModel::getInstance()->fetchConfigValue('news', 'news_page_title'));
+Website::setDescription(ThemeModel::getInstance()->fetchConfigValue('news','news_page_desc'));
 ?>
 
 <section data-cmw-style="background:home-hero:hero_img_bg" style="background: no-repeat ;background-size: cover;" class="bg-cover mb-4">
     <div class="text-center text-white py-8">
-        <h2 class="font-bold"><?= ThemeModel::getInstance()->fetchConfigValue('news_page_title') ?></h2>
-        <p><?= ThemeModel::getInstance()->fetchConfigValue('news_description') ?></p>
+        <h2 class="font-bold" data-cmw="news:news_page_title"></h2>
+        <p data-cmw="news:news_page_desc"></p>
     </div>
 
     <!--SEPARATOR-->

@@ -159,10 +159,10 @@ Website::setDescription("Consulter les catégorie du Forum");
                             </div>
                         </div>
                     </div>
-                    <div data-cmw-visible="forum:forum_widgets_show_stats" class="w-full shadow-md mb-6">
+                    <div data-cmw-visible="forum:forum_widgets_show_discord" class="w-full shadow-md mb-6">
                         <div class="">
                             <iframe style="width: 100%"
-                                    src="https://discord.com/widget?id=<?= ThemeModel::getInstance()->fetchConfigValue('forum_widgets_content_id') ?>&theme=light"
+                                    src="https://discord.com/widget?id=<?= ThemeModel::getInstance()->fetchConfigValue('forum','forum_widgets_content_id') ?>&theme=light"
                                     height="400" allowtransparency="true"
                                     sandbox="allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts"></iframe>
                         </div>

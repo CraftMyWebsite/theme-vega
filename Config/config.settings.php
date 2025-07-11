@@ -421,6 +421,12 @@ return [
             new EditorValue(
                 title: 'Titre de la page',
                 themeKey: 'news_page_title',
+                defaultValue: 'Actualités',
+                type: EditorType::TEXT,
+            ),
+            new EditorValue(
+                title: 'Description de la page',
+                themeKey: 'news_page_desc',
                 defaultValue: 'Les dernières actus !',
                 type: EditorType::TEXT,
             ),

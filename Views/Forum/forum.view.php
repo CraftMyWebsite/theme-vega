@@ -240,7 +240,7 @@ Website::setDescription("Consultez les sujets de discussion et répondez aux que
                                     <?php endif; ?>
                                     <div class="ml-2">
                                         <div
-                                            class=""><?= $topic->getLastResponse()?->getUser()->getPseudo() ?? ThemeModel::getInstance()->fetchConfigValue('forum_nobody_send_message_text') ?></div>
+                                            class=""><?= $topic->getLastResponse()?->getUser()->getPseudo() ?? ThemeModel::getInstance()->fetchConfigValue('forum','forum_nobody_send_message_text') ?></div>
                                         <div><?= $topic->getLastResponse()?->getCreated() ?? "" ?></div>
                                     </div>
                                 </a>
