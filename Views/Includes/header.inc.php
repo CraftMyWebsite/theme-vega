@@ -75,6 +75,15 @@ $menus = MenusModel::getInstance()->getMenus();
             <span data-cmw-visible="global:header_allow_register_button">
                 <a class="hidden lg:flex justify-between items-center ml-4" href="<?= EnvManager::getInstance()->getValue("PATH_SUBFOLDER") ?>register"><button class="py-2 pr-4 pl-3 w-full font-medium text-gray-700 border-b border-gray-100 hover:bg-gray-50 lg:hover:bg-transparent lg:border-0 lg:hover:text-blue-700 lg:p-0 lg:w-auto dark:text-gray-400 dark:hover:text-white dark:focus:text-white dark:border-gray-700 dark:hover:bg-gray-700 lg:dark:hover:bg-transparent">Inscription</button></a>
             </span>
+                <?php if (PackageController::isInstalled('Shop')): ?>
+                    <div>
+                        <a href="<?= Website::getProtocol() ?>://<?= $_SERVER['SERVER_NAME'] ?><?= EnvManager::getInstance()->getValue('PATH_SUBFOLDER') ?>shop/cart" style="display: inline-flex; position: relative; align-items: center; padding: .75rem;font-size: 0.875rem;line-height: 1.25rem">
+                            <i class="text-lg fa-solid fa-cart-shopping"></i>
+                            <span class="sr-only">Articles</span>
+                            <div style="display: inline-flex; position: absolute; top: -0.2rem; right: -0.2rem; justify-content: center; align-items: center;width: 1.2rem; height: 1.2rem; font-size: 0.75rem;line-height: 1rem;font-weight: 700; color: white; background: red; border-radius: 100%"><?= $itemInCart ?></div>
+                        </a>
+                    </div>
+                <?php endif; ?>
             <?php endif; ?>
             <button data-collapse-toggle="navbar-multi-level" type="button" class="inline-flex justify-center items-center lg:ml-3 text-gray-400 rounded-lg lg:hidden hover:text-gray-900 focus:outline-none focus:ring-2 focus:ring-blue-300 dark:text-gray-400 dark:hover:text-white dark:focus:ring-gray-500" aria-controls="navbar-multi-level" aria-expanded="false">
                 <span class="sr-only">Open main menu</span>
