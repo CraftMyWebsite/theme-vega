@@ -63,7 +63,7 @@ Website::setDescription("Connectez-vous sur " . Website::getWebsiteName());
             <div class="flex justify-between mt-4 mb-4">
                 <div class="flex items-start mr-4">
                     <div class="flex items-center h-5">
-                        <input id="login_keep_connect" name="login_keep_connect" type="checkbox" value=""
+                        <input id="login_keep_connect" name="login_keep_connect" type="checkbox"
                                class="w-4 h-4 bg-gray-50 rounded border border-gray-300 focus:ring-3 focus:ring-blue-300">
                     </div>
                     <label for="login_keep_connect" class="ml-2 text-sm font-medium">Se souvenir de moi</label>
